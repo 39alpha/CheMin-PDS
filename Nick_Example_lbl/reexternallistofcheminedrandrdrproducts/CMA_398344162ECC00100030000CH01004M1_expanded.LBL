@@ -1,0 +1,713 @@
+PDS_VERSION_ID                   = PDS3
+
+/* FILE DATA ELEMENTS */
+
+RECORD_TYPE                      = FIXED_LENGTH
+RECORD_BYTES                     = 734756
+FILE_RECORDS                     = 1
+
+^CCD_HEADER_TABLE                = ("CMA_398344162ECC00100030000CH01004M1.DAT",1)
+^IMAGE                           = ("CMA_398344162ECC00100030000CH01004M1.DAT",313<BYTES>)
+
+/* IDENTIFICATION DATA ELEMENTS */
+
+DATA_SET_ID                      = "MSL-M-CHMN-2-EDR-V1.0"
+DATA_SET_NAME                    = "MSL MARS CHEMISTRY AND MINERALOGY
+                                    INSTRUMENT EDR VERSION 1.0"
+COMMAND_SEQUENCE_NUMBER          = 8
+INSTRUMENT_HOST_ID               = "MSL"
+INSTRUMENT_HOST_NAME             = "MARS SCIENCE LABORATORY"
+INSTRUMENT_ID                    = CHEMIN
+INSTRUMENT_NAME                  = "CHEMISTRY AND MINEROLOGY INSTRUMENT"
+INSTRUMENT_TYPE                  = SPECTROMETER
+LOCAL_MEAN_SOLAR_TIME            = "Sol-00010M02:41:22:095"
+LOCAL_TRUE_SOLAR_TIME            = "03:15:59"
+MISSION_NAME                     = "MARS SCIENCE LABORATORY"
+MISSION_PHASE_NAME               = "PRIMARY SURFACE MISSION"
+OBSERVATION_ID                   = "UNK"
+PLANET_DAY_NUMBER                = 10
+LOCAL_TRUE_SOLAR_TIME_SOL        = 10
+PRODUCER_INSTITUTION_NAME        = "MULTIMISSION INSTRUMENT PROCESSING LAB, 
+                                     JET PROPULSION LAB"
+PRODUCT_CREATION_TIME            = 2012-08-16T00:25:14.000
+PRODUCT_ID                       = "CMA_398344162ECC00100030000CH01004M1"
+PRODUCT_TYPE                     = CHEMIN_EDR
+PRODUCT_VERSION_ID               = "V1.0 D-69260"
+RELEASE_ID                       = "0001"
+REQUEST_ID                       = "0"
+ROVER_MOTION_COUNTER             = (3,0,0,0,0,0,0,790,0,0)
+ROVER_MOTION_COUNTER_NAME        = (SITE, DRIVE, POSE, ARM, CHIMRA,
+                                   DRILL, RSM, HGA, DRT, IC)
+SEQUENCE_ID                      = "chmn01004"
+SEQUENCE_VERSION_ID              = "0"
+MSL:ACTIVE_FLIGHT_STRING_ID      = A
+SPACECRAFT_CLOCK_CNT_PARTITION   = 1
+SPACECRAFT_CLOCK_START_COUNT     = "398344162.047"
+SPACECRAFT_CLOCK_STOP_COUNT      = "UNK"
+START_TIME                       = 2012-08-15T23:11:40.587
+STOP_TIME                        = "UNK"
+TARGET_NAME                      = MARS
+TARGET_TYPE                      = PLANET
+
+/* TELEMETRY DATA ELEMENTS */
+
+APPLICATION_PROCESS_ID           = 148
+APPLICATION_PROCESS_NAME         = "ChmnCcdFrame"
+MSL:AUTO_DELETE_FLAG             = "FALSE"
+MSL:COMMUNICATION_SESSION_ID     = "30101"
+DOWNLOAD_PRIORITY                = 54
+EARTH_RECEIVED_START_TIME        = 2012-08-16T00:25:21.260
+EARTH_RECEIVED_STOP_TIME         = 2012-08-16T00:25:10.683
+EXPECTED_PACKETS                 = 72
+MSL:EXPECTED_TRANSMISSION_PATH   = 3851
+MSL:FLIGHT_SOFTWARE_MODE         = "8"
+FLIGHT_SOFTWARE_VERSION_ID       = "141801503"
+MSL:PRODUCT_COMPLETION_STATUS    = "COMPLETE_CHECKSUM_PASS"
+MSL:PRODUCT_TAG                  = "2"
+MSL:SEQUENCE_EXECUTION_COUNT     = 1
+RECEIVED_PACKETS                 = 72
+SPICE_FILE_NAME                  = "chronos.msl"
+TELEMETRY_PROVIDER_ID            = "MPCS_MSL_DP"
+MSL:TELEMETRY_SOURCE_CHECKSUM    = 10901
+MSL:TELEMETRY_SOURCE_HOST_NAME   = "mslsmsampcs1"
+TELEMETRY_SOURCE_NAME            = "ChmnCcdFrame_0398344162-47037-1.dat"
+MSL:TELEMETRY_SOURCE_SIZE        = 734756
+MSL:TELEMETRY_SOURCE_TYPE        = "DATA PRODUCT"
+MSL:TRANSMISSION_PATH            = "65535"
+MSL:VIRTUAL_CHANNEL_ID           = "0"
+
+
+/* HISTORY DATA ELEMENTS */
+
+GROUP                            = MSLEDRGEN_HISTORY_PARMS
+ SOFTWARE_NAME                   = MSLEDRGEN
+ SOFTWARE_VERSION_ID             = "V1.0 04-01-2011"
+ PROCESSING_HISTORY_TEXT         = "CODMAC LEVEL 1 TO LEVEL 2 CONVERSION
+                                    VIA JPL/MIPL MSLEDRGEN"
+END_GROUP                        = MSLEDRGEN_HISTORY_PARMS
+
+/* ROVER STATE */
+/* COORDINATE SYSTEM STATE: ROVER */
+
+GROUP                            = ROVER_COORDINATE_SYSTEM
+ COORDINATE_SYSTEM_NAME          = "ROVER_NAV_FRAME"
+ COORDINATE_SYSTEM_INDEX         = (3,0,0,0,0,0,0,790,0,0)
+ COORDINATE_SYSTEM_INDEX_NAME    = (SITE, DRIVE, POSE, ARM, CHIMRA,
+                                   DRILL, RSM, HGA, DRT, IC)
+ ORIGIN_OFFSET_VECTOR            = (0,0,0)
+ ORIGIN_ROTATION_QUATERNION      = (0.562815,0.0142017,-0.0352224,0.82571)
+ POSITIVE_AZIMUTH_DIRECTION      = CLOCKWISE
+ POSITIVE_ELEVATION_DIRECTION    = UP
+ REFERENCE_COORD_SYSTEM_NAME     = SITE_FRAME
+ REFERENCE_COORD_SYSTEM_INDEX    = 3
+END_GROUP                        = ROVER_COORDINATE_SYSTEM
+
+/* ARTICULATION DEVICE STATE: ROBOTIC ARM */
+
+GROUP                            = ARM_ARTICULATION_STATE
+ ARTICULATION_DEVICE_ID          = ARM
+ ARTICULATION_DEVICE_NAME        = "SAMPLE ARM"
+ ARTICULATION_DEVICE_ANGLE       = (1e+30<rad>, 1e+30<rad>, 1e+30<rad>,
+                                    1e+30<rad>, 1e+30<rad>)
+ ARTICULATION_DEVICE_ANGLE_NAME  = ("JOINT 1 AZIMUTH",
+                                   "JOINT 2 SHOULDER ELEVATION",
+                                   "JOINT 3 ELBOW-ENCODER",
+                                   "JOINT 4 WRIST-ENCODER",
+                                   "JOINT 5 TURRET-ENCODER")
+END_GROUP                        = ARM_ARTICULATION_STATE
+
+/* ARTICULATION DEVICE STATE: REMOTE SENSING MAST */
+
+GROUP                            = RSM_ARTICULATION_STATE
+ ARTICULATION_DEVICE_ID          = RSM
+ ARTICULATION_DEVICE_NAME        = "REMOTE SENSING MAST"
+ ARTICULATION_DEVICE_ANGLE       = (3.15897<rad>, 0.802817<rad>)
+ ARTICULATION_DEVICE_ANGLE_NAME  = (AZIMUTH, ELEVATION)
+END_GROUP                        = RSM_ARTICULATION_STATE
+
+/* OBSERVATION REQUEST */
+
+GROUP                            = OBSERVATION_REQUEST_PARMS
+ SOURCE_ID                       = "GROUND COMMANDED"
+ INSTRUMENT_COORDINATE_NAME      = REMOTE_SENSING_MAST
+ INSTRUMENT_COORDINATE           = REMOTE_SENSING_MAST
+END_GROUP                        = OBSERVATION_REQUEST_PARMS
+
+/* CHEMIN CCD DATA HEADER OBJECT */
+
+OBJECT                           = CCD_HEADER_TABLE
+   NAME                          = CCD_HEADER
+   INTERCHANGE_FORMAT            = BINARY
+   ROWS                          = 1
+   ROW_BYTES                     = 312
+   COLUMNS                       = 18
+   DESCRIPTION                   = "
+    This table contains CHEMIN Science Frame plus housekeeping 
+    data associated instrument parameters as observed by the 
+    Mars Science Laboratory (MSL) CHEMIN.
+
+    Detailed descriptions for the parameters defined below are
+    contained in the CHEMIN EDR SIS document.
+
+    The complete column definitions are contained in an external file
+    found in the LABEL directory of the archive volume.
+    "
+   /* Replacing ^STRUCTURE with referenced file contents */
+   /* Original line:    ^STRUCTURE                    = "CHMN_EDR_CCD_HEADER_FRAME.FMT" */
+   /* START_EXPANSION: C:\dev\msl\nonimg\chemin_022223\fmt_files\edr\chmn_edr_ccd_header_frame.fmt */
+/* CHEMIN SCIENCE AND HOUSEKEEPING HEADER TABLE OBJECT */
+
+OBJECT              = COLUMN
+   NAME             = SCIENCE_FRAME_LENGTH
+   DATA_TYPE        = MSB_UNSIGNED_INTEGER
+   START_BYTE       = 1
+   BYTES            = 4
+   DESCRIPTION      = "CHEMIN instrument Science Frame
+                      data length in bytes."
+END_OBJECT          = COLUMN
+
+OBJECT              = COLUMN
+   NAME             = SCI_FRM_CONTROL_AND_STATUS
+   DATA_TYPE        = MSB_UNSIGNED_INTEGER
+   START_BYTE       = 5
+   BYTES            = 4
+
+    OBJECT          = BIT_COLUMN
+      NAME          = OPCODE
+      BIT_DATA_TYPE = UNSIGNED_INTEGER
+      START_BIT     = 1
+      BITS          = 8
+      DESCRIPTION   = "Opcode."
+    END_OBJECT      = BIT_COLUMN
+
+    OBJECT          = BIT_COLUMN
+      NAME          = ERROR_CONTROL_TYPE
+      BIT_DATA_TYPE = UNSIGNED_INTEGER
+      START_BIT     = 9
+      BITS          = 2
+      DESCRIPTION   = "The type of error control algorithm applied by 
+                      the Instrument Transfer Frame. Valid: 
+                      0=reserved.
+                      1=The CRC error control algorithm was applied
+                      and placed in the error control field at the.  
+                      end of the frame.
+                      2=The fletcher checksum error control algorithm
+                      was applied and placed in the error control field
+                      at the end of the frame.
+                      3=No error control algorithm was applied and no
+                      error control field is included."
+    END_OBJECT      = BIT_COLUMN
+
+    OBJECT          = BIT_COLUMN
+      NAME          = DATA_PRESENT_FLAG
+      BIT_DATA_TYPE = UNSIGNED_INTEGER
+      START_BIT     = 11
+      BITS          = 1
+      DESCRIPTION   = "Indicate the presence or absence of both the 
+                      Header Field Data Length and the Instrument 
+                      Transfer Frame Data Field. A value of '0' 
+                      indicates the Header Field Data Length and the 
+                      Instrument Transfer Frame Data Field are not 
+                      present; a value of '1' indicates the Header
+                      Field Data Length and Instrument Transfer Frame
+                      Data Field are present."
+    END_OBJECT      = BIT_COLUMN
+
+    OBJECT          = BIT_COLUMN
+      NAME          = COMMAND_REPLY_FLAG_TYPE
+      BIT_DATA_TYPE = UNSIGNED_INTEGER
+      START_BIT     = 12
+      BITS          = 1
+      DESCRIPTION   = "Indicates the type of data returned. Valid:
+                      0=Science Data Frame
+                      1=Command reply Frame"
+    END_OBJECT      = BIT_COLUMN
+
+    OBJECT          = BIT_COLUMN
+      NAME          = ERROR_REPORTED
+      BIT_DATA_TYPE = UNSIGNED_INTEGER
+      START_BIT     = 13
+      BITS          = 1
+      DESCRIPTION   = "CheMin error reported in housekeeping
+                      data. Valid: 0=False, 1=True"
+    END_OBJECT      = BIT_COLUMN
+
+    OBJECT          = BIT_COLUMN
+      NAME          = UNUSED
+      BIT_DATA_TYPE = UNSIGNED_INTEGER
+      START_BIT     = 14
+      BITS          = 1
+      DESCRIPTION   = "Reserved."
+    END_OBJECT      = BIT_COLUMN
+
+    OBJECT          = BIT_COLUMN
+      NAME          = SCIENCE_DATA_READY_FLAG
+      BIT_DATA_TYPE = UNSIGNED_INTEGER
+      START_BIT     = 15
+      BITS          = 1
+      DESCRIPTION   = "Indicates if science data is available.
+                      Valid: 0=False, 1=True"
+    END_OBJECT      = BIT_COLUMN
+
+    OBJECT          = BIT_COLUMN
+      NAME          = SAFE_MODE
+      BIT_DATA_TYPE = UNSIGNED_INTEGER
+      START_BIT     = 16
+      BITS          = 1
+      DESCRIPTION   = "Indicates if the instrument is in safe mode,  
+                      implies an internal fault has been detected.
+                      Valid: 0=see the ANALYSIS_MODE flag, 1=SAFE mode"
+    END_OBJECT      = BIT_COLUMN
+
+    OBJECT          = BIT_COLUMN
+      NAME          = XMP_BOARD_MODE
+      BIT_DATA_TYPE = UNSIGNED_INTEGER
+      START_BIT     = 17
+      BITS          = 1
+      DESCRIPTION   = "Indicates the XMP board is powered. 
+                      0=Off, 1=On"
+    END_OBJECT      = BIT_COLUMN
+
+    OBJECT          = BIT_COLUMN
+      NAME          = XRAY_SOURCE_HEATER_MODE
+      BIT_DATA_TYPE = UNSIGNED_INTEGER
+      START_BIT     = 18
+      BITS          = 1
+      DESCRIPTION   = "Indicates the X-Ray Source heater is operating. Valid:
+                      0 = Off, 1 = On"
+    END_OBJECT      = BIT_COLUMN
+
+    OBJECT          = BIT_COLUMN
+      NAME          = DECON_HEATER_MODE
+      BIT_DATA_TYPE = UNSIGNED_INTEGER
+      START_BIT     = 19
+      BITS          = 1
+      DESCRIPTION   = "Indicates the decontamination heater is operating.   
+                      Valid: 0=Off, 1=On" 
+    END_OBJECT      = BIT_COLUMN
+
+    OBJECT          = BIT_COLUMN
+      NAME          = FUNNEL_PIEZO_MODE
+      BIT_DATA_TYPE = UNSIGNED_INTEGER
+      START_BIT     = 20
+      BITS          = 1
+      DESCRIPTION   = "Identifies whether the Funnel Piezo is vibrating.
+                      Valid: 0=False, 1=True."
+    END_OBJECT      = BIT_COLUMN
+
+    OBJECT          = BIT_COLUMN
+      NAME          = SW_PIEZO_CTRL_MODE
+      BIT_DATA_TYPE = UNSIGNED_INTEGER
+      START_BIT     = 21
+      BITS          = 2
+      DESCRIPTION   = "Indicates if the SW_PIEZO_CTRL4 (bit 21) and the 
+                      SW_PIEZO_CTRL5 (bit 22) have been toggled via 
+                      control_power or automomously through analysis. 
+                      Valid: 
+                      0=Sample Wheel Piezo is off
+                      1=Unknown
+                      2=Sample Wheel Piezo is in normal mode.
+                      3=Sample Wheel Piezo is in Chaos mode."
+    END_OBJECT      = BIT_COLUMN
+
+    OBJECT          = BIT_COLUMN
+      NAME          = CRYO_COOLER_TEMP_FLAG
+      BIT_DATA_TYPE = UNSIGNED_INTEGER
+      START_BIT     = 23
+      BITS          = 1
+      DESCRIPTION   = "Indicates if the Cryo Cooler is maintaining 
+                      temperature. Valid: 0=False, 1=True."
+    END_OBJECT      = BIT_COLUMN
+
+    OBJECT          = BIT_COLUMN
+      NAME          = ANALYSIS_MODE
+      BIT_DATA_TYPE = UNSIGNED_INTEGER
+      START_BIT     = 24
+      BITS          = 1
+      DESCRIPTION   = "Indicates if CheMin is performaing science analysis. 
+                      Valid:
+                      0=SAFE if SAFE_MODE is set else IDLE, 1=True."
+    END_OBJECT      = BIT_COLUMN
+
+    OBJECT          = BIT_COLUMN
+      NAME          = XRAY_SOURCE_ENABLE_ASSERT
+      BIT_DATA_TYPE = UNSIGNED_INTEGER
+      START_BIT     = 25
+      BITS          = 1
+      DESCRIPTION   = "Indicates if an X-Ray source ramp-up has been
+                      initiated by either set_param or autonomously via
+                      analysis. Valid: 0=False, 1=True."
+    END_OBJECT      = BIT_COLUMN
+
+    OBJECT          = BIT_COLUMN
+      NAME          = XRAY_SOURCE_POWER_MODE
+      BIT_DATA_TYPE = UNSIGNED_INTEGER
+      START_BIT     = 26
+      BITS          = 1
+      DESCRIPTION   = "Indicates if an XRS is operating.
+                      Valid: 0=False, 1=True."
+    END_OBJECT      = BIT_COLUMN
+
+    OBJECT          = BIT_COLUMN
+      NAME          = CRYO_COOLER_COOLING_MODE
+      BIT_DATA_TYPE = UNSIGNED_INTEGER
+      START_BIT     = 27
+      BITS          = 1
+      DESCRIPTION   = "Indicates if the Cryocooler is cooling.
+                      Valid: 0=False, 1=True."
+    END_OBJECT      = BIT_COLUMN
+
+    OBJECT          = BIT_COLUMN
+      NAME          = COMMAND_CONDITION_CODE
+      BIT_DATA_TYPE = UNSIGNED_INTEGER
+      START_BIT     = 28
+      BITS          = 5
+      DESCRIPTION   = "Frame command condition code.  Valid: 0=reserved;
+                       1=nominal execution; 2=Indicates a framing error 
+                       in the received command.  CheMin received a command
+                       with a length that is not an even multiple of 32 bits.
+                       The RCE should retry the instrument command.
+                       3-5=unused; 6=Op code not defined for this 
+                       instrument; 7-9=Unused.
+                       10=CheMin received a command frame with a condition
+                       code other than 1; 11=Unused.
+                       12=checksum or CRC failed; 
+                       13=instrument in the wrong state or mode to 
+                       process this command. 14=Invalid, inconsistent or 
+                       unexpected data for this opcode; physical length is
+                       unexpected for the received opcode. "
+    END_OBJECT      = BIT_COLUMN
+END_OBJECT          = COLUMN
+
+OBJECT              = COLUMN
+   NAME             = SCIENCE_FRAME_DATA_LEN
+   DATA_TYPE        = MSB_UNSIGNED_INTEGER
+   START_BYTE       = 9
+   BYTES            = 4
+   DESCRIPTION      = "Science frame data length in bytes."
+END_OBJECT          = COLUMN
+
+OBJECT              = CONTAINER
+   NAME             = HOUSEKEEPING
+   /* Replacing ^STRUCTURE with referenced file contents */
+   /* Original line:    ^STRUCTURE       = "CHMN_EDR_HOUSEKEEPING.FMT"  */
+   /* START_EXPANSION: C:\dev\msl\nonimg\chemin_022223\fmt_files\edr\chmn_edr_housekeeping.fmt */
+/* HOUSEKEEPING HEADER TABLE OBJECT */
+
+OBJECT              = COLUMN
+   NAME             = PARAMETERS
+   DATA_TYPE        = MSB_UNSIGNED_INTEGER
+   START_BYTE       = 1
+   BYTES            = 128
+   ITEMS            = 64
+   ITEM_BYTES       = 2
+   DESCRIPTION      = "CheMin parameters.
+                      [0]  - FPGS Version at the time of acquisition.
+                      [1]  - Configuration bits
+                      [2]  - XRS Thermister 1 Heater set point in DN.
+                             Valid: 0-4095 Default: 2048
+                      [3]  - XRS Thermister 2 Heater set point in DN.
+                             Valid: 0-4095 Default: 2048
+                      [4]  - CCD PRT 1 set point for power on of 
+                             decontamination heater in DN.  Default: 0
+                      [5]  - CCD PRT 2 set point for power on of 
+                             decontamination heater in DN.  Default: 0
+                      [6]  - Temperature to be reached for cryocooler power
+                             on for CCD PRT 1 in DN. 
+                             Valid: 0-4095 Default: 2048
+                      [7]  - Temperature to be reached for cryocooler power
+                             on for CCD PRT 2 in DN.
+                             Valid: 0-4095 Default: 2048
+                      [8]  - Contains the final value that will be applied
+                             to the KV_PROG input of the XRS, after ramping 
+                             up. Valid: 0-4095 Default: 0
+                      [9]  - Contains the final value that will be applied
+                             to the GRID_PROG input of the XRS, after ramping
+                             up. Valid: 0-4095 Default: 0
+                      [10] - Contains the final value that will be applied
+                             to the UA_PROG input of the XRS, after ramping
+                             up. Valid: 0-4095 Default: 0
+                      [11] - XRS (X-Ray Ramp Speed) period in 4ms units.
+                             Valid: 4-255 Default: 255
+                      [12] - Funnel Piezo amplitude in bits/DN.
+                             Valid: 0-15 Default: 0
+                      [13] - Amplitude Cell value during chaos mode in DN.
+                             Valid: 0-4095 Default: 0
+                      [14] - Nominal Amplitude cell value during analysis.
+                             Valid: 0-4095 Default: 0
+                      [15] - High Amplitude cell value during analysis.
+                             Valid: 0-4095 Default: 0
+                      [16] - Period for nominal cell value or length in ms 
+                             (in time) of sweep, 1 ms to 66 sec.
+                             Valid: 0-65535 Default: 950
+                      [17] - Period for high cell value or length in ms 
+                             (in time) of sweep, 1 ms to 60 sec.
+                             Valid: 0-65535 Default: 50
+                      [18] - SWM (Sample Wheel Motor) step period in ms .
+                             Valid: 32-255 Default: 33
+                      [19] - CM (Clamp Motor) step period in ms.
+                             Valid: 8-255 Default: 10
+                      [20] - CM number of steps when clamping.
+                             Valid: 0-1023 Default: 100
+                      [21] - CM number of steps when unclamping.
+                             Valid: -1024-0 Default: -100.  I16.
+                      [22] - Temperature limit (in DN) for the HOP 
+                             (High Output Paraffin) actuator that defeats
+                             the wheel clamp mechanism.
+                             Valid: 0-4095 Default: 0
+                      [23] - Time in seconds over which the HOP 
+                             (High Output Paraffin) can be energized.
+                             Valid: 0-4095 Default: 0
+                      [24] - Configuration bits
+                      [25] - Left and right signal chain offset in DN.
+                             Valid: 0-4095 Default: 0
+                      [26] - rows of CCD data, 1-602 are used, everything 
+                             else is dark.
+                             Valid: 0-1023 Default: 582
+                      [27] - rows to zap, 1-602 are used, everything else 
+                             is dark.
+                             Valid: 0-1023 Default: 610
+                      [28] - CCD integation time in seconds, 
+                             Valid: 0-255 Default: 30
+                      [29] - CCD Sync pulse time in clocks.
+                             Valid: 0-255 Default: 0
+                      [30-31] - Unused
+                      [32] - Temperature to wait (in DN) until the CCD is
+                             cooled below (temp <= param).  X-Ray source 't
+                             won't produce X-Rays until CCD below this 
+                             temperature. Valid: 0-4095 Default: 0
+                      [33] - Temperature to wait (in DN) until the CCD is
+                             cooled below (temp <= param).  X-Ray source
+                             won't produce X-Rays until CCD below this
+                             temperature. Valid: 0-4095 Default: 0
+                      [34] - Every nth frame is a Chaos Frame.
+                             Valid: 0-4095 Default: 60
+                      [35] - Frames per major frame.
+                             Valid: 0-2728 Default: 480
+                      [36] - Low raw value for internal thresholding, 
+                             Valid: 0-4095 Default: 0 (no thresholding)
+                      [37] - High raw value for internal thresholding,
+                             Valid: 0-4095 Default: 4095 (no thresholding)
+                      [38] - Transmit n HK (housekeeping) frames, 
+                             0=return all(up to 3,333 frames within 10 sec) 
+                             Valid: 0-3333 Default: 1 (most recent HK)
+                      [39] - unused
+                      [40] - memory flash page to  read or write memory.
+                             Valid: 0-63 Default: 0 
+                      [41] - flash memory block to  read or write .
+                             Valid: 0-4095 Default: 0 
+                      [42] - The temperature fault protection limit for the 
+                             HKT00 PRT, located at the end of the thermal
+                             strap connected to the XRS, 
+                             Valid: 0-4095 Default: 2539
+                      [43] - The temperature fault protection limit for the 
+                             HKT01 PRT, placed adjacent to OP AMP on SW
+                             board. Valid: 0-4095 Default: 2681
+                      [44] - The temperature fault protection limit for the 
+                             HKT02 PRT, located on SW board near external
+                             edge close to wheel.
+                             Valid: 0-4095 Default: 2681
+                      [45] - The temperature fault protection limit for the 
+                             HKT03 PRT, located on the SW motor housing.
+                             Valid: 0-4095 Default: 2895
+                      [46] - The temperature fault protection limit for the 
+                             HKT04 PRT, located on the Clamp motor housing.
+                             Valid: 0-4095 Default: 2895
+                      [47] - The temperature fault protection limit for the 
+                             HKT05 PRT, located on the HOP housing, heater
+                             end. Valid: 0-4095 Default: 2824
+                      [48] - The temperature fault protection limit for the 
+                             HKT06 PRT, located on the Cooler motor housing.
+                             Valid: 0-4095 Default: 2624
+                      [49] - The temperature fault protection limit for the 
+                             HKT07 PRT, located on the funnel driver.
+                             Valid: 0-4095 Default: 2824
+                      [50] - The temperature fault protection limit for the 
+                             HKT08 PRT, PRT #1 located inside the HVPS.
+                             Valid: 0-4095 Default: 2660
+                      [51] - The temperature fault protection limit for the 
+                             HKT09 PRT, PRT #2 located inside the HVPS.
+                             Valid: 0-4095 Default: 25936
+                      [52] - The temperature fault protection limit for the 
+                             HKT10 PRT, PRT #1 located outside the XRS
+                             adjacent to heaters.
+                             Valid: 0-4095 Default: 2610
+                      [53] - The temperature fault protection limit for the 
+                             HKT11 PRT, PRT #2 located outside the XRS
+                             adjacent to heaters.
+                             Valid: 0-4095 Default: 2610
+                      [54] - The temperature fault protection limit for the 
+                             HKT12 PRT, PRT #1 located behind CCd on support
+                             structure.
+                             Valid: 0-4095 Default: 2713
+                      [55] - The temperature fault protection limit for the 
+                             HKT13 PRT, PRT #2 located behind CCd on support
+                             structure.
+                             Valid: 0-4095 Default: 2713
+                      [56] - Safe if force > value when moving wheel.
+                             Valid: 0-4095 Default: 4095
+                      [57] - 12 resolver bits.  0=disable fault, 1=enable
+                             Valid: 0-65535 Default: 65520
+                      [58] - Safe after number of specified seconds. 
+                             Valid: 0-4095 Default: 3600 (1 hr) 0: disable
+                      [59] - Safe if XRS is on and v< this value. 
+                             Valid: 0-4095 Default: 1285
+                      [60] - Safe if XRS is on and temp < this value. 
+                             Valid: 0-4095 Default: 2237
+                      [61] - Safe if XRS is on and temp < this value. 
+                             Valid: 0-4095 Default: 2237
+                      [62] - CCD PRT #1, fault protection limit.  Safe
+                             if temp > this value
+                             Valid: 0-4095 Default: 2276
+                      [63] - CCD PRT #2, fault protection limit.  Safe
+                             if temp > this value
+                             Valid: 0-4095 Default: 2276
+                      "
+END_OBJECT          = COLUMN
+
+OBJECT              = COLUMN
+   NAME             = VOLTAGES
+   DATA_TYPE        = MSB_UNSIGNED_INTEGER
+   START_BYTE       = 129
+   BYTES            = 32
+   ITEMS            = 16
+   ITEM_BYTES       = 2
+   DESCRIPTION      = "CheMin voltages in raw counts. 
+                      Refer to the SIS for voltage conversion formulas."
+END_OBJECT          = COLUMN
+
+OBJECT              = COLUMN
+   NAME             = TEMPERATURES
+   DATA_TYPE        = MSB_UNSIGNED_INTEGER
+   START_BYTE       = 161
+   BYTES            = 32
+   ITEMS            = 16
+   ITEM_BYTES       = 2
+   DESCRIPTION      = "CheMin 14 temperatures plus 2 calibration points in
+                      raw counts.  Refer to the SIS for temperature
+                      conversion formulas."
+END_OBJECT          = COLUMN
+
+OBJECT              = COLUMN
+   NAME             = TIME
+   DATA_TYPE        = MSB_UNSIGNED_INTEGER
+   START_BYTE       = 193
+   BYTES            = 4
+   DESCRIPTION      = "CheMin instrument SCLK time in seconds."
+END_OBJECT          = COLUMN
+
+OBJECT              = COLUMN
+   NAME             = INSTRUMENT_STATUS
+   DATA_TYPE        = MSB_UNSIGNED_INTEGER
+   START_BYTE       = 197
+   BYTES            = 4
+   DESCRIPTION      = "CheMin low bits mimic status flags and condition 
+                      codes, other bits assigned too,  ???? what are these"
+END_OBJECT          = COLUMN
+
+OBJECT              = COLUMN
+   NAME             = READ_POINTER
+   DATA_TYPE        = MSB_UNSIGNED_INTEGER
+   START_BYTE       = 201
+   BYTES            = 2
+   DESCRIPTION      = "CheMin read address for TRANSMIT_*instrument commands."
+END_OBJECT          = COLUMN
+
+OBJECT              = COLUMN
+   NAME             = WRITE_POINTER
+   DATA_TYPE        = MSB_UNSIGNED_INTEGER
+   START_BYTE       = 203
+   BYTES            = 2
+   DESCRIPTION      = "CheMin write address for ANALYZE."
+END_OBJECT          = COLUMN
+
+OBJECT              = COLUMN
+   NAME             = RESERVED
+   DATA_TYPE        = MSB_UNSIGNED_INTEGER
+   START_BYTE       = 205
+   BYTES            = 4
+   DESCRIPTION      = "Reserved."
+END_OBJECT          = COLUMN
+
+OBJECT              = COLUMN
+   NAME             = SAMPLE_WHEEL_POSITION
+   DATA_TYPE        = MSB_UNSIGNED_INTEGER
+   START_BYTE       = 209
+   BYTES            = 2
+   DESCRIPTION      = "Last sample wheel position read from resolver during 
+                      last MOVE_WHEEL command."
+END_OBJECT          = COLUMN
+
+OBJECT              = COLUMN
+   NAME             = SAMPLE_WHEEL_STEPS
+   DATA_TYPE        = MSB_UNSIGNED_INTEGER
+   START_BYTE       = 211
+   BYTES            = 2
+   DESCRIPTION      = "Number of sample wheel steps actually taken during the 
+                      last MOVE_WHEEL command."
+END_OBJECT          = COLUMN
+
+OBJECT              = COLUMN
+   NAME             = OKAY_COMMAND_COUNT
+   DATA_TYPE        = MSB_UNSIGNED_INTEGER
+   START_BYTE       = 213
+   BYTES            = 2
+   DESCRIPTION      = "Number of valid commands received with command 
+                      condition code=1 since instrument power on."
+END_OBJECT          = COLUMN
+
+OBJECT              = COLUMN
+   NAME             = RETRY_COMMAND_COUNT
+   DATA_TYPE        = MSB_UNSIGNED_INTEGER
+   START_BYTE       = 215
+   BYTES            = 2
+   DESCRIPTION      = "Number of valid commands received with command 
+                      condition code=2 or 18 since instrument power on."
+END_OBJECT          = COLUMN
+
+OBJECT              = COLUMN
+   NAME             = BAD_COMMAND_COUNT
+   DATA_TYPE        = MSB_UNSIGNED_INTEGER
+   START_BYTE       = 217
+   BYTES            = 2
+   DESCRIPTION      = "Number of rejected commands with condition
+                      code <> 1 since instrument power on."
+END_OBJECT          = COLUMN
+
+OBJECT              = COLUMN
+   NAME             = RAW_FRAME_NUMBER
+   DATA_TYPE        = MSB_UNSIGNED_INTEGER
+   START_BYTE       = 219
+   BYTES            = 2
+   DESCRIPTION      = "CheMin raw frame number within an analysis."
+END_OBJECT          = COLUMN
+
+OBJECT              = COLUMN
+   NAME             = SPARES
+   DATA_TYPE        = MSB_UNSIGNED_INTEGER
+   START_BYTE       = 221
+   BYTES            = 80
+   ITEMS            = 40
+   ITEM_BYTES       = 2
+   DESCRIPTION      = "CheMin spare fields."
+END_OBJECT          = COLUMN
+   /* END_EXPANSION: C:\dev\msl\nonimg\chemin_022223\fmt_files\edr\chmn_edr_housekeeping.fmt */
+   START_BYTE       = 13
+   BYTES            = 300
+   REPETITIONS      = 1
+   DESCRIPTION      = "This container represents the format of the
+                      housekeeping structure."
+END_OBJECT          = CONTAINER
+
+   /* END_EXPANSION: C:\dev\msl\nonimg\chemin_022223\fmt_files\edr\chmn_edr_ccd_header_frame.fmt */
+END_OBJECT                       = CCD_HEADER_TABLE
+
+/* CHEMIN IMAGE DATA OBJECT */
+
+OBJECT                           = IMAGE
+   LINES                         = 602
+   LINE_SAMPLES                  = 610
+   SAMPLE_TYPE                   = MSB_UNSIGNED_INTEGER
+   SAMPLE_BITS                   = 16
+END_OBJECT                       = IMAGE
+END
