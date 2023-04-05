@@ -1,0 +1,35 @@
+PDS Validation Tool Report
+
+Configuration:
+  Version                   2.3.0
+  Date                      Fri, Feb 03 2023 at 01:41:42 PM
+  Level of Validation       Syntactic and Semantic
+  Dictionary version        1.100
+  Dictionary version        null
+
+Parameters:
+  Target(s)                      [MSLCMN_1XXX]
+  Dictionary File(s)             [/usr/local/vtool-2.3.0//data/pdsdd.full, /usr/local/vtool-2.3.0//data/msl_ldd_05May2015.full]
+  Aliasing                       true
+  Directory Recursion            true
+  Follow Pointers                true
+  Validate Standalone Fragments  false
+  Report File                    MSLCMN_1XXX.vtool.2023-02-13
+  Report Style                   sum
+  Severity Level                 WARNING
+  Include Path(s)                [../LABEL, ../CATALOG]
+  Progress Reporting             false
+
+
+Errors Found:
+
+
+Warnings Found:
+
+
+Summary:
+
+  6 of 11 validated, 5 skipped
+  6 of 6 passed
+
+End of Report

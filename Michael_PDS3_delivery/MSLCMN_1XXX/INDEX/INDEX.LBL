@@ -1,0 +1,136 @@
+PDS_VERSION_ID                 = PDS3
+RECORD_TYPE                    = FIXED_LENGTH
+RECORD_BYTES                   = 230
+FILE_RECORDS                   = 250
+^INDEX_TABLE                   = "INDEX.TAB"
+VOLUME_ID                      = "MSLCMN_1XXX"
+DATA_SET_ID                    = {"MSL-M-CHEMIN-4-RDR-V1.0",
+                                  "MSL-M-CHEMIN-5-RDR-V1.0"}
+MISSION_NAME                   = "MARS SCIENCE LABORATORY"
+INSTRUMENT_HOST_NAME           = "MARS SCIENCE LABORATORY"
+INSTRUMENT_HOST_ID             = "MSL"
+INSTRUMENT_NAME                = "CHEMISTRY AND MINERALOGY INSTRUMENT"
+INSTRUMENT_ID                  = "CHEMIN"
+TARGET_NAME                    = "MARS"
+
+OBJECT                         = INDEX_TABLE
+ INTERCHANGE_FORMAT            = ASCII
+ ROWS                          = 250
+ COLUMNS                       = 10
+ ROW_BYTES                     = 230
+ INDEX_TYPE                    = SINGLE
+
+ OBJECT = COLUMN
+   COLUMN_NUMBER = 1
+   NAME = VOLUME_ID
+   DATA_TYPE = CHARACTER
+   START_BYTE = 2
+   BYTES = 12
+   DESCRIPTION = "The identifier of the volume on which the product is 
+   stored."
+ END_OBJECT = COLUMN
+
+ OBJECT = COLUMN
+   COLUMN_NUMBER = 2
+   NAME = PATH_NAME
+   DATA_TYPE = CHARACTER
+   START_BYTE = 17
+   BYTES = 13
+   DESCRIPTION = "The full directory path to the file."
+ END_OBJECT = COLUMN
+
+ OBJECT = COLUMN
+   COLUMN_NUMBER = 3
+   NAME = FILE_NAME
+   DATA_TYPE = CHARACTER
+   START_BYTE = 33
+   BYTES = 40
+   DESCRIPTION = "The name of the file containing a data product's PDS 
+   label."
+ END_OBJECT = COLUMN
+
+ OBJECT = COLUMN
+   COLUMN_NUMBER = 4
+   NAME = PRODUCT_ID
+   DATA_TYPE = CHARACTER
+   START_BYTE = 76
+   BYTES = 40
+   DESCRIPTION = "The unique identifier for the data product."
+ END_OBJECT = COLUMN
+
+ OBJECT = COLUMN
+   COLUMN_NUMBER = 5
+   NAME = PRODUCT_VERSION_ID
+   DATA_TYPE = CHARACTER
+   START_BYTE = 119
+   BYTES = 12
+   UNKNOWN_CONSTANT = "UNK"
+   DESCRIPTION = "The unique identifier for the data product."
+ END_OBJECT = COLUMN
+
+ OBJECT = COLUMN
+  COLUMN_NUMBER = 6
+  NAME = PRODUCT_TYPE
+  DATA_TYPE = CHARACTER
+  START_BYTE = 134
+  BYTES = 12
+  UNKNOWN_CONSTANT = "UNK"
+  DESCRIPTION = "CheMin RDR product type: 
+    CHEMIN_RD1 = Diffraction Single, K-alpha or K-beta,
+    CHEMIN_RDS = Diffraction Split, K-alpha of K-beta,
+    CHEMIN_RDA = Diffraction All, K-alpha or K-beta,
+    CHEMIN_RTR = Diffraction All, Raw,
+    CHEMIN_RDF = Diffraction Film,
+    CHEMIN_REA = Energy All,
+    CHEMIN_RE1 = Energy Single,
+    CHEMIN_RES = Energy Split,
+    CHEMIN_MIN = Mineral Abundance.
+    "
+ END_OBJECT = COLUMN
+
+ OBJECT = COLUMN
+   COLUMN_NUMBER = 7
+   NAME = PRODUCT_CREATION_TIME
+   DATA_TYPE = TIME
+   START_BYTE = 148
+   BYTES = 27
+   UNKNOWN_CONSTANT = 1901-001T00:00:01
+   DESCRIPTION = "Time at which the product file was created (UTC), in the
+   format yyyy-mm-ddThh:mm:ss."
+ END_OBJECT = COLUMN
+
+ OBJECT = COLUMN
+   COLUMN_NUMBER = 8
+   NAME = START_TIME
+   DATA_TYPE = TIME
+   START_BYTE = 176
+   BYTES = 27
+   UNKNOWN_CONSTANT = 1901-001T00:00:01
+   DESCRIPTION = "UTC time of the earliest observation in the data file,
+   format yyyy-doyThh:mm:ss."
+ END_OBJECT = COLUMN
+
+ OBJECT = COLUMN
+  COLUMN_NUMBER = 9
+  NAME = SPACECRAFT_CLOCK_START_COUNT
+  DATA_TYPE = CHARACTER
+  START_BYTE = 205
+  BYTES = 16
+  UNKNOWN_CONSTANT = "UNK"
+  DESCRIPTION = "Internal Spacecraft clock count of the first record in the 
+  data product file, in seconds."
+ END_OBJECT = COLUMN 
+
+ OBJECT = COLUMN
+   COLUMN_NUMBER = 10
+   NAME = RELEASE_ID
+   DATA_TYPE = CHARACTER
+   START_BYTE = 224
+   BYTES = 4
+   UNKNOWN_CONSTANT = "UNK"
+   DESCRIPTION = "The identifier of the MSL Release in which this product
+   was first released by PDS to the public. Example: 0001."
+ END_OBJECT = COLUMN
+
+END_OBJECT = INDEX_TABLE
+END
