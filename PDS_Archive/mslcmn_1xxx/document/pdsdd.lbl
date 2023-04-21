@@ -1,0 +1,17 @@
+PDS_VERSION_ID            = PDS3
+RECORD_TYPE               = UNDEFINED 
+
+^DOCUMENT                 = "PDSDD.FUL"
+OBJECT                    = DOCUMENT
+  DOCUMENT_NAME           = "PLANETARY SCIENCE DATA DICTIONARY"
+  DOCUMENT_FORMAT         = "UNK"
+  RECORD_TYPE             = UNDEFINED
+  PUBLICATION_DATE        = 2020-07-06
+  DOCUMENT_TOPIC_TYPE     = "N/A" 
+  INTERCHANGE_FORMAT      = ASCII
+  DESCRIPTION             = "This file contains definitions of keywords
+    used in PDS labels. This file is suitable for use with PDS label
+    validation software, and is also human-readable."
+END_OBJECT                = DOCUMENT
+
+END

@@ -1,0 +1,25 @@
+PDS_VERSION_ID        = PDS3
+RECORD_TYPE           = STREAM
+
+OBJECT                = TEXT
+  PUBLICATION_DATE    = 2012-06-13
+  NOTE                = "Description of contents of LABEL directory"
+END_OBJECT            = TEXT
+END
+
+The LABEL directory contains format files (extension .FMT) that are
+referenced in the PDS labels for data products in this archive. Each data 
+product is described by a PDS label in a separate file. The label includes a 
+description of the data file format, e.g. the start byte, number of bytes, 
+data type, description, and other information for each field in the data 
+file. Since some files have many columns, the label descriptions can be very 
+lengthy. To avoid repeating the same descriptive information in every label, 
+the information is extracted into a format file. The label then contains a 
+pointer to the format file, e.g. ^STRUCTURE = CHEMIN_XRD.FMT.
+
+The following format files are in this directory:
+
+CHEMIN_EDH.FMT - Energy table data columns
+CHEMIN_MIN.FMT - Mineral abundance table data columns
+CHEMIN_XRD.FMT - Diffraction table data columns
+

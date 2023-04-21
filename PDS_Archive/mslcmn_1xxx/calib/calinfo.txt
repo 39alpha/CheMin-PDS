@@ -1,0 +1,16 @@
+PDS_VERSION_ID        = PDS3
+RECORD_TYPE           = STREAM
+
+OBJECT                = TEXT
+  PUBLICATION_DATE    = 2012-06-13
+  NOTE                = "Description of contents of CALIB directory"
+END_OBJECT            = TEXT
+END
+
+The CALIB directory contains the following files.
+
+CALREPORT.PDF, .HTM - A description of how the RDR products were 
+generated from the EDR products; in particular, what calibrations were 
+applied. 
+
+CALREPORT.LBL is a PDS label that describes the calibration report.

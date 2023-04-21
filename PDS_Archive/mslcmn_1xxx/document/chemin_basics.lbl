@@ -1,0 +1,34 @@
+PDS_VERSION_ID                 = PDS3
+RECORD_TYPE                    = STREAM
+
+^PDF_DOCUMENT                  = "CHEMIN_BASICS.PDF"
+
+OBJECT                         = PDF_DOCUMENT
+  DOCUMENT_NAME                = "Characterization and Calibration of the 
+     CheMin Mineralogical instrument on Mars Science Laboratory"
+  NOTE                         = "N/A"
+  PUBLICATION_DATE             = 2012-06-12
+  DOCUMENT_TOPIC_TYPE          = "CALIBRATION DESCRIPTION"
+  INTERCHANGE_FORMAT           = BINARY
+  DOCUMENT_FORMAT              = "ADOBE PDF"
+  DESCRIPTION                  = "Characterization and Calibration of the 
+     CheMin Mineralogical instrument on Mars Science Laboratory"
+  ABSTRACT_TEXT                = "N/A"  
+END_OBJECT                     = PDF_DOCUMENT
+
+^HTML_DOCUMENT                 = "CHEMIN_BASICS.HTM"
+
+OBJECT                         = HTML_DOCUMENT
+  DOCUMENT_NAME                = "Characterization and Calibration of the 
+     CheMin Mineralogical instrument on Mars Science Laboratory"
+  NOTE                         = "N/A"
+  PUBLICATION_DATE             = 2012-06-12
+  DOCUMENT_TOPIC_TYPE          = "CALIBRATION DESCRIPTION"
+  INTERCHANGE_FORMAT           = ASCII
+  DOCUMENT_FORMAT              = "HTML"
+  DESCRIPTION                  = "Characterization and Calibration of the 
+     CheMin Mineralogical instrument on Mars Science Laboratory"
+  ABSTRACT_TEXT                = "N/A"  
+END_OBJECT                     = HTML_DOCUMENT
+
+END

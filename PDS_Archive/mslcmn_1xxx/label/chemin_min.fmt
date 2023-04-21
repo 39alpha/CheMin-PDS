@@ -1,0 +1,23 @@
+OBJECT        = FIELD
+ NAME         = "MINERAL"
+ DATA_TYPE    = CHARACTER
+ UNIT         = "TEXT"
+ BYTES        = 16
+ FORMAT       = "A16"
+END_OBJECT    = FIELD
+
+OBJECT        = FIELD
+ NAME         = "PERCENT"
+ DATA_TYPE    = ASCII_REAL
+ UNIT         = "WEIGHT_PERCENT"
+ BYTES        = 9
+ FORMAT       = "F9.2"
+END_OBJECT    = FIELD
+
+OBJECT        = FIELD
+ NAME         = "ERROR"
+ DATA_TYPE    = ASCII_REAL
+ UNIT         = "ESTIMATED_ERROR"
+ BYTES        = 7
+ FORMAT       = "F7.2"
+END_OBJECT    = FIELD

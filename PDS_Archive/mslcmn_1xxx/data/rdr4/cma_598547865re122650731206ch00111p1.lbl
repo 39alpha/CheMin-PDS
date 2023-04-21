@@ -1,0 +1,65 @@
+PDS_VERSION_ID                = PDS3
+RECORD_TYPE                   = STREAM
+RECORD_BYTES                  = 31420
+FILE_RECORDS                  = 1851
+^HEADER                     = ("CMA_598547865RE122650731206CH00111P1.CSV",1)
+^SPREADSHEET                = ("CMA_598547865RE122650731206CH00111P1.CSV",2)
+DATA_SET_ID                   = "MSL-M-CHEMIN-4-RDR-V1.0"
+PRODUCT_ID                    = "CMA_598547865RE122650731206CH00111P1"
+PRODUCT_VERSION_ID            = "V1.0"
+RELEASE_ID                    = "0021"
+SOURCE_PRODUCT_ID             = {"CMA_598547865EE122650731206CH00111M1",
+"CMA_598548234EE122650731206CH00111M1",
+"CMA_598548603EE122650731206CH00111M1"}
+PRODUCT_TYPE                  = "CHEMIN_RE1"
+INSTRUMENT_HOST_ID            = "MSL"
+INSTRUMENT_HOST_NAME          = "MARS SCIENCE LABORATORY"
+INSTRUMENT_ID                 = "CHEMIN"
+TARGET_NAME                   = "MARS"
+MSL:CALIBRATION_STANDARD_NAME = "N/A"
+MISSION_PHASE_NAME            = "PRIMARY SURFACE MISSION"
+PRODUCT_CREATION_TIME         = 2019-06-19T23:55:00 
+START_TIME                    = 2018-12-20T03:51:27.003
+STOP_TIME                     = UNK
+SPACECRAFT_CLOCK_START_COUNT  = "598547865.150"
+SPACECRAFT_CLOCK_STOP_COUNT   = "UNK"
+OBJECT                        = HEADER
+ BYTES                        = 15
+ HEADER_TYPE                  = TEXT
+ DESCRIPTION                  = "This header record contains column headings
+ for the following table." 
+END_OBJECT                    = HEADER
+
+OBJECT                        = SPREADSHEET
+ ROWS                         = 1850
+ ROW_BYTES                    = 31405
+ FIELDS                       = 2
+ FIELD_DELIMITER              = "COMMA"
+ ^STRUCTURE                   = "CHEMIN_EDH.FMT"
+DESCRIPTION                   = "This table contains energy-single
+ fluorescence data for the sample Rock Hall in CheMin cell number 7b
+ (Mylar window). The first three minor frames of best data quality from sol
+ 2265 were selected and averaged, including 540 individual 10-second frames
+ in the three minor frames of 180 10-second frames each. The first minor
+ frame is not used, to assure that the CCD was at a stable cold temperature
+ in the frames used. Although a total of 15 minor frames were collected in
+ this first night of analysis, a drop in sample signal beyond the first four
+ minor frames indicated that much of the sample had moved to portions of the
+ cell outside the X-ray beam; when sample signal rose again toward the end
+ of this analysis, grain motion deteriorated significantly. Additional
+ nights of analysis on sols 2277-2278 and 2285-2286 showed no improvement in
+ grain motion, even as attempts were made to increase sample vibration
+ intensity. To focus on the highest quality data, the RE1 file associated
+ with this label, as well as the corresponding diffraction-all RDA file
+ (CMA_598547494RDA22650731206CH00111P1) and mineralogical analysis file
+ (CMA_598547494MIN22650731206CH00111P1) use only the first minor frames
+ where signal remained strong and grain motion was good. A threshold
+ of 50 DN was used. CCD temperatures during data collection were ~-50
+ degrees centigrade. Column 1 of the table shows energy in keV converted
+ from digital number (DN) using a conversion factor of 128.9531 DN/keV,
+ based on position of the 6.925 keV Co K-alpha peak at DN 893. Results are
+ listed from DN 51 to 1900 (0.39549 to 14.73404 keV), 1850 entries. Column 2
+ lists the log-scale intensity for each value of keV in column 1."
+END_OBJECT                    = SPREADSHEET
+END
+

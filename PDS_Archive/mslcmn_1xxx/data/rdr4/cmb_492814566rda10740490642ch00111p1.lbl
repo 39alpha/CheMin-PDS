@@ -1,0 +1,90 @@
+PDS_VERSION_ID                = PDS3
+RECORD_TYPE                   = STREAM
+RECORD_BYTES                  = 10362
+FILE_RECORDS                  = 1002
+^HEADER                     = ("CMB_492814566RDA10740490642CH00111P1.CSV",1)
+^SPREADSHEET                = ("CMB_492814566RDA10740490642CH00111P1.CSV",2)
+DATA_SET_ID                   = "MSL-M-CHEMIN-4-RDR-V1.0"
+PRODUCT_ID                    = "CMB_492814566RDA10740490642CH00111P1"
+PRODUCT_VERSION_ID            = "V1.0"
+RELEASE_ID                    = "0011"
+SOURCE_PRODUCT_ID             = {"CMB_492814566EDA10740490642CH00111M1",
+"CMB_492814955EDA10740490642CH00111M1",
+"CMB_492815343EDA10740490642CH00111M1",
+"CMB_492815731EDA10740490642CH00111M1",
+"CMB_492816120EDA10740490642CH00111M1",
+"CMB_492816507EDA10740490642CH00111M1",
+"CMB_492816895EDA10740490642CH00111M1",
+"CMB_492817282EDA10740490642CH00111M1",
+"CMB_492817669EDA10740490642CH00111M1",
+"CMB_492818057EDA10740490642CH00111M1",
+"CMB_492818446EDA10740490642CH00111M1",
+"CMB_492818833EDA10740490642CH00111M1",
+"CMB_492819223EDA10740490642CH00111M1",
+"CMB_492819610EDA10740490642CH00111M1",
+"CMB_492819999EDA10740490642CH00111M1",
+"CMB_493274384EDA10790491018CH00113M1",
+"CMB_493274773EDA10790491018CH00113M1",
+"CMB_493275161EDA10790491018CH00113M1",
+"CMB_493275550EDA10790491018CH00113M1",
+"CMB_493275938EDA10790491018CH00113M1",
+"CMB_493276326EDA10790491018CH00113M1",
+"CMB_493276714EDA10790491018CH00113M1",
+"CMB_493277102EDA10790491018CH00113M1",
+"CMB_493277490EDA10790491018CH00113M1",
+"CMB_493277878EDA10790491018CH00113M1",
+"CMB_493278267EDA10790491018CH00113M1",
+"CMB_493278654EDA10790491018CH00113M1",
+"CMB_493279043EDA10790491018CH00113M1",
+"CMB_493279431EDA10790491018CH00113M1",
+"CMB_493279813EDA10790491018CH00113M1"}
+PRODUCT_TYPE                  = "CHEMIN_RDA"
+INSTRUMENT_HOST_ID            = "MSL"
+INSTRUMENT_HOST_NAME          = "MARS SCIENCE LABORATORY"
+INSTRUMENT_ID                 = "CHEMIN"
+TARGET_NAME                   = "MARS"
+MSL:CALIBRATION_STANDARD_NAME = "N/A"
+MISSION_PHASE_NAME            = "PRIMARY SURFACE MISSION"
+PRODUCT_CREATION_TIME         = 2016-02-10T15:23:00 
+START_TIME                    = 2015-08-14T09:13:11.855
+STOP_TIME                     = "UNK"
+SPACECRAFT_CLOCK_START_COUNT  = "492814566.650"
+SPACECRAFT_CLOCK_STOP_COUNT   = "UNK"
+OBJECT                        = HEADER
+ BYTES                        = 19
+ HEADER_TYPE                  = TEXT
+ DESCRIPTION                  = "This header record contains column headings
+ for the following table." 
+END_OBJECT                    = HEADER
+
+OBJECT                        = SPREADSHEET
+ ROWS                         = 1001
+ ROW_BYTES                    = 10343
+ FIELDS                       = 2
+ FIELD_DELIMITER              = "COMMA"
+ ^STRUCTURE                   = "CHEMIN_XRD.FMT"
+ DESCRIPTION                  = "This table contains diffraction-all K-alpha
+ diffraction data for the Buckskin drill sample, analyzed in CheMin cell
+ number 14b (Kapton window). The table represents results from sequences
+ uploaded on sols 1073 and 1078. Note that these results represent an attempt
+ to improve grain motion and diffraction quality, by increasing vibration
+ level, following apparent packing of the sample part way through the
+ analysis uploaded on sol 1061. Diffraction quality did not improve, so for
+ the highest quality diffraction data refer to RDA file
+ CMB_491748904RDA10620482542CH00111P1 and the associated mineral abundance
+ file CMB_491748904MIN10620482542CH00111P1. In the EDA source files for the
+ RDA data presented here, the effects of poor grain motion are reflected in
+ Debye rings with irregular intensity, but the RDA pattern is provided for
+ those who may wish to compare these results with the higher-quality RDA
+ pattern of CMB_491748904RDA10620482542CH00111P1. The 30 minor frames of the
+ sol 1073-1074 and sol1078-1079 analyses represent 14.98 hours of analysis.
+ Refined plagioclase c and gamma cell parameters from
+ CMB_491748904RDA10620482542CH00111P1 were used to make a minor adjustment in
+ the sample to detector distance, reducing this by 67 um. CCD temperatures
+ during data collection were ~-50 degrees centigrade. Column 1 of the table
+ lists 2-theta from 2.00 to 52.00 degrees cobalt K-alpha, in increments of
+ 0.05 degrees (1001 entries). Column 2 lists the intensity of the diffraction
+ for each 2-theta value in column 1."
+END_OBJECT                    = SPREADSHEET
+END
+

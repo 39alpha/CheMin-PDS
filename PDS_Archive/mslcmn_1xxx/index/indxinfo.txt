@@ -1,0 +1,39 @@
+PDS_VERSION_ID        = PDS3
+RECORD_TYPE           = STREAM
+OBJECT                = TEXT
+  PUBLICATION_DATE    = 2012-06-13
+  NOTE                = "Description of contents of INDEX directory"
+END_OBJECT            = TEXT
+END
+
+This INDEX directory contains three files:
+
+  INDXINFO.TXT:         The file you are reading now
+  INDEX.TAB:            An index table for this archive
+  INDEX.LBL:            The PDS label file for INDEX.TAB
+
+The index file INDEX.TAB contains a single record for each CheMin RDR data
+product present in this archive.  All fields are variable length, separated 
+by commas, and all character fields are enclosed in double quotation marks 
+(").   The records are terminated by the ASCII carriage return and line feed 
+characters.
+
+The index table INDEX.TAB includes the following columns:
+
+    VOLUME_ID
+    PATH_NAME
+    FILE_NAME
+    PRODUCT_ID
+    PRODUCT_VERSION_ID
+    PRODUCT_TYPE
+    PRODUCT_CREATION_TIME
+    START_TIME
+    STOP_TIME
+    SPACECRAFT_CLOCK_START_COUNT
+    SPACECRAFT_CLOCK_STOP_COUNT
+    RELEASE_ID
+
+A complete description of each of these columns, including their meaning, 
+data type, size, and locations, can be found in the PDS label 
+file INDEX.LBL.
+

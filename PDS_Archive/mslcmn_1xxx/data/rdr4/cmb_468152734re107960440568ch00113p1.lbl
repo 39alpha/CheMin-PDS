@@ -1,0 +1,62 @@
+PDS_VERSION_ID                = PDS3
+RECORD_TYPE                   = STREAM
+RECORD_BYTES                  = 34074
+FILE_RECORDS                  = 1768
+^HEADER                     = ("CMB_468152734RE107960440568CH00113P1.CSV",1)
+^SPREADSHEET                = ("CMB_468152734RE107960440568CH00113P1.CSV",2)
+DATA_SET_ID                   = "MSL-M-CHEMIN-4-RDR-V1.0"
+PRODUCT_ID                    = "CMB_468152734RE107960440568CH00113P1"
+PRODUCT_VERSION_ID            = "V1.0"
+RELEASE_ID                    = "0008"
+SOURCE_PRODUCT_ID             = {"CMB_468152734EE107960440568CH00113M1",
+"CMB_468153136EE107960440568CH00113M1",
+"CMB_468153536EE107960440568CH00113M1",
+"CMB_468153938EE107960440568CH00113M1",
+"CMB_468154348EE107960440568CH00113M1",
+"CMB_468154751EE107960440568CH00113M1",
+"CMB_468155151EE107960440568CH00113M1",
+"CMB_468155550EE107960440568CH00113M1",
+"CMB_468155954EE107960440568CH00113M1",
+"CMB_468156355EE107960440568CH00113M1",
+"CMB_468156765EE107960440568CH00113M1",
+"CMB_468157172EE107960440568CH00113M1",
+"CMB_468157575EE107960440568CH00113M1"}
+PRODUCT_TYPE                  = "CHEMIN_RE1"
+INSTRUMENT_HOST_ID            = "MSL"
+INSTRUMENT_HOST_NAME          = "MARS SCIENCE LABORATORY"
+INSTRUMENT_ID                 = "CHEMIN"
+TARGET_NAME                   = "MARS"
+MSL:CALIBRATION_STANDARD_NAME = "N/A"
+MISSION_PHASE_NAME            = "PRIMARY SURFACE MISSION"
+PRODUCT_CREATION_TIME         = 2015-02-16T18:10:00 
+START_TIME                    = 2014-11-01T22:38:47.293
+STOP_TIME                     = UNK
+SPACECRAFT_CLOCK_START_COUNT  = "468152734.122"
+SPACECRAFT_CLOCK_STOP_COUNT   = "UNK"
+OBJECT                        = HEADER
+ BYTES                        = 15
+ HEADER_TYPE                  = TEXT
+ DESCRIPTION                  = "This header record contains column headings
+ for the following table." 
+END_OBJECT                    = HEADER
+
+OBJECT                        = SPREADSHEET
+ ROWS                         = 1767
+ ROW_BYTES                    = 34059
+ FIELDS                       = 2
+ FIELD_DELIMITER              = "COMMA"
+ ^STRUCTURE                   = "CHEMIN_EDH.FMT"
+DESCRIPTION                  = "This table contains energy-single
+fluorescence data for the arcanite standard in CheMin cell number 0b
+Kapton window). The 13 minor frames of best data quality from sol 0796
+were selected and averaged, including 2340 individual 10-second frames in
+the 13 minor frames of 180 10-second frames each. A threshold of 50 DN was
+used. CCD temperatures during data collection were ~-50 degrees centigrade.
+Column 1 of the table shows energy in keV converted from digital number(DN)
+using a conversion factor of 133.4296 DN/keV, based on position of the
+6.925 keV Co K-alpha peak at DN 922. Results are listed from DN 51 to 1817
+0.383053 to 13.647207 keV), 1767 entries. Column 2 lists the log-scale
+intensity for each value of keV in column 1."
+END_OBJECT                    = SPREADSHEET
+END
+ 

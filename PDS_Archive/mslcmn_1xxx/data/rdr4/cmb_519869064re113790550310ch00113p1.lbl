@@ -1,0 +1,86 @@
+PDS_VERSION_ID                = PDS3
+RECORD_TYPE                   = STREAM
+RECORD_BYTES                  = 24512
+FILE_RECORDS                  = 1451
+^HEADER                     = ("CMB_519869064RE113790550310CH00113P1.CSV",1)
+^SPREADSHEET                = ("CMB_519869064RE113790550310CH00113P1.CSV",2)
+DATA_SET_ID                   = "MSL-M-CHEMIN-4-RDR-V1.0"
+PRODUCT_ID                    = "CMB_519869064RE113790550310CH00113P1"
+PRODUCT_VERSION_ID            = "V1.0"
+RELEASE_ID                    = "0013"
+SOURCE_PRODUCT_ID             = {"CMB_519869064EE113790550310CH00113M1",
+"CMB_519869452EE113790550310CH00113M1",
+"CMB_519869840EE113790550310CH00113M1",
+"CMB_519870228EE113790550310CH00113M1",
+"CMB_519870616EE113790550310CH00113M1",
+"CMB_519871004EE113790550310CH00113M1",
+"CMB_519871393EE113790550310CH00113M1",
+"CMB_519871780EE113790550310CH00113M1",
+"CMB_519872169EE113790550310CH00113M1",
+"CMB_519872557EE113790550310CH00113M1",
+"CMB_519872944EE113790550310CH00113M1",
+"CMB_519873332EE113790550310CH00113M1",
+"CMB_519873721EE113790550310CH00113M1",
+"CMB_520725081EE113880551420CH00113M1",
+"CMB_520725469EE113880551420CH00113M1",
+"CMB_520725856EE113880551420CH00113M1",
+"CMB_520726243EE113880551420CH00113M1",
+"CMB_520726632EE113880551420CH00113M1",
+"CMB_520727019EE113880551420CH00113M1",
+"CMB_520727408EE113880551420CH00113M1",
+"CMB_520727795EE113880551420CH00113M1",
+"CMB_520728183EE113880551420CH00113M1",
+"CMB_520728570EE113880551420CH00113M1",
+"CMB_520728959EE113880551420CH00113M1",
+"CMB_520729347EE113880551420CH00113M1",
+"CMB_520729736EE113880551420CH00113M1"}
+PRODUCT_TYPE                  = "CHEMIN_RE1"
+INSTRUMENT_HOST_ID            = "MSL"
+INSTRUMENT_HOST_NAME          = "MARS SCIENCE LABORATORY"
+INSTRUMENT_ID                 = "CHEMIN"
+TARGET_NAME                   = "MARS"
+MSL:CALIBRATION_STANDARD_NAME = "N/A"
+MISSION_PHASE_NAME            = "PRIMARY SURFACE MISSION"
+PRODUCT_CREATION_TIME         = 2016-10-28T02:24:15 
+START_TIME                    = 2016-06-22T12:25:45.037
+STOP_TIME                     = UNK
+SPACECRAFT_CLOCK_START_COUNT  = "519869064.546"
+SPACECRAFT_CLOCK_STOP_COUNT   = "UNK"
+OBJECT                        = HEADER
+ BYTES                        = 15
+ HEADER_TYPE                  = TEXT
+ DESCRIPTION                  = "This header record contains column headings
+ for the following table." 
+END_OBJECT                    = HEADER
+
+OBJECT                        = SPREADSHEET
+ ROWS                         = 1450
+ ROW_BYTES                    = 24497
+ FIELDS                       = 2
+ FIELD_DELIMITER              = "COMMA"
+ ^STRUCTURE                   = "CHEMIN_EDH.FMT"
+DESCRIPTION                  = "This table contains energy-single
+ fluorescence data for the sample Oudam in CheMin cell number 13a (Mylar
+ window). This cell had previously held the sample Windjana, which had been
+ emptied from the cell. This is the second delivery of a split of Oudam;
+ the first delivery was to cell 12a (Mylar window) which had previously held
+ the Confidence Hills sample. The Oudam delivery in cell 12a provided good
+ grain motion and no evidence of contamination from Confidence Hills. The
+ sample in cell 12a is therefore the primary Oudam sample and the RDA file
+ for that sample is CMB_518482923RDA13630542280CH00113P1; the associated RE1
+ file for Oudam in cell 12a is CMB_518483312RE113630542280CH00113P1. Oudam
+ grain motion in cell 13a was poor, with evidence that some Windjana powder
+ remained in the cell. Remnants of Windjana along with Oudam are possible in
+ the RE1 file for Oudam in cell 13a. For Oudam in cell 13a, the 26 minor
+ frames of best data quality from sol 1379 and sol 1388 were selected and
+ averaged, including 4680 individual 10-second frames in the 26 minor frames
+ of 180 10-second frames each. A threshold of 50 DN was used. CCD
+ temperatures during data collection were ~-50 degrees centigrade. Column 1
+ of the table shows energy in keV converted from digital number (DN) using a
+ conversion factor of 132.4188 DN/keV, based on position of the 6.925 keV Co
+ K-alpha peak at DN 917. Results are listed from DN 51 to 1500 (0.385142 to
+ 11.32770 keV), 1450 entries. Column 2 lists the log-scale intensity for each
+ value of keV in column 1."
+END_OBJECT                    = SPREADSHEET
+END
+

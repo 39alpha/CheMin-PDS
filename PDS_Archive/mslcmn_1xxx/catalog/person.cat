@@ -1,0 +1,78 @@
+RECORD_TYPE                       = STREAM
+
+OBJECT                            = PERSONNEL
+  PDS_USER_ID                     = DBLAKE
+  OBJECT                          = PERSONNEL_INFORMATION
+    FULL_NAME                     = "DAVID BLAKE"
+    LAST_NAME                     = "BLAKE"
+    TELEPHONE_NUMBER              = "6506044816"
+    ALTERNATE_TELEPHONE_NUMBER    = "UNK"
+    FAX_NUMBER                    = "UNK"
+    INSTITUTION_NAME              = "NASA/AMES RESEARCH CENTER"
+    NODE_ID                       = "N/A"
+    PDS_AFFILIATION               = "DATA PROVIDER"
+    PDS_ADDRESS_BOOK_FLAG         = N
+    REGISTRATION_DATE             = "N/A"
+    ADDRESS_TEXT                  = "SPACE SCIENCE AND ASTROBIOLOGY
+                                     NASA AMES RESEARCH CENTER
+                                     MOFFETT FIELD, CA  94035"
+  END_OBJECT                      = PERSONNEL_INFORMATION
+  OBJECT                          = PERSONNEL_ELECTRONIC_MAIL
+    ELECTRONIC_MAIL_ID            = "DAVID.F.BLAKE@NASA.GOV"
+    ELECTRONIC_MAIL_TYPE          = "INTERNET"
+    PREFERENCE_ID                 = 1
+  END_OBJECT                      = PERSONNEL_ELECTRONIC_MAIL
+END_OBJECT                        = PERSONNEL
+
+OBJECT                            = PERSONNEL
+  PDS_USER_ID                     = DVANIMAN
+  OBJECT                          = PERSONNEL_INFORMATION
+    FULL_NAME                     = "DAVID VANIMAN"
+    LAST_NAME                     = "VANIMAN"
+    TELEPHONE_NUMBER              = "5206226300"
+    ALTERNATE_TELEPHONE_NUMBER    = "UNK"
+    FAX_NUMBER                    = "UNK"
+    INSTITUTION_NAME              = "PLANETARY SCIENCE INSTITUTE"
+    NODE_ID                       = "N/A"
+    PDS_AFFILIATION               = "DATA PROVIDER"
+    PDS_ADDRESS_BOOK_FLAG         = N
+    REGISTRATION_DATE             = "N/A"
+    ADDRESS_TEXT                  = "PLANETARY SCIENCE INSTITUTE
+                                     1700 EAST FORT LOWELL
+                                     SUITE 106
+                                     TUCSON, AZ  85719-2395"
+  END_OBJECT                      = PERSONNEL_INFORMATION
+  OBJECT                          = PERSONNEL_ELECTRONIC_MAIL
+    ELECTRONIC_MAIL_ID            = "DVANIMAN@PSI.EDU"
+    ELECTRONIC_MAIL_TYPE          = "INTERNET"
+    PREFERENCE_ID                 = 1
+  END_OBJECT                      = PERSONNEL_ELECTRONIC_MAIL
+END_OBJECT                        = PERSONNEL
+
+OBJECT                            = PERSONNEL
+  PDS_USER_ID                     = SSLAVNEY
+  OBJECT                          = PERSONNEL_INFORMATION
+    FULL_NAME                     = "SUSAN H. SLAVNEY"
+    LAST_NAME                     = "SLAVNEY"
+    TELEPHONE_NUMBER              = "3149359295"
+    ALTERNATE_TELEPHONE_NUMBER    = "3149355679"
+    FAX_NUMBER                    = "3149354998"
+    INSTITUTION_NAME              = "WASHINGTON UNIVERSITY"
+    NODE_ID                       = "GEOSCIENCE"
+    PDS_AFFILIATION               = "NODE"
+    PDS_ADDRESS_BOOK_FLAG         = Y
+    REGISTRATION_DATE             = "UNK"
+    ADDRESS_TEXT                  = "WASHINGTON UNIVERSITY
+                                     PDS GEOSCIENCES NODE
+                                     CAMPUS BOX 1169
+                                     ONE BROOKINGS DRIVE
+                                     ST. LOUIS, MO 63130-4899"
+  END_OBJECT                      = PERSONNEL_INFORMATION
+  OBJECT                          = PERSONNEL_ELECTRONIC_MAIL
+    ELECTRONIC_MAIL_ID            = "SLAVNEY@WUNDER.WUSTL.EDU"
+    ELECTRONIC_MAIL_TYPE          = "INTERNET"
+    PREFERENCE_ID                 = 1
+  END_OBJECT                      = PERSONNEL_ELECTRONIC_MAIL
+END_OBJECT                        = PERSONNEL
+
+END

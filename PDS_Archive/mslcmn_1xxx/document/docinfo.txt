@@ -1,0 +1,33 @@
+PDS_VERSION_ID        = PDS3
+RECORD_TYPE           = STREAM
+
+OBJECT                = TEXT
+  PUBLICATION_DATE    = 2013-03-20
+  NOTE                = "Description of contents of DOCUMENT directory"
+END_OBJECT            = TEXT
+END
+
+The DOCUMENT directory contains the following documentation files.
+
+CHEMIN_RDR_SIS.PDF, HTM - The CheMin RDR Software Interface Specification, 
+which describes the RDR data products in detail, along with an 
+appendix that provides examples of PDS labels for CheMin data products. 
+CHEMIN_RDR_SIS.LBL is a PDS label that describes CHEMIN_RDR_SIS.PDF. The 
+directory CHEMIN_RDR_SIS_FILES contains image files linked to 
+CHEMIN_RDR_SIS.HTM. 
+
+CHEMIN_RDR_AVSIS.PDF, HTM - The CheMin RDR Archive Volume Software Interface 
+Specification, which describes the contents and format of the complete 
+archive, including data files, documentation, and ancillary files. 
+CHEMIN_RDR_AVSIS.LBL is a PDS label that describes both the PDF and HTML 
+files. 
+
+The DOCUMENT directory also contains a copy of the Planetary Science Data
+Dictionary in the file PDSDD.FUL. It is a text file in a keyword=value 
+format similar to PDS labels for use by PDS label validation software. It
+is also human-readable and searchable in a text editor. It is described 
+by the PDS label PDSDD.LBL.
+
+CHEMIN_BASICS.PDF, HTM - This document explains the basic operation and data 
+generation from the CheMin instrument. It is described by CHEMIN_BASICS.LBL.
+

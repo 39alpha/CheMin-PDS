@@ -1,0 +1,142 @@
+RECORD_TYPE                  = STREAM
+LABEL_REVISION_NOTE          = "2012-06-13 GEO:Slavney First draft;
+                                2012-06-15 CHEMIN:Vaniman Revised"
+
+OBJECT                           = DATA_SET
+  DATA_SET_ID                    = "MSL-M-CHEMIN-5-RDR-V1.0"
+
+  OBJECT                         = DATA_SET_MISSION
+    MISSION_NAME                 = "MARS SCIENCE LABORATORY"
+  END_OBJECT                     = DATA_SET_MISSION
+    
+  OBJECT                         = DATA_SET_INFORMATION 
+    DATA_SET_NAME                = "MSL MARS CHEMISTRY AND 
+                                    MINERALOGY 5 RDR V1.0"
+    DATA_SET_COLLECTION_MEMBER_FLG = "N"
+    DATA_OBJECT_TYPE             = TIME_SERIES
+    START_TIME                   = 2012-198T00:00:00
+    STOP_TIME                    = "UNK"
+    DATA_SET_RELEASE_DATE        = 2013-02-27
+    PRODUCER_FULL_NAME           = "DAVID VANIMAN"
+    DETAILED_CATALOG_FLAG        = "N"
+    DATA_SET_TERSE_DESC          = "Mineral identification, abundance, and
+      estimated errors derived from data acquired by the CheMin instrument
+      aboard the Mars Science Laboratory rover."
+    CITATION_DESC                = "Vaniman, D., Mars
+      Science Laboratory Chemistry & Mineralogy RDR Data V1.0, 
+      MSL-M-CHEMIN-5-RDR-V1.0, NASA Planetary Data System, 2012."
+    ABSTRACT_DESC                = "The CheMin instrument determines the 
+      mineralogy and elemental composition of powdered samples through the 
+      combined application of X-ray diffraction (XRD, producing mineral 
+      identification and quantification) and X-ray fluorescence (chemical 
+      analysis based on Energy Dispersive Histograms, EDH). This CheMin 
+      RDR data set contains mineral identification, abundance, and 
+      estimated errors derived from CheMin observations."
+    DATA_SET_DESC                 = "
+
+    Data Set Overview
+    =================
+
+      The CheMin instrument determines the mineralogy and elemental 
+      composition of powdered samples through the combined application of 
+      X-ray diffraction (XRD, producing mineral identification and 
+      quantification) and X-ray fluorescence (chemical analysis based on 
+      Energy Dispersive Histograms, EDH). This CheMin RDR data set contains 
+      mineral identification, abundance, and estimated errors derived from 
+      CheMin observations (RDR product type MIN).
+      
+    Processing
+    ==========
+      These CheMin RDR data products are considered CODMAC Level 5 or 
+      Derived Data, equivalent to NASA Level 2 products. The RDR data files
+      are generated from CheMin Level 4 (NASA Level 1B) RDR Data
+      (MSL-M-CHEMIN-4-RDR-V1.0), archived separately.
+
+      Processing requires use of one of several available programs for 
+      mineral identification and XRD phase quantification applied to any 
+      of the Level 1 CheMin 1D diffraction patterns (D1A, D1B, DSA, DSB, 
+      DAR, DMR). Mineral identification may be based on various diffraction 
+      data libraries (ICDD PDF database, AMCSD, etc.); pattern processing 
+      and phase quantification may be based on any of several available 
+      software packages (Jade, TOPAS, FULLPAT, etc.). Because of the 
+      multiple options for deriving mineral identification and 
+      quantification there may be several reprocessed level 2 products 
+      based on a single XRD analysis.
+      
+    Data
+    ==== 
+      The data types available in this data set are described in the RDR 
+      SIS. A list of minerals present in a CheMin analysis is compiled from 
+      the NASA Level 1B processed XRD data using one or more mineral 
+      identification programs; the identification and quantification 
+      programs(s) used are specified in the file metadata. Identifications 
+      are scrutinized for reliability against detection limits and potential 
+      complications (e.g., peak overlaps). Mineral identifications are 
+      further evaluated against information from EDH element identifications 
+      and other instrument datasets (particularly ChemCam, APXS, and SAM)
+      to evaluate whether minor phases near detection limits or phases 
+      problematic in XRD analysis (e.g., poorly crystalline or amorphous) 
+      need to be considered. Rietveld or other pattern-fitting methods are
+      used to generate a table of mineral abundances in weight percent 
+      along with estimated errors.
+      "
+
+    CONFIDENCE_LEVEL_NOTE          = "
+
+    Confidence Level Overview
+    =========================
+      X-ray diffraction reliability and accuracy of mineral identifications 
+      is comparable to that of commercial portable XRD instruments such as 
+      the Terra system manufactured by inXitu 
+      (http://www.inxitu.com/html/Terra.html). This level of performance 
+      produces accurate identification and detection for virtually all 
+      crystalline phases at abundance greater than ~1 wt%. Quantification 
+      of mineral abundances is generally best when based on Rietveld 
+      pattern fitting; however, noncrystalline or poorly crystalline 
+      materials (amorphous samples and many clay minerals) require other 
+      approaches (e.g., FULLPAT pattern fitting methods) where confidence 
+      is related to use of appropriate library samples for pattern fitting. 
+      
+    Review
+    ======
+      The CheMin mineral abundance products are reviewed internally by the 
+      CheMin team prior to release to the PDS. PDS also performs an
+      external peer review of these products.
+
+    Data Coverage and Quality
+    =========================
+      This section will be updated with the first release of CheMin RDR
+      data to the PDS.
+
+    Limitations
+    ===========
+      X-ray amorphous materials may be detected as a broad XRD amorphous 
+      background but amorphous materials have higher detection limits 
+      with poorer accuracy in quantification.  Quantification of some 
+      clay minerals, particularly smectites, requires use of 
+      appropriate library patterns or structural modeling methods. 
+    
+    Data Compression
+    ===============
+      No data compression is used. 
+
+"
+
+  END_OBJECT                     = DATA_SET_INFORMATION
+  
+  OBJECT                         = DATA_SET_TARGET
+    TARGET_NAME                  = MARS
+  END_OBJECT                     = DATA_SET_TARGET
+  
+  OBJECT                         = DATA_SET_HOST
+    INSTRUMENT_HOST_ID           = "MSL"
+    INSTRUMENT_ID                = "CHEMIN"
+  END_OBJECT                     = DATA_SET_HOST
+  
+  OBJECT                         = DATA_SET_REFERENCE_INFORMATION
+    REFERENCE_KEY_ID             = "VANIMANETAL1998"
+  END_OBJECT                     = DATA_SET_REFERENCE_INFORMATION
+
+END_OBJECT                       = DATA_SET
+
+END

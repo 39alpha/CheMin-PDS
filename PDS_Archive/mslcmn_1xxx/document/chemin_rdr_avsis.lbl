@@ -1,0 +1,32 @@
+PDS_VERSION_ID                 = PDS3
+RECORD_TYPE                    = STREAM
+
+^PDF_DOCUMENT                  = "CHEMIN_RDR_AVSIS.PDF"
+
+OBJECT                         = PDF_DOCUMENT
+  DOCUMENT_NAME                = "Mars Science Laboratory
+    CheMin Reduced Data Archive Software Interface Specification"
+  NOTE                         = "N/A"
+  PUBLICATION_DATE             = 2013-03-14
+  DOCUMENT_TOPIC_TYPE          = "ARCHIVE VOLUME SIS"
+  INTERCHANGE_FORMAT           = BINARY
+  DOCUMENT_FORMAT              = "ADOBE PDF"
+  DESCRIPTION                  = "Description of CheMin RDR archive volume"
+  ABSTRACT_TEXT                = "N/A"  
+END_OBJECT                     = PDF_DOCUMENT
+
+^HTML_DOCUMENT                 = "CHEMIN_RDR_AVSIS.HTM"
+
+OBJECT                         = HTML_DOCUMENT
+  DOCUMENT_NAME                = "Mars Science Laboratory
+    CheMin Reduced Data Archive Software Interface Specification"
+  NOTE                         = "N/A"
+  PUBLICATION_DATE             = 2013-03-14
+  DOCUMENT_TOPIC_TYPE          = "ARCHIVE VOLUME SIS"
+  INTERCHANGE_FORMAT           = ASCII
+  DOCUMENT_FORMAT              = "HTML"
+  DESCRIPTION                  = "Description of CheMin RDR archive volume"
+  ABSTRACT_TEXT                = "N/A"  
+END_OBJECT                     = HTML_DOCUMENT
+
+END

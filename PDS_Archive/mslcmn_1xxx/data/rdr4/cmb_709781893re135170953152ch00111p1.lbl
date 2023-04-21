@@ -1,0 +1,79 @@
+PDS_VERSION_ID                = PDS3
+RECORD_TYPE                   = STREAM
+RECORD_BYTES                  = 25564
+FILE_RECORDS                  = 1701
+^HEADER                     = ("CMB_709781893RE135170953152CH00111P1.CSV",1)
+^SPREADSHEET                = ("CMB_709781893RE135170953152CH00111P1.CSV",2)
+DATA_SET_ID                   = "MSL-M-CHEMIN-4-RDR-V1.0"
+PRODUCT_ID                    = "CMB_709781893RE135170953152CH00111P1"
+PRODUCT_VERSION_ID            = "V1.0"
+RELEASE_ID                    = "0031"
+SOURCE_PRODUCT_ID             = {"CMB_709781893EE135170953152CH00111M1",
+"CMB_709782264EE135170953152CH00111M1",
+"CMB_709782634EE135170953152CH00111M1",
+"CMB_709783004EE135170953152CH00111M1",
+"CMB_709783374EE135170953152CH00111M1",
+"CMB_709783745EE135170953152CH00111M1",
+"CMB_709784115EE135170953152CH00111M1",
+"CMB_709784486EE135170953152CH00111M1",
+"CMB_709784857EE135170953152CH00111M1",
+"CMB_709785228EE135170953152CH00111M1",
+"CMB_709785598EE135170953152CH00111M1",
+"CMB_709785968EE135170953152CH00111M1",
+"CMB_709786339EE135170953152CH00111M1",
+"CMB_710045984EE135200953152CH00111M1",
+"CMB_710046355EE135200953152CH00111M1",
+"CMB_710046726EE135200953152CH00111M1",
+"CMB_710047096EE135200953152CH00111M1",
+"CMB_710047466EE135200953152CH00111M1",
+"CMB_710047837EE135200953152CH00111M1",
+"CMB_710048207EE135200953152CH00111M1",
+"CMB_710048577EE135200953152CH00111M1",
+"CMB_710048948EE135200953152CH00111M1",
+"CMB_710049318EE135200953152CH00111M1",
+"CMB_710049689EE135200953152CH00111M1",
+"CMB_710050059EE135200953152CH00111M1",
+"CMB_710050429EE135200953152CH00111M1"}
+PRODUCT_TYPE                  = "CHEMIN_RE1"
+INSTRUMENT_HOST_ID            = "MSL"
+INSTRUMENT_HOST_NAME          = "MARS SCIENCE LABORATORY"
+INSTRUMENT_ID                 = "CHEMIN"
+TARGET_NAME                   = "MARS"
+MSL:CALIBRATION_STANDARD_NAME = "N/A"
+MISSION_PHASE_NAME            = "PRIMARY SURFACE MISSION"
+PRODUCT_CREATION_TIME         = 2022-09-22T21:49:30 
+START_TIME                    = 2022-06-29T14:29:30.707
+STOP_TIME                     = UNK
+SPACECRAFT_CLOCK_START_COUNT  = "709781893.307"
+SPACECRAFT_CLOCK_STOP_COUNT   = "UNK"
+OBJECT                        = HEADER
+ BYTES                        = 15
+ HEADER_TYPE                  = TEXT
+ DESCRIPTION                  = "This header record contains column headings
+ for the following table." 
+END_OBJECT                    = HEADER
+
+OBJECT                        = SPREADSHEET
+ ROWS                         = 1700
+ ROW_BYTES                    = 25549
+ FIELDS                       = 2
+ FIELD_DELIMITER              = "COMMA"
+ ^STRUCTURE                   = "CHEMIN_EDH.FMT"
+DESCRIPTION                   = "This table contains energy-single
+ fluorescence data for the drill sample Avanavero in pristine CheMin cell
+ number 15a (Kapton window). The 26 minor frames of best data quality from
+ sols 3517 and 3520 were selected and averaged, including 4680 individual
+ 10-second frames in the 26 minor frames of 180 10-second frames each. A
+ threshold of 50 DN was used. CCD temperatures during data collection were
+ ~-50 degrees centigrade. Column 1 of the table shows energy in keV
+ converted from digital number (DN); decreasing energy resolution with CCD
+ age requires estimating the conversion of DN to keV based on more than one
+ peak. For this analysis the usable peaks were Ca, Ti, and Fe. We used a
+ conversion factor of 127 DN/keV, estimated from position of the 3.690 keV
+ Ca K-alpha peak at DN 471, the 4.508 keV Ti K-alpha peak at DN 572, and the
+ 6.400 keV Fe K-alpha peak at DN 819. Results are listed from DN 51 to 1750
+ (0.4016 to 13.7795 keV), 1700 entries. Column 2 lists the log-scale
+ intensity for each value of keV in column 1."
+END_OBJECT                    = SPREADSHEET
+END
+

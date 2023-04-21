@@ -1,0 +1,62 @@
+PDS_VERSION_ID                = PDS3
+RECORD_TYPE                   = STREAM
+RECORD_BYTES                  = 11319
+FILE_RECORDS                  = 1001
+^HEADER                     = ("CMB_616745003RDA24690762194CH00111P1.CSV",1)
+^SPREADSHEET                = ("CMB_616745003RDA24690762194CH00111P1.CSV",2)
+DATA_SET_ID                   = "MSL-M-CHEMIN-4-RDR-V1.0"
+PRODUCT_ID                    = "CMB_616745003RDA24690762194CH00111P1"
+PRODUCT_VERSION_ID            = "V1.0"
+RELEASE_ID                    = "0022"
+SOURCE_PRODUCT_ID             = {"CMB_616745003EDA24690762194CH00111M1",
+"CMB_616745373EDA24690762194CH00111M1",
+"CMB_616745744EDA24690762194CH00111M1",
+"CMB_616746113EDA24690762194CH00111M1",
+"CMB_616746484EDA24690762194CH00111M1",
+"CMB_616746853EDA24690762194CH00111M1",
+"CMB_616747223EDA24690762194CH00111M1",
+"CMB_616747593EDA24690762194CH00111M1",
+"CMB_616747963EDA24690762194CH00111M1",
+"CMB_616748332EDA24690762194CH00111M1",
+"CMB_616748703EDA24690762194CH00111M1",
+"CMB_616749073EDA24690762194CH00111M1",
+"CMB_616749443EDA24690762194CH00111M1",
+"CMB_616749813EDA24690762194CH00111M1",
+"CMB_616750176EDA24690762194CH00111M1"}
+PRODUCT_TYPE                  = "CHEMIN_RDA"
+INSTRUMENT_HOST_ID            = "MSL"
+INSTRUMENT_HOST_NAME          = "MARS SCIENCE LABORATORY"
+INSTRUMENT_ID                 = "CHEMIN"
+TARGET_NAME                   = "MARS"
+MSL:CALIBRATION_STANDARD_NAME = "N/A"
+MISSION_PHASE_NAME            = "PRIMARY SURFACE MISSION"
+PRODUCT_CREATION_TIME         = 2019-10-02T10:15:45
+START_TIME                    = 2019-07-18T18:39:57.043
+STOP_TIME                     = "UNK"
+SPACECRAFT_CLOCK_START_COUNT  = "616745003.344"
+SPACECRAFT_CLOCK_STOP_COUNT   = "UNK"
+OBJECT                        = HEADER
+ BYTES                        = 19
+ HEADER_TYPE                  = TEXT
+ DESCRIPTION                  = "This header record contains column headings
+ for the following table." 
+END_OBJECT                    = HEADER
+
+OBJECT                        = SPREADSHEET
+ ROWS                         = 1000
+ ROW_BYTES                    = 11300
+ FIELDS                       = 2
+ FIELD_DELIMITER              = "COMMA"
+ ^STRUCTURE                   = "CHEMIN_XRD.FMT"
+DESCRIPTION                   = "This table contains diffraction-all K-alpha
+ diffraction data for the quartz:beryl 3:97 diffraction standard in CheMin
+ cell number 15b (Kapton window). The table represents results from
+ sequences uploaded on sol 2468, including 15 minor frames that represent a
+ total of 7.5 hours of analysis. CCD temperatures during data collection
+ were ~-50 degrees centigrade. Column 1 of the table lists 2-theta from
+ 3.000 to 51.951 degrees cobalt K-alpha, in increments of 0.049 degrees
+ (1000 entries). Column 2 lists the intensity of the diffraction for each 2
+ theta value in column 1."
+END_OBJECT                    = SPREADSHEET
+END
+

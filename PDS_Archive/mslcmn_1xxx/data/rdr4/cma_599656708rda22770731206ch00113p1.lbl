@@ -1,0 +1,85 @@
+PDS_VERSION_ID                = PDS3
+RECORD_TYPE                   = STREAM
+RECORD_BYTES                  = 10465
+FILE_RECORDS                  = 1002
+^HEADER                     = ("CMA_599656708RDA22770731206CH00113P1.CSV",1)
+^SPREADSHEET                = ("CMA_599656708RDA22770731206CH00113P1.CSV",2)
+DATA_SET_ID                   = "MSL-M-CHEMIN-4-RDR-V1.0"
+PRODUCT_ID                    = "CMA_599656708RDA22770731206CH00113P1"
+PRODUCT_VERSION_ID            = "V1.0"
+RELEASE_ID                    = "0021"
+SOURCE_PRODUCT_ID             = {"CMA_599656708EDA22770731206CH00113M1",
+"CMA_599657078EDA22770731206CH00113M1",
+"CMA_599657447EDA22770731206CH00113M1",
+"CMA_599657817EDA22770731206CH00113M1",
+"CMA_599658186EDA22770731206CH00113M1",
+"CMA_599658555EDA22770731206CH00113M1",
+"CMA_599658924EDA22770731206CH00113M1",
+"CMA_599659293EDA22770731206CH00113M1",
+"CMA_599659662EDA22770731206CH00113M1",
+"CMA_599660033EDA22770731206CH00113M1",
+"CMA_599660403EDA22770731206CH00113M1",
+"CMA_599660772EDA22770731206CH00113M1",
+"CMA_599661141EDA22770731206CH00113M1",
+"CMA_599661511EDA22770731206CH00113M1",
+"CMA_599661874EDA22770731206CH00113M1",
+"CMA_600321790EDA22850731206CH00111M1",
+"CMA_600322160EDA22850731206CH00111M1",
+"CMA_600322529EDA22850731206CH00111M1",
+"CMA_600322899EDA22850731206CH00111M1",
+"CMA_600323268EDA22850731206CH00111M1",
+"CMA_600323637EDA22850731206CH00111M1",
+"CMA_600324006EDA22850731206CH00111M1",
+"CMA_600324375EDA22850731206CH00111M1",
+"CMA_600324744EDA22850731206CH00111M1",
+"CMA_600325115EDA22850731206CH00111M1",
+"CMA_600325484EDA22850731206CH00111M1",
+"CMA_600325854EDA22850731206CH00111M1",
+"CMA_600326222EDA22850731206CH00111M1",
+"CMA_600326591EDA22850731206CH00111M1",
+"CMA_600326955EDA22850731206CH00111M1"}
+PRODUCT_TYPE                  = "CHEMIN_RDA"
+INSTRUMENT_HOST_ID            = "MSL"
+INSTRUMENT_HOST_NAME          = "MARS SCIENCE LABORATORY"
+INSTRUMENT_ID                 = "CHEMIN"
+TARGET_NAME                   = "MARS"
+MSL:CALIBRATION_STANDARD_NAME = "N/A"
+MISSION_PHASE_NAME            = "PRIMARY SURFACE MISSION"
+PRODUCT_CREATION_TIME         = 2019-06-17T17:20:00 
+START_TIME                    = 2019-01-01T23:52:20.971
+STOP_TIME                     = "UNK"
+SPACECRAFT_CLOCK_START_COUNT  = "599656708.479"
+SPACECRAFT_CLOCK_STOP_COUNT   = "UNK"
+OBJECT                        = HEADER
+ BYTES                        = 19
+ HEADER_TYPE                  = TEXT
+ DESCRIPTION                  = "This header record contains column headings
+ for the following table." 
+END_OBJECT                    = HEADER
+
+OBJECT                        = SPREADSHEET
+ ROWS                         = 1001
+ ROW_BYTES                    = 10446
+ FIELDS                       = 2
+ FIELD_DELIMITER              = "COMMA"
+ ^STRUCTURE                   = "CHEMIN_XRD.FMT"
+DESCRIPTION                   = "This table contains diffraction-all K-alpha
+ diffraction data for the Rock Hall drill sample, analyzed in CheMin cell
+ number 7b (Mylar window). The table represents results from sequences
+ uploaded on sols 2276 and 2284, including 30 minor frames that represent
+ a total of 15 hours of analysis. Refined plagioclase c and gamma cell
+ parameters were used to make a minor adjustment in the sample to detector
+ distance, reducing this by 69 um. CCD temperatures during data collection
+ were ~-50 degrees centigrade. Column 1 of the table lists 2-theta from 2.00
+ to 52.00 degrees cobalt K-alpha, in increments of 0.05 degrees (1001
+ entries). Column 2 lists the intensity of the diffraction for each 2-theta
+ value in column 1. These analyses uploaded on sols 2276 and 2284 showed
+ very poor grain motion, and for this reason these data have not been used
+ to prepare a mineralogical analysis (MIN) file. Acceptable grain motion was
+ obtained in the first few frames of the initial Rock Hall analysis uploaded
+ on sol 2264; for RDA and MIN results using these better data see 
+ CMA_598547494RDA22650731206CH00111P1 and
+ CMA_598547494MIN22650731206CH00111P1."
+END_OBJECT                    = SPREADSHEET
+END
+

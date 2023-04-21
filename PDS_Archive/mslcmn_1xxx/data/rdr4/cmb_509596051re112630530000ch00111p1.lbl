@@ -1,0 +1,98 @@
+PDS_VERSION_ID                = PDS3
+RECORD_TYPE                   = STREAM
+RECORD_BYTES                  = 24515
+FILE_RECORDS                  = 1451
+^HEADER                     = ("CMB_509596051RE112630530000CH00111P1.CSV",1)
+^SPREADSHEET                = ("CMB_509596051RE112630530000CH00111P1.CSV",2)
+DATA_SET_ID                   = "MSL-M-CHEMIN-4-RDR-V1.0"
+PRODUCT_ID                    = "CMB_509596051RE112630530000CH00111P1"
+PRODUCT_VERSION_ID            = "V1.0"
+RELEASE_ID                    = "0012"
+SOURCE_PRODUCT_ID             = {"CMB_509596051EE112630530000CH00111M1",
+"CMB_509596439EE112630530000CH00111M1",
+"CMB_509596826EE112630530000CH00111M1",
+"CMB_509597214EE112630530000CH00111M1",
+"CMB_509597602EE112630530000CH00111M1",
+"CMB_509597989EE112630530000CH00111M1",
+"CMB_509598376EE112630530000CH00111M1",
+"CMB_509598764EE112630530000CH00111M1",
+"CMB_509599151EE112630530000CH00111M1",
+"CMB_509599538EE112630530000CH00111M1",
+"CMB_509599925EE112630530000CH00111M1",
+"CMB_509600313EE112630530000CH00111M1",
+"CMB_509600700EE112630530000CH00111M1",
+"CMB_510411622EE112720530636CH00113M1",
+"CMB_510412009EE112720530636CH00113M1",
+"CMB_510412397EE112720530636CH00113M1",
+"CMB_510412785EE112720530636CH00113M1",
+"CMB_510413178EE112720530636CH00113M1",
+"CMB_510413571EE112720530636CH00113M1",
+"CMB_510413963EE112720530636CH00113M1",
+"CMB_510414358EE112720530636CH00113M1",
+"CMB_510414789EE112720530636CH00113M1",
+"CMB_510415209EE112720530636CH00113M1",
+"CMB_510415640EE112720530636CH00113M1",
+"CMB_510416053EE112720530636CH00113M1",
+"CMB_510416450EE112720530636CH00113M1",
+"CMB_511194272EE112810531182CH00113M1",
+"CMB_511194661EE112810531182CH00113M1",
+"CMB_511195049EE112810531182CH00113M1",
+"CMB_511195436EE112810531182CH00113M1",
+"CMB_511195824EE112810531182CH00113M1",
+"CMB_511196211EE112810531182CH00113M1",
+"CMB_511196599EE112810531182CH00113M1",
+"CMB_511196986EE112810531182CH00113M1",
+"CMB_511197373EE112810531182CH00113M1",
+"CMB_511197760EE112810531182CH00113M1",
+"CMB_511198148EE112810531182CH00113M1",
+"CMB_511198536EE112810531182CH00113M1",
+"CMB_511198924EE112810531182CH00113M1"}
+PRODUCT_TYPE                  = "CHEMIN_RE1"
+INSTRUMENT_HOST_ID            = "MSL"
+INSTRUMENT_HOST_NAME          = "MARS SCIENCE LABORATORY"
+INSTRUMENT_ID                 = "CHEMIN"
+TARGET_NAME                   = "MARS"
+MSL:CALIBRATION_STANDARD_NAME = "N/A"
+MISSION_PHASE_NAME            = "PRIMARY SURFACE MISSION"
+PRODUCT_CREATION_TIME         = 2016-06-21T22:05:30 
+START_TIME                    = 2016-02-24T14:47:15.161
+STOP_TIME                     = UNK
+SPACECRAFT_CLOCK_START_COUNT  = "509596051.599"
+SPACECRAFT_CLOCK_STOP_COUNT   = "UNK"
+OBJECT                        = HEADER
+ BYTES                        = 15
+ HEADER_TYPE                  = TEXT
+ DESCRIPTION                  = "This header record contains column headings
+ for the following table." 
+END_OBJECT                    = HEADER
+
+OBJECT                        = SPREADSHEET
+ ROWS                         = 1450
+ ROW_BYTES                    = 24500
+ FIELDS                       = 2
+ FIELD_DELIMITER              = "COMMA"
+ ^STRUCTURE                   = "CHEMIN_EDH.FMT"
+DESCRIPTION                  = "This table contains energy-single
+ fluorescence data for the Gobabeb dune scoop sample, analyzed in CheMin
+ cell number 7a (Mylar window). This emptied cell had previously been used
+ to analyze a Rocknest scoop sample. The 39 minor frames of best data quality
+ from sol 1263 to sol 1281 were selected and averaged, including 7020
+ individual 10-second frames in the 39 minor frames of 180 10-second frames
+ each. A threshold of 50 DN was used. CCD temperatures during data collection
+ were ~-50 degrees centigrade. Grain motion in the cell was produced by
+ direct vibration of cell pair 7, whereas the principal analysis of Gobabeb
+ was by indirect vibration applied to adjacent cell pair 8, to prevent
+ possible ejection of the very loose Gobabeb sand. For the principal RE1 file
+ of Gobabeb by indirect vibration, see RE1 file
+ CMB_507241532RE112360521162CH00113P1. An increase in Mylar diffuse
+ scattering in RDA file CMB_509595663RDA12630530000CH00111P1 at ~19 degrees
+ 2-theta, with direct vibration, indicates that some of the sample was 
+ ejected when direct vibration was applied. Column 1 of the table shows
+ energy in keV converted from digital number (DN) using a conversion factor
+ of 132.4188 DN/keV, based on position of the 6.925 keV Co K-alpha peak at DN
+ 917. Results are listed from DN 51 to 1500 (0.38514 to 11.32770 keV), 1450
+ entries. Column 2 lists the log-scale intensity for each value of keV in
+ column 1."
+END_OBJECT                    = SPREADSHEET
+END
+

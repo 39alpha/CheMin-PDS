@@ -1,0 +1,19 @@
+PDS_VERSION_ID      = PDS3
+RECORD_TYPE         = STREAM
+
+OBJECT              = TEXT
+  PUBLICATION_DATE  = 2012-06-13
+  NOTE              = "Description of contents of EXTRAS directory"
+END_OBJECT          = TEXT
+END
+
+EXTRAS Directory
+
+The EXTRAS directory on PDS archive volumes is intended for ancillary material 
+that may be of interest to the user of the archive. The material in EXTRAS
+is not required to have PDS labels or otherwise conform to PDS archive
+requirements. 
+
+The EXTRAS directory on this CheMin volume contains the file XRDINFO.PDF,
+a list of commercial or public domain software capable of processing 
+CheMin XRD data. 

@@ -1,0 +1,56 @@
+PDS_VERSION_ID      = PDS3
+RECORD_TYPE         = STREAM
+
+OBJECT              = TEXT
+  PUBLICATION_DATE  = 2012-06-13
+  NOTE              = "Description of contents of CATALOG directory"
+END_OBJECT          = TEXT
+END
+
+The CATALOG directory contains mission, spacecraft (instrument host),
+instrument, reference, personnel, and data set descriptions for 
+the MSL CheMin RDR archive.
+
+The descriptions are in text files with names ending in CAT. They are 
+called catalog files because they are written in a keyword = value format
+that enables them to be loaded into the PDS online catalog for searching.  
+They may be read in a text editor. 
+
+The files are:
+
+CHEMIN_L1_RDRDS.CAT
+
+  A description of the CheMin Level 1 data set, containing energy and 
+  X-ray diffraction data derived from the raw CheMin data.
+
+CHEMIN_L2_RDRDS.CAT
+
+  A description of the CheMin Level 2 data set, containing mineral
+  identification and abundance data.
+
+CHEMIN_INST.CAT
+
+  An overview of the CheMin instrument.
+
+CHEMIN_REF.CAT
+
+  A listing of references cited in the above CheMin catalog files, along
+  with other references that may be of interest.
+
+MSL_INSTHOST.CAT
+
+  A description of the Mars Science Laboratory rover.
+
+MSL_MISSION.CAT
+
+  A brief description of the MSL mission.  It includes a chronology of
+  events, definition of mission phases, and science objectives.
+
+MSL_REF.CAT
+
+  A listing of references cited in MSL_MISSION.CAT and MSL_INSTHOST.CAT.
+
+PERSON.CAT
+
+  Contact information for personnel associated with the CheMin RDR archive.
+  

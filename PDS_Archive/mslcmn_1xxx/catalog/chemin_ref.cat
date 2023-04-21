@@ -1,0 +1,30 @@
+LABEL_REVISION_NOTE         = "2011-06-27 GEO:Slavney Initial draft"
+RECORD_TYPE                 = STREAM
+
+OBJECT                      = REFERENCE
+  REFERENCE_KEY_ID          = "VANIMANETAL1998"
+  REFERENCE_DESC            = "Vaniman, D., D. Bish, D. Blake, S.T. 
+    Elliott, P. Sarrazin, et al., Landed XRD/XRF analysis of 
+    prime targets in search for past or present Martian life, 
+    J. Geophys. Res. 103, E13, 31477-31489, 1998."
+END_OBJECT                  = REFERENCE
+
+OBJECT                      = REFERENCE
+  REFERENCE_KEY_ID          = "BLAKEETAL2010"
+  REFERENCE_DESC            = "Blake, D.F., D. Vaniman, R. Anderson, 
+    D. Bish, S. Chipera, et al., Test and delivery of the CheMin 
+    mineralogical instrument for Mars Science Laboratory '11, 41st 
+    LPSC, #1898, 2010."
+END_OBJECT                  = REFERENCE
+END
+
+OBJECT                      = REFERENCE
+  REFERENCE_KEY_ID          = "BLAKEETAL2012"
+  REFERENCE_DESC            = "Blake, D., D. Vaniman, C. Achilles, 
+     R. Anderson, D. Bish, T. Bristow, C. Chen, S. Chipera, J. Crisp, 
+     D. Des Marais, R.T. Downs, J. Farmer, S. Feldman, M. Fonda, 
+     M. Gailhanou, H. Ma, D.W. Ming, R.V. Morris, P. Sarrazin, E. Stolper,
+     A. Treiman, and A. Yen, Characterization and calibration of the 
+     CheMin mineralogical instrument on Mars Science Laboratory,
+     Space Sci. Rev., 170, p. 341-399, doi:10.1007/s11214-012-9905-1, 2012."
+END_OBJECT                  = REFERENCE
