@@ -1,1 +1,8 @@
+# tdls assets
+.classpath
+.factorypath
+.project
+.settings
+
+# build assets
 target
