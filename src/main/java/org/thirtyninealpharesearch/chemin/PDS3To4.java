@@ -1,4 +1,4 @@
-package org.thirtyninealpharesearch.pds;
+package org.thirtyninealpharesearch.chemin;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -11,7 +11,7 @@ import org.apache.velocity.app.Velocity;
 import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 
-import org.thirtyninealpharesearch.pds3.RDR4Label;
+import org.thirtyninealpharesearch.chemin.pds3.RDR4Label;
 
 public class PDS3To4 {
     private int run(String[] args) throws Exception {

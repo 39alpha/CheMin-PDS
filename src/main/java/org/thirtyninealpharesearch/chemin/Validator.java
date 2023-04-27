@@ -1,4 +1,4 @@
-package org.thirtyninealpharesearch.pds;
+package org.thirtyninealpharesearch.chemin;
 
 import gov.nasa.pds.validate.ValidateLauncher;
 

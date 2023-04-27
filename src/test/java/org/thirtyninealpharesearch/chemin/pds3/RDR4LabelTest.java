@@ -1,4 +1,4 @@
-package org.thirtyninealpharesearch.pds3;
+package org.thirtyninealpharesearch.chemin.pds3;
 
 import org.junit.jupiter.api.Test;
 

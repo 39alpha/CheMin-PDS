@@ -1,4 +1,4 @@
-package org.thirtyninealpharesearch.pds3;
+package org.thirtyninealpharesearch.chemin.pds3;
 
 import java.io.IOException;
 
@@ -6,7 +6,7 @@ import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
 
-import org.thirtyninealpharesearch.pds3.RDR4LabelParser.*;
+import org.thirtyninealpharesearch.chemin.pds3.RDR4LabelParser.*;
 
 public class RDR4Label extends RDR4LabelBaseListener {
     public static RDR4Label parseFile(String filename) throws IOException {
