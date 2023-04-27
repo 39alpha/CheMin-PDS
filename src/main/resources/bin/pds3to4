@@ -1,0 +1,24 @@
+#!/usr/bin/env sh
+
+if [ -z "${JAVA_HOME}" ]; then
+   JAVA_CMD=`which java`
+   if [ $? -ne 0 ]; then
+     echo "JAVA_HOME is not set as an environment variable"
+     exit 1
+   fi
+else
+   JAVA_CMD="${JAVA_HOME}"/bin/java
+fi
+
+SCRIPT_DIR=`dirname $0`
+PARENT_DIR=`cd ${SCRIPT_DIR}/.. && pwd`
+LIB_DIR=${PARENT_DIR}/lib
+
+if [ ! -f ${LIB_DIR}/chemin-*.jar ]; then
+    echo "Cannot find CHEMIN Tool jar file in ${LIB_DIR}" 1>&2
+    exit 1
+fi
+
+CHEMIN_JAR=`ls ${LIB_DIR}/chemin-*.jar`
+
+"${JAVA_CMD}" -Xms2048m -Xmx4096m -cp ${CHEMIN_JAR} org.thirtyninealpharesearch.chemin.PDS3To4 "$@"
