@@ -33,8 +33,8 @@ label:
     productcreationtime
     starttime
     stoptime
-    spacecraftclockstarttime
-    spacecraftclockstoptime
+    spacecraftclockstartcount
+    spacecraftclockstopcount
     object*
     end
     EOF;
@@ -81,9 +81,9 @@ starttime : 'START_TIME' EQUALS utcdate WS* NL+;
 
 stoptime : 'STOP_TIME' EQUALS optionalutcdate WS* NL+;
 
-spacecraftclockstarttime : 'SPACECRAFT_CLOCK_START_COUNT' EQUALS '"' clockcount '"' WS* NL+;
+spacecraftclockstartcount : 'SPACECRAFT_CLOCK_START_COUNT' EQUALS '"' clockcount '"' WS* NL+;
 
-spacecraftclockstoptime : 'SPACECRAFT_CLOCK_STOP_COUNT' EQUALS optionalclockcount WS* NL+;
+spacecraftclockstopcount : 'SPACECRAFT_CLOCK_STOP_COUNT' EQUALS optionalclockcount WS* NL+;
 
 object :
     objectheader
@@ -126,7 +126,9 @@ filetuple : '(' WS* '"' filename '"' WS* ',' INUMBER ')';
 
 filename : word '.' word;
 
-quoted : '"' ~'"'+ '"';
+quoted : '"' notquoted '"';
+
+notquoted : ~'"'+;
 
 hyphenatedword : WORD
                | INUMBER
