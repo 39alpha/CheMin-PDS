@@ -1,17 +1,7 @@
 package org.thirtyninealpharesearch.pds;
 
-import gov.nasa.pds.validate.ValidateLauncher;
-
 import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStreamWriter;
-
-import java.util.ArrayList;
-
-import org.apache.commons.io.IOUtils;
 
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
@@ -40,48 +30,21 @@ public class PDS3To4
 
         VelocityContext context = new VelocityContext();
 
-        ArrayList<String> list = new ArrayList<String>();
-        list.add("Cole");
-        list.add("Doug");
-        list.add("Tucker");
-        context.put("list", list);
-
         try {
             Label label = LabelBuilder.parseFile(labelFilename);
-            System.out.printf("PDS Version: %s\n", label.PDSVersionId);
+            context.put("label", label);
 
             Template template = Velocity.getTemplate(templateFilename);
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
             template.merge(context, writer);
             writer.flush();
 
-            File registeredProductsFile = PDS3To4.getResourceAsFile("/util/registered_context_products.json");
-            ValidateLauncher v = new ValidateLauncher();
-            v.setRegisteredProductsFile(registeredProductsFile);
-            v.processMain(new String[]{"temp.xml"});
+            new Validator().process(new String[]{"temp.xml"});
 
             writer.close();
         } catch (Exception e) {
             System.err.println("Failed to close writer");
             System.exit(1);
-        }
-    }
-
-    public static File getResourceAsFile(String resourcePath) {
-        try {
-            InputStream in = PDS3To4.class.getResourceAsStream(resourcePath);
-            if (in == null) {
-                return null;
-            }
-
-            File tempFile = File.createTempFile(String.valueOf(in.hashCode()), ".tmp");
-            tempFile.deleteOnExit();
-
-            IOUtils.copy(in, new FileOutputStream(tempFile));
-            return tempFile;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
         }
     }
 }

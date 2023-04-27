@@ -20,14 +20,12 @@ public class LabelBuilder extends LabelBaseListener {
     }
 
     private Label data;
-    private String filename;
 
     public LabelBuilder(String filename) {
-        this.filename = filename;
-        this.data = new Label();
+        data = new Label();
     }
 
     @Override public void enterPdsversion(@NotNull LabelParser.PdsversionContext ctx) {
-        this.data.PDSVersionId = ctx.WORD().getText();
+        data.PDSVersionId = ctx.WORD().getText();
     }
 }
