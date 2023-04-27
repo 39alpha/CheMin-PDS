@@ -9,6 +9,8 @@ import org.apache.velocity.app.Velocity;
 import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 
+import org.thirtyninealpharesearch.pds3.RDR4Label;
+
 public class PDS3To4
 {
     public static void main(String[] args)
@@ -31,7 +33,7 @@ public class PDS3To4
         VelocityContext context = new VelocityContext();
 
         try {
-            Label label = LabelBuilder.parseFile(labelFilename);
+            RDR4Label label = RDR4Label.parseFile(labelFilename);
             context.put("label", label);
 
             Template template = Velocity.getTemplate(templateFilename);

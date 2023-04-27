@@ -1,4 +1,4 @@
-grammar Label;
+grammar RDR4Label;
 
 NL: [\r\n];
 WS: [ \t]+;
