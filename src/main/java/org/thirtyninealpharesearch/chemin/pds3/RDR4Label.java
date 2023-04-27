@@ -31,7 +31,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterPdsversion(@NotNull PdsversionContext ctx) {
-        PDSVersionId = ctx.WORD().getText();
+        PDSVersionId = ctx.word().getText();
     }
 
     public String getFilename() {

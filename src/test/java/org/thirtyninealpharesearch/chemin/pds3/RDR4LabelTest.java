@@ -10,7 +10,7 @@ public class RDR4LabelTest
     @Test
     public void shouldParsePDSVersionId()
     {
-        String filename = "src/test/data/test.lbl";
+        String filename = "src/test/data/pds3/rdr4_test.lbl";
         RDR4Label label = assertDoesNotThrow(
             () -> RDR4Label.parseFile(filename),
             "Should Not Throw"
