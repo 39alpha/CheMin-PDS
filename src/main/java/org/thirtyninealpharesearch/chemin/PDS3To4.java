@@ -54,7 +54,7 @@ public class PDS3To4 {
             int exitCode = new PDS3To4().run(args);
             System.exit(exitCode);
         } catch (Exception e) {
-            System.err.println("Failed to close writer");
+            System.err.println(e.getMessage());
             System.exit(1);
         }
     }
