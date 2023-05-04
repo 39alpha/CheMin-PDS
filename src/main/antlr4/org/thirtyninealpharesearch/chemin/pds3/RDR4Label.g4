@@ -12,117 +12,117 @@ fragment INTEGER : '0'..'9'+;
 fragment FLOAT   : '0'..'9'+ '.' '0'..'9'*;
 
 label:
-    pdsversion
-    recordtype
-    recordbytes
-    filerecords
+    pdsVersionId
+    recordType
+    recordBytes
+    fileRecords
     header
     spreadsheet
-    datasetid
-    productid
-    productversionid
-    releaseid
-    sourceproductid
-    producttype
-    instrumenthostid
-    instrumenthostname
-    instrumentid
-    targetname
-    mslcalibrationstandardname
-    missionphasename
-    productcreationtime
-    starttime
-    stoptime
-    spacecraftclockstartcount
-    spacecraftclockstopcount
+    datasetId
+    productId
+    productVersionId
+    releaseId
+    sourceProductId
+    productType
+    instrumentHostId
+    instrumentHostName
+    instrumentId
+    targetName
+    mslCalibrationStandardName
+    missionPhaseName
+    productCreationTime
+    startTime
+    stopTime
+    spacecraftClockStartCount
+    spacecraftClockStopCount
     object*
     end
     EOF;
 
-pdsversion : 'PDS_VERSION_ID' EQUALS word WS* NL+;
+pdsVersionId : 'PDS_VERSION_ID' EQUALS word WS* NL+;
 
-recordtype : 'RECORD_TYPE' EQUALS word WS* NL+;
+recordType : 'RECORD_TYPE' EQUALS word WS* NL+;
 
-recordbytes : 'RECORD_BYTES' EQUALS INUMBER WS* NL+;
+recordBytes : 'RECORD_BYTES' EQUALS INUMBER WS* NL+;
 
-filerecords : 'FILE_RECORDS' EQUALS INUMBER WS* NL+;
+fileRecords : 'FILE_RECORDS' EQUALS INUMBER WS* NL+;
 
-header : '^HEADER' EQUALS filetuple WS* NL+;
+header : '^HEADER' EQUALS fileTuple WS* NL+;
 
-spreadsheet : '^SPREADSHEET' EQUALS filetuple WS* NL+;
+spreadsheet : '^SPREADSHEET' EQUALS fileTuple WS* NL+;
 
-datasetid : 'DATA_SET_ID' EQUALS '"' hyphenatedword '"' WS* NL+;
+datasetId : 'DATA_SET_ID' EQUALS '"' hyphenatedWord '"' WS* NL+;
 
-productid : 'PRODUCT_ID' EQUALS '"' word '"' WS* NL+;
+productId : 'PRODUCT_ID' EQUALS '"' word '"' WS* NL+;
 
-productversionid : 'PRODUCT_VERSION_ID' EQUALS '"' VERSION '"' WS* NL+;
+productVersionId : 'PRODUCT_VERSION_ID' EQUALS '"' VERSION '"' WS* NL+;
 
-releaseid : 'RELEASE_ID' EQUALS '"' INUMBER '"' WS* NL+;
+releaseId : 'RELEASE_ID' EQUALS '"' INUMBER '"' WS* NL+;
 
-sourceproductid : 'SOURCE_PRODUCT_ID' EQUALS identifierlist WS* NL+;
+sourceProductId : 'SOURCE_PRODUCT_ID' EQUALS identifierList WS* NL+;
 
-producttype : 'PRODUCT_TYPE' EQUALS '"' WORD '"' WS* NL+;
+productType : 'PRODUCT_TYPE' EQUALS '"' WORD '"' WS* NL+;
 
-instrumenthostid : 'INSTRUMENT_HOST_ID' EQUALS '"' WORD '"' WS* NL+;
+instrumentHostId : 'INSTRUMENT_HOST_ID' EQUALS '"' WORD '"' WS* NL+;
 
-instrumenthostname : 'INSTRUMENT_HOST_NAME' EQUALS '"' words '"' WS* NL+;
+instrumentHostName : 'INSTRUMENT_HOST_NAME' EQUALS '"' words '"' WS* NL+;
 
-instrumentid : 'INSTRUMENT_ID' EQUALS '"' WORD '"' WS* NL+;
+instrumentId : 'INSTRUMENT_ID' EQUALS '"' WORD '"' WS* NL+;
 
-targetname : 'TARGET_NAME' EQUALS '"' WORD '"' WS* NL+;
+targetName : 'TARGET_NAME' EQUALS '"' WORD '"' WS* NL+;
 
-mslcalibrationstandardname: 'MSL:CALIBRATION_STANDARD_NAME' EQUALS '"' words '"' WS* NL+;
+mslCalibrationStandardName: 'MSL:CALIBRATION_STANDARD_NAME' EQUALS '"' words '"' WS* NL+;
 
-missionphasename : 'MISSION_PHASE_NAME' EQUALS '"' words '"' WS* NL+;
+missionPhaseName : 'MISSION_PHASE_NAME' EQUALS '"' words '"' WS* NL+;
 
-productcreationtime : 'PRODUCT_CREATION_TIME' EQUALS utcdate WS* NL+;
+productCreationTime : 'PRODUCT_CREATION_TIME' EQUALS utcDate WS* NL+;
 
-starttime : 'START_TIME' EQUALS utcdate WS* NL+;
+startTime : 'START_TIME' EQUALS utcDate WS* NL+;
 
-stoptime : 'STOP_TIME' EQUALS optionalutcdate WS* NL+;
+stopTime : 'STOP_TIME' EQUALS optionalUTCDate WS* NL+;
 
-spacecraftclockstartcount : 'SPACECRAFT_CLOCK_START_COUNT' EQUALS '"' clockcount '"' WS* NL+;
+spacecraftClockStartCount : 'SPACECRAFT_CLOCK_START_COUNT' EQUALS '"' clockCount '"' WS* NL+;
 
-spacecraftclockstopcount : 'SPACECRAFT_CLOCK_STOP_COUNT' EQUALS optionalclockcount WS* NL+;
+spacecraftClockStopCount : 'SPACECRAFT_CLOCK_STOP_COUNT' EQUALS optionalClockCount WS* NL+;
 
 object :
-    objectheader
-    objectfields
-    objectend;
+    objectHeader
+    objectProperties
+    objectEnd;
 
-objectheader : 'OBJECT' EQUALS WORD WS* NL+;
+objectHeader : 'OBJECT' EQUALS WORD WS* NL+;
 
-objectend : 'END_OBJECT' EQUALS WORD WS* NL+;
+objectEnd : 'END_OBJECT' EQUALS WORD WS* NL+;
 
-objectfields : objectfield
-             | objectfield objectfields;
+objectProperties : objectProperty
+                 | objectProperty objectProperties;
 
-objectfield : objectbytes
-            | objectrows
-            | objectrowbytes
-            | objectfieldcount
-            | objectfielddelimiter
-            | objectstructure
-            | objectheadertype
-            | objectdescription;
+objectProperty : objectBytes
+               | objectRows
+               | objectRowBytes
+               | objectFields
+               | objectFieldDelimiter
+               | objectStructure
+               | objectHeaderType
+               | objectDescription;
 
-objectbytes : WS* 'BYTES' EQUALS INUMBER WS* NL+;
+objectBytes : WS* 'BYTES' EQUALS INUMBER WS* NL+;
 
-objectrows : WS* 'ROWS' EQUALS INUMBER WS* NL+;
+objectRows : WS* 'ROWS' EQUALS INUMBER WS* NL+;
 
-objectrowbytes : WS* 'ROW_BYTES' EQUALS INUMBER WS* NL+;
+objectRowBytes : WS* 'ROW_BYTES' EQUALS INUMBER WS* NL+;
 
-objectfieldcount : WS* 'FIELDS' EQUALS INUMBER WS* NL+;
+objectFields : WS* 'FIELDS' EQUALS INUMBER WS* NL+;
 
-objectfielddelimiter : WS* 'FIELD_DELIMITER' EQUALS '"' WORD '"' WS* NL+;
+objectFieldDelimiter : WS* 'FIELD_DELIMITER' EQUALS '"' WORD '"' WS* NL+;
 
-objectheadertype : WS* 'HEADER_TYPE' EQUALS word WS* NL+;
+objectHeaderType : WS* 'HEADER_TYPE' EQUALS word WS* NL+;
 
-objectdescription : WS* 'DESCRIPTION' EQUALS quoted WS* NL+;
+objectDescription : WS* 'DESCRIPTION' EQUALS quoted WS* NL+;
 
-objectstructure : WS* '^STRUCTURE' EQUALS '"' filename '"' WS* NL+;
+objectStructure : WS* '^STRUCTURE' EQUALS '"' filename '"' WS* NL+;
 
-filetuple : '(' WS* '"' filename '"' WS* ',' INUMBER ')';
+fileTuple : '(' WS* '"' filename '"' WS* ',' INUMBER ')';
 
 filename : word '.' word;
 
@@ -130,12 +130,12 @@ quoted : '"' notquoted '"';
 
 notquoted : ~'"'+;
 
-hyphenatedword : WORD
+hyphenatedWord : WORD
                | INUMBER
                | VERSION
-               | WORD '-' hyphenatedword
-               | INUMBER '-' hyphenatedword
-               | VERSION '-' hyphenatedword;
+               | WORD '-' hyphenatedWord
+               | INUMBER '-' hyphenatedWord
+               | VERSION '-' hyphenatedWord;
 
 word : WORD
      | WORD word
@@ -144,21 +144,21 @@ word : WORD
 words : word
       | word WS+ words;
 
-identifierlist : '{' identifierentries '}';
+identifierList : '{' identifierEntries '}';
 
-identifierentries : WS* identifierentry WS*
-                  | WS* identifierentry WS* ',' NL* identifierentries;
+identifierEntries : WS* identifierEntry WS*
+                  | WS* identifierEntry WS* ',' NL* identifierEntries;
 
-identifierentry : '"' word '"';
+identifierEntry : '"' word '"';
 
-optionalutcdate : '"UNK"'
-                | utcdate;
+optionalUTCDate : '"UNK"'
+                | utcDate;
 
-utcdate : INUMBER '-' INUMBER '-' INUMBER 'T' INUMBER ':' INUMBER ':' INUMBER ('.' INUMBER)?;
+utcDate : INUMBER '-' INUMBER '-' INUMBER 'T' INUMBER ':' INUMBER ':' INUMBER ('.' INUMBER)?;
 
-optionalclockcount : '"UNK"'
-                   | '"' clockcount '"';
+optionalClockCount : '"UNK"'
+                   | '"' clockCount '"';
 
-clockcount : INUMBER ('.' INUMBER)?;
+clockCount : INUMBER ('.' INUMBER)?;
 
 end : 'END' NL+;

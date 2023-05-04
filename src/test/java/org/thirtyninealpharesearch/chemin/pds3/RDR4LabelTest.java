@@ -56,7 +56,7 @@ public class RDR4LabelTest
         assertEquals(19, header.getBytes());
         assertNull(header.getRows());
         assertNull(header.getRowBytes());
-        assertNull(header.getFieldCount());
+        assertNull(header.getFields());
         assertNull(header.getFieldDelimiter());
         assertEquals("TEXT", header.getHeaderType());
         assertEquals("This header record contains column headings\r\n for the following table.", header.getDescription());
@@ -68,7 +68,7 @@ public class RDR4LabelTest
         assertNull(spreadsheet.getBytes());
         assertEquals(980, spreadsheet.getRows());
         assertEquals(255, spreadsheet.getRowBytes());
-        assertEquals(2, spreadsheet.getFieldCount());
+        assertEquals(2, spreadsheet.getFields());
         assertEquals("COMMA", spreadsheet.getFieldDelimiter());
         assertNull(spreadsheet.getHeaderType());
         assertEquals("This table contains diffraction-all K-alpha\r\n diffraction data for the fourth scooped soil sample from the Rocknest target,\r\n analyzed in CheMin cell number 1a (Kapton window). The table represents\r\n results from sequences uploaded from sol00077 to sol00088, including 6,840\r\n individual 10-second frames in 38 minor frames of 180 individual 10-second\r\n frames. CCD temperatures during data collection were ~-50 degrees centigrade.\r\n Column 1 of the table lists 2-theta from 3.00 to 51.95 degrees cobalt\r\n K-alpha, in increments of 0.05 degrees (980 entries). Column 2 lists the\r\n intensity of the diffraction for each 2-theta value in column 1.", spreadsheet.getDescription());

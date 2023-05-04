@@ -48,7 +48,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         public Integer bytes;
         public Integer rows;
         public Integer row_bytes;
-        public Integer field_count;
+        public Integer fields;
         public String field_delimiter;
         public String header_type;
         public String description;
@@ -73,8 +73,8 @@ public class RDR4Label extends RDR4LabelBaseListener {
             return row_bytes;
         }
 
-        public Integer getFieldCount() {
-            return field_count;
+        public Integer getFields() {
+            return fields;
         }
 
         public String getFieldDelimiter() {
@@ -124,7 +124,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return filename;
     }
 
-    @Override public void enterPdsversion(@NotNull PdsversionContext ctx) {
+    @Override public void enterPdsVersionId(@NotNull PdsVersionIdContext ctx) {
         PDSVersionId = ctx.word().getText();
     }
 
@@ -132,7 +132,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return PDSVersionId;
     }
 
-    @Override public void enterRecordtype(@NotNull RecordtypeContext ctx) {
+    @Override public void enterRecordType(@NotNull RecordTypeContext ctx) {
         RecordType = ctx.word().getText();
     }
 
@@ -140,7 +140,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return RecordType;
     }
 
-    @Override public void enterRecordbytes(@NotNull RecordbytesContext ctx) {
+    @Override public void enterRecordBytes(@NotNull RecordBytesContext ctx) {
         RecordBytes = Integer.parseInt(ctx.INUMBER().getText());
     }
 
@@ -148,7 +148,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return RecordBytes;
     }
 
-    @Override public void enterFilerecords(@NotNull FilerecordsContext ctx) {
+    @Override public void enterFileRecords(@NotNull FileRecordsContext ctx) {
         FileRecords = Integer.parseInt(ctx.INUMBER().getText());
     }
 
@@ -157,8 +157,8 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterHeader(@NotNull HeaderContext ctx) {
-        String filename = ctx.filetuple().filename().getText();
-        int index = Integer.parseInt(ctx.filetuple().INUMBER().getText());
+        String filename = ctx.fileTuple().filename().getText();
+        int index = Integer.parseInt(ctx.fileTuple().INUMBER().getText());
         Header = new LinkEntry(filename, index);
     }
 
@@ -167,8 +167,8 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterSpreadsheet(@NotNull SpreadsheetContext ctx) {
-        String filename = ctx.filetuple().filename().getText();
-        int index = Integer.parseInt(ctx.filetuple().INUMBER().getText());
+        String filename = ctx.fileTuple().filename().getText();
+        int index = Integer.parseInt(ctx.fileTuple().INUMBER().getText());
         Spreadsheet = new LinkEntry(filename, index);
     }
 
@@ -176,15 +176,15 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return Spreadsheet;
     }
 
-    @Override public void enterDatasetid(@NotNull DatasetidContext ctx) {
-        DataSetId = ctx.hyphenatedword().getText();
+    @Override public void enterDatasetId(@NotNull DatasetIdContext ctx) {
+        DataSetId = ctx.hyphenatedWord().getText();
     }
 
     public String getDataSetId() {
         return DataSetId;
     }
 
-    @Override public void enterProductid(@NotNull ProductidContext ctx) {
+    @Override public void enterProductId(@NotNull ProductIdContext ctx) {
         ProductId = ctx.word().getText();
     }
 
@@ -192,7 +192,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return ProductId;
     }
 
-    @Override public void enterProductversionid(@NotNull ProductversionidContext ctx) {
+    @Override public void enterProductVersionId(@NotNull ProductVersionIdContext ctx) {
         ProductVersionId = ctx.VERSION().getText();
     }
 
@@ -200,7 +200,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return ProductVersionId;
     }
 
-    @Override public void enterReleaseid(@NotNull ReleaseidContext ctx) {
+    @Override public void enterReleaseId(@NotNull ReleaseIdContext ctx) {
         ReleaseId = ctx.INUMBER().getText();
     }
 
@@ -208,14 +208,14 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return ReleaseId;
     }
 
-    @Override public void enterSourceproductid(@NotNull SourceproductidContext ctx) {
+    @Override public void enterSourceProductId(@NotNull SourceProductIdContext ctx) {
         SourceProductId = new ArrayList<String>();
-        IdentifierentriesContext idc = ctx.identifierlist().identifierentries();
+        IdentifierEntriesContext idc = ctx.identifierList().identifierEntries();
         while (idc != null) {
-            String entry = idc.identifierentry().word().getText();
+            String entry = idc.identifierEntry().word().getText();
             SourceProductId.add(entry);
 
-            idc = idc.identifierentries();
+            idc = idc.identifierEntries();
         }
     }
 
@@ -223,7 +223,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return SourceProductId;
     }
 
-    @Override public void enterProducttype(@NotNull ProducttypeContext ctx) {
+    @Override public void enterProductType(@NotNull ProductTypeContext ctx) {
         ProductType = ctx.WORD().getText();
     }
 
@@ -231,7 +231,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return ProductType;
     }
 
-    @Override public void enterInstrumenthostid(@NotNull InstrumenthostidContext ctx) {
+    @Override public void enterInstrumentHostId(@NotNull InstrumentHostIdContext ctx) {
         InstrumentHostId = ctx.WORD().getText();
     }
 
@@ -239,7 +239,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return InstrumentHostId;
     }
 
-    @Override public void enterInstrumenthostname(@NotNull InstrumenthostnameContext ctx) {
+    @Override public void enterInstrumentHostName(@NotNull InstrumentHostNameContext ctx) {
         InstrumentHostName = ctx.words().getText();
     }
 
@@ -247,7 +247,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return InstrumentHostName;
     }
 
-    @Override public void enterInstrumentid(@NotNull InstrumentidContext ctx) {
+    @Override public void enterInstrumentId(@NotNull InstrumentIdContext ctx) {
         InstrumentId = ctx.WORD().getText();
     }
 
@@ -255,7 +255,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return InstrumentId;
     }
 
-    @Override public void enterTargetname(@NotNull TargetnameContext ctx) {
+    @Override public void enterTargetName(@NotNull TargetNameContext ctx) {
         TargetName = ctx.WORD().getText();
     }
 
@@ -263,7 +263,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return TargetName;
     }
 
-    @Override public void enterMslcalibrationstandardname(@NotNull MslcalibrationstandardnameContext ctx) {
+    @Override public void enterMslCalibrationStandardName(@NotNull MslCalibrationStandardNameContext ctx) {
         MSLCalibrationStandardName = ctx.words().getText();
     }
 
@@ -271,7 +271,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return MSLCalibrationStandardName;
     }
 
-    @Override public void enterMissionphasename(@NotNull MissionphasenameContext ctx) {
+    @Override public void enterMissionPhaseName(@NotNull MissionPhaseNameContext ctx) {
         MissionPhaseName = ctx.words().getText();
     }
 
@@ -279,25 +279,25 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return MissionPhaseName;
     }
 
-    @Override public void enterProductcreationtime(@NotNull ProductcreationtimeContext ctx) {
-        ProductCreationTime = ctx.utcdate().getText();
+    @Override public void enterProductCreationTime(@NotNull ProductCreationTimeContext ctx) {
+        ProductCreationTime = ctx.utcDate().getText();
     }
 
     public String getProductCreationTime() {
         return ProductCreationTime;
     }
 
-    @Override public void enterStarttime(@NotNull StarttimeContext ctx) {
-        StartTime = ctx.utcdate().getText();
+    @Override public void enterStartTime(@NotNull StartTimeContext ctx) {
+        StartTime = ctx.utcDate().getText();
     }
 
     public String getStartTime() {
         return StartTime;
     }
 
-    @Override public void enterStoptime(@NotNull StoptimeContext ctx) {
-        OptionalutcdateContext c = ctx.optionalutcdate();
-        if (c.utcdate() != null) {
+    @Override public void enterStopTime(@NotNull StopTimeContext ctx) {
+        OptionalUTCDateContext c = ctx.optionalUTCDate();
+        if (c.utcDate() != null) {
             StopTime = c.getText();
         } else {
             StopTime = "UNK";
@@ -308,17 +308,17 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return StopTime;
     }
 
-    @Override public void enterSpacecraftclockstartcount(@NotNull SpacecraftclockstartcountContext ctx) {
-        SpacecraftClockStartCount = ctx.clockcount().getText();
+    @Override public void enterSpacecraftClockStartCount(@NotNull SpacecraftClockStartCountContext ctx) {
+        SpacecraftClockStartCount = ctx.clockCount().getText();
     }
 
     public String getSpacecraftClockStartCount() {
         return SpacecraftClockStartCount;
     }
 
-    @Override public void enterSpacecraftclockstopcount(@NotNull SpacecraftclockstopcountContext ctx) {
-        OptionalclockcountContext c = ctx.optionalclockcount();
-        if (c.clockcount() != null) {
+    @Override public void enterSpacecraftClockStopCount(@NotNull SpacecraftClockStopCountContext ctx) {
+        OptionalClockCountContext c = ctx.optionalClockCount();
+        if (c.clockCount() != null) {
             SpacecraftClockStopCount = c.getText();
         } else {
             SpacecraftClockStopCount = "UNK";
@@ -336,39 +336,39 @@ public class RDR4Label extends RDR4LabelBaseListener {
         Objects.add(new Object());
     }
 
-    @Override public void enterObjectheader(@NotNull ObjectheaderContext ctx) {
+    @Override public void enterObjectHeader(@NotNull ObjectHeaderContext ctx) {
         lastObject().name = ctx.WORD().getText();
     }
 
-    @Override public void enterObjectbytes(@NotNull ObjectbytesContext ctx) {
+    @Override public void enterObjectBytes(@NotNull ObjectBytesContext ctx) {
         lastObject().bytes = Integer.parseInt(ctx.INUMBER().getText());
     }
 
-    @Override public void enterObjectrows(@NotNull ObjectrowsContext ctx) {
+    @Override public void enterObjectRows(@NotNull ObjectRowsContext ctx) {
         lastObject().rows = Integer.parseInt(ctx.INUMBER().getText());
     }
 
-    @Override public void enterObjectrowbytes(@NotNull ObjectrowbytesContext ctx) {
+    @Override public void enterObjectRowBytes(@NotNull ObjectRowBytesContext ctx) {
         lastObject().row_bytes = Integer.parseInt(ctx.INUMBER().getText());
     }
 
-    @Override public void enterObjectfieldcount(@NotNull ObjectfieldcountContext ctx) {
-        lastObject().field_count = Integer.parseInt(ctx.INUMBER().getText());
+    @Override public void enterObjectFields(@NotNull ObjectFieldsContext ctx) {
+        lastObject().fields = Integer.parseInt(ctx.INUMBER().getText());
     }
 
-    @Override public void enterObjectfielddelimiter(@NotNull ObjectfielddelimiterContext ctx) {
+    @Override public void enterObjectFieldDelimiter(@NotNull ObjectFieldDelimiterContext ctx) {
         lastObject().field_delimiter = ctx.WORD().getText();
     }
 
-    @Override public void enterObjectheadertype(@NotNull ObjectheadertypeContext ctx) {
+    @Override public void enterObjectHeaderType(@NotNull ObjectHeaderTypeContext ctx) {
         lastObject().header_type = ctx.word().getText();
     }
 
-    @Override public void enterObjectdescription(@NotNull ObjectdescriptionContext ctx) {
+    @Override public void enterObjectDescription(@NotNull ObjectDescriptionContext ctx) {
         lastObject().description = ctx.quoted().notquoted().getText();
     }
 
-    @Override public void enterObjectend(@NotNull ObjectendContext ctx) {
+    @Override public void enterObjectEnd(@NotNull ObjectEndContext ctx) {
         lastObject().end = ctx.WORD().getText();
     }
 
