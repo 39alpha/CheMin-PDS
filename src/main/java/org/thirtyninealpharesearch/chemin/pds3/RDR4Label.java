@@ -7,21 +7,37 @@ import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
 
+import org.thirtyninealpharesearch.chemin.ErrorStrategy;
+import org.thirtyninealpharesearch.chemin.ErrorListener;
 import org.thirtyninealpharesearch.chemin.pds3.RDR4LabelParser.*;
 
 public class RDR4Label extends RDR4LabelBaseListener {
-    public static RDR4Label parseFile(String filename) throws IOException {
+    public static RDR4Label parseFile(String filename, boolean silent) throws IOException {
+        ErrorListener listener = new ErrorListener(filename);
+
         ANTLRFileStream in = new ANTLRFileStream(filename);
         RDR4LabelLexer lexer = new RDR4LabelLexer(in);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         RDR4LabelParser parser = new RDR4LabelParser(tokens);
 
+        parser.setErrorHandler(new ErrorStrategy());
+        parser.removeErrorListeners();
+        parser.addErrorListener(listener);
+
         RDR4Label label = new RDR4Label(filename);
 
         ParseTreeWalker walker = new ParseTreeWalker();
-        walker.walk(label, parser.label());
+        try {
+            walker.walk(label, parser.label());
+            return label;
+        } catch (Exception e) {
+            listener.reportErrors();
+            return null;
+        }
+    }
 
-        return label;
+    public static RDR4Label parseFile(String filename) throws IOException {
+        return RDR4Label.parseFile(filename, false);
     }
 
     public class ObjectLink {
@@ -38,6 +54,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         public String getName() {
             return name;
         }
+
         public String getFilename() {
             return filename;
         }

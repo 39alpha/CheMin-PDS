@@ -8,17 +8,20 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.util.ArrayList;
+import org.thirtyninealpharesearch.chemin.pds3.RDR4Label.ObjectLink;
+import org.thirtyninealpharesearch.chemin.pds3.RDR4Label.Object;
 
 public class RDR4LabelTest
 {
     @Test
-    public void shouldParsePDSVersionId()
+    public void shouldParse()
     {
         String filename = "src/test/data/pds3/rdr4_test.lbl";
         RDR4Label label = assertDoesNotThrow(
             () -> RDR4Label.parseFile(filename),
             "Should Not Throw"
         );
+        assertNotNull(label);
         assertEquals(filename, label.getFilename());
         assertEquals("PDS3", label.getPDSVersionId());
         assertEquals("STREAM", label.getRecordType());
@@ -38,6 +41,7 @@ public class RDR4LabelTest
         assertEquals("SPREADSHEET", spreadsheet_link.getName());
         assertEquals("RDR4_TEST.CSV", spreadsheet_link.getFilename());
         assertEquals(2, spreadsheet_link.getIndex());
+
         assertEquals("MSL-M-CHEMIN-4-RDR-V1.0", label.getDataSetId());
         assertEquals("CMA_404470826RDA00790050104CH11503P1", label.getProductId());
         assertEquals("V1.0", label.getProductVersionId());
