@@ -1,0 +1,103 @@
+PDS_VERSION_ID                = PDS3
+RECORD_TYPE                   = STREAM
+RECORD_BYTES                  = 10160
+FILE_RECORDS                  = 982
+^HEADER                     = ("CMB_581124537RDA20690701752CH00111P1.CSV",1)
+^SPREADSHEET                = ("CMB_581124537RDA20690701752CH00111P1.CSV",2)
+DATA_SET_ID                   = "MSL-M-CHEMIN-4-RDR-V1.0"
+PRODUCT_ID                    = "CMB_581124537RDA20690701752CH00111P1"
+PRODUCT_VERSION_ID            = "V1.0"
+RELEASE_ID                    = "0019"
+SOURCE_PRODUCT_ID             = {"CMB_581124537EDA20690701752CH00111M1",
+"CMB_581124923EDA20690701752CH00111M1",
+"CMB_581125310EDA20690701752CH00111M1",
+"CMB_581125696EDA20690701752CH00111M1",
+"CMB_581126083EDA20690701752CH00111M1",
+"CMB_581126468EDA20690701752CH00111M1",
+"CMB_581589060EDA20740701752CH00111M1",
+"CMB_581589447EDA20740701752CH00111M1",
+"CMB_581589832EDA20740701752CH00111M1",
+"CMB_581590218EDA20740701752CH00111M1",
+"CMB_581590604EDA20740701752CH00111M1",
+"CMB_581590990EDA20740701752CH00111M1",
+"CMB_581591375EDA20740701752CH00111M1",
+"CMB_581591762EDA20740701752CH00111M1",
+"CMB_581592148EDA20740701752CH00111M1",
+"CMB_581592533EDA20740701752CH00111M1",
+"CMB_581592919EDA20740701752CH00111M1",
+"CMB_581593304EDA20740701752CH00111M1",
+"CMB_581593690EDA20740701752CH00111M1",
+"CMB_581594075EDA20740701752CH00111M1",
+"CMB_581594456EDA20740701752CH00111M1",
+"CMB_581876476EDA20770701752CH00113M1",
+"CMB_581876863EDA20770701752CH00113M1",
+"CMB_581877249EDA20770701752CH00113M1",
+"CMB_581877634EDA20770701752CH00113M1",
+"CMB_581878021EDA20770701752CH00113M1",
+"CMB_581878423EDA20770701752CH00113M1",
+"CMB_581878823EDA20770701752CH00113M1",
+"CMB_581879221EDA20770701752CH00113M1",
+"CMB_581879629EDA20770701752CH00113M1",
+"CMB_581880027EDA20770701752CH00113M1",
+"CMB_581880425EDA20770701752CH00113M1",
+"CMB_581880824EDA20770701752CH00113M1",
+"CMB_581881210EDA20770701752CH00113M1",
+"CMB_581881595EDA20770701752CH00113M1",
+"CMB_581881988EDA20770701752CH00113M1",
+"CMB_583530696EDA20960711330CH00111M1",
+"CMB_583531084EDA20960711330CH00111M1",
+"CMB_583531470EDA20960711330CH00111M1",
+"CMB_583531856EDA20960711330CH00111M1",
+"CMB_583532242EDA20960711330CH00111M1",
+"CMB_583532628EDA20960711330CH00111M1",
+"CMB_583533014EDA20960711330CH00111M1",
+"CMB_583533402EDA20960711330CH00111M1",
+"CMB_583533785EDA20960711330CH00111M1"}
+PRODUCT_TYPE                  = "CHEMIN_RDA"
+INSTRUMENT_HOST_ID            = "MSL"
+INSTRUMENT_HOST_NAME          = "MARS SCIENCE LABORATORY"
+INSTRUMENT_ID                 = "CHEMIN"
+TARGET_NAME                   = "MARS"
+MSL:CALIBRATION_STANDARD_NAME = "N/A"
+MISSION_PHASE_NAME            = "PRIMARY SURFACE MISSION"
+PRODUCT_CREATION_TIME         = 2018-10-17T14:25:00 
+START_TIME                    = 2018-06-01T11:59:55.306
+STOP_TIME                     = "UNK"
+SPACECRAFT_CLOCK_START_COUNT  = "581124537.638"
+SPACECRAFT_CLOCK_STOP_COUNT   = "UNK"
+OBJECT                        = HEADER
+ BYTES                        = 19
+ HEADER_TYPE                  = TEXT
+ DESCRIPTION                  = "This header record contains column headings
+ for the following table." 
+END_OBJECT                    = HEADER
+
+OBJECT                        = SPREADSHEET
+ ROWS                         = 981
+ ROW_BYTES                    = 10141
+ FIELDS                       = 2
+ FIELD_DELIMITER              = "COMMA"
+ ^STRUCTURE                   = "CHEMIN_XRD.FMT"
+DESCRIPTION                   = "This table contains diffraction-all K-alpha
+ diffraction data for the Duluth drill sample, analyzed in CheMin cell
+ number 13b (Mylar window). This cell had previously been used to analyze
+ the John Klein drill sample. Duluth was the first drill sample collected
+ with feed-extended drilling, a method that brings sample into the
+ drill bit assembly without passing through the sieves and portioners of the
+ sample processing system. This new drill method avoids electromechanical
+ problems that had developed in the drill assembly. Sample is then delivered
+ directly from the end of the drill into the CheMin inlet. The first
+ attempt to deliver a portion of Duluth to CheMin, on sol 2061, provided too
+ little material for analysis. A subsequent delivery on sol 2068 was
+ successful, so the Duluth analysis reported here uses only results using
+ sequences uploaded from sol 2068 to sol 2095, including 45 minor frames
+ that represent a total of 22.5 hours of analysis. Refined plagioclase c and
+ gamma cell parameters were used to make a minor adjustment in the sample to
+ detector distance, reducing this by 87 um. CCD temperatures during data
+ collection were ~-50 degrees centigrade. Column 1 of the table lists 2
+ theta from 3.00 to 52.00 degrees cobalt K-alpha, in increments of 0.05
+ degrees (981 entries). Column 2 lists the intensity of the diffraction for
+ each 2-theta value in column 1."
+END_OBJECT                    = SPREADSHEET
+END
+

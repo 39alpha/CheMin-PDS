@@ -1,0 +1,89 @@
+PDS_VERSION_ID                = PDS3
+RECORD_TYPE                   = STREAM
+RECORD_BYTES                  = 28483
+FILE_RECORDS                  = 1671
+^HEADER                     = ("CMB_689808436RE132920912132CH00111P1.CSV",1)
+^SPREADSHEET                = ("CMB_689808436RE132920912132CH00111P1.CSV",2)
+DATA_SET_ID                   = "MSL-M-CHEMIN-4-RDR-V1.0"
+PRODUCT_ID                    = "CMB_689808436RE132920912132CH00111P1"
+PRODUCT_VERSION_ID            = "V1.0"
+RELEASE_ID                    = "0030"
+SOURCE_PRODUCT_ID             = {"CMB_689808436EE132920912132CH00111M1",
+"CMB_689808806EE132920912132CH00111M1",
+"CMB_689809176EE132920912132CH00111M1",
+"CMB_689809546EE132920912132CH00111M1",
+"CMB_689809916EE132920912132CH00111M1",
+"CMB_689810286EE132920912132CH00111M1",
+"CMB_689810656EE132920912132CH00111M1",
+"CMB_689811026EE132920912132CH00111M1",
+"CMB_689811396EE132920912132CH00111M1",
+"CMB_689811766EE132920912132CH00111M1",
+"CMB_689812137EE132920912132CH00111M1",
+"CMB_689812507EE132920912132CH00111M1",
+"CMB_689812877EE132920912132CH00111M1",
+"CMB_690413498EE132990912132CH00111M1",
+"CMB_690413868EE132990912132CH00111M1",
+"CMB_690414238EE132990912132CH00111M1",
+"CMB_690414609EE132990912132CH00111M1",
+"CMB_691389100EE133100912132CH00111M1",
+"CMB_691389470EE133100912132CH00111M1",
+"CMB_691389840EE133100912132CH00111M1",
+"CMB_691390210EE133100912132CH00111M1",
+"CMB_692290244EE133200913204CH00113M1",
+"CMB_692290614EE133200913204CH00113M1",
+"CMB_692290984EE133200913204CH00113M1",
+"CMB_692291354EE133200913204CH00113M1",
+"CMB_694942724EE133500921962CH00111M1",
+"CMB_694943095EE133500921962CH00111M1",
+"CMB_694943466EE133500921962CH00111M1",
+"CMB_694943837EE133500921962CH00111M1",
+"CMB_695737131EE133590922650CH00111M1",
+"CMB_695737501EE133590922650CH00111M1",
+"CMB_695737871EE133590922650CH00111M1",
+"CMB_695738242EE133590922650CH00111M1"}
+PRODUCT_TYPE                  = "CHEMIN_RE1"
+INSTRUMENT_HOST_ID            = "MSL"
+INSTRUMENT_HOST_NAME          = "MARS SCIENCE LABORATORY"
+INSTRUMENT_ID                 = "CHEMIN"
+TARGET_NAME                   = "MARS"
+MSL:CALIBRATION_STANDARD_NAME = "N/A"
+MISSION_PHASE_NAME            = "PRIMARY SURFACE MISSION"
+PRODUCT_CREATION_TIME         = 2022-06-03T17:01:45 
+START_TIME                    = 2021-11-10T10:15:24.623
+STOP_TIME                     = UNK
+SPACECRAFT_CLOCK_START_COUNT  = "689808436.270"
+SPACECRAFT_CLOCK_STOP_COUNT   = "UNK"
+OBJECT                        = HEADER
+ BYTES                        = 15
+ HEADER_TYPE                  = TEXT
+ DESCRIPTION                  = "This header record contains column headings
+ for the following table." 
+END_OBJECT                    = HEADER
+
+OBJECT                        = SPREADSHEET
+ ROWS                         = 1670
+ ROW_BYTES                    = 28468
+ FIELDS                       = 2
+ FIELD_DELIMITER              = "COMMA"
+ ^STRUCTURE                   = "CHEMIN_EDH.FMT"
+DESCRIPTION                   = "This table contains energy-single
+ fluorescence data for the sample Zechstein in CheMin cell number 1a
+ (Kapton window), which had previously held the samples Rocknest
+ scoop 3, Rocknest scoop 4, Ogunquit Beach, Pontours, and subsequently
+ Maria Gordon. The 33 minor frames of best data quality from sols 3292,
+ 3299, 3310, 3320, 3350, and 3359 were selected and averaged, including 5940
+ individual 10-second frames in the 33 minor frames of 180 10-second frames
+ each. The data from sol 3292 correspond with the initial night of analysis;
+ data from subsequent sols are shorter analyses on or after the attempt to
+ dump the cell on sol 3299. None of the dumps were successful, and the
+ sample remained in the cell. These later analyses are included in the RE1
+ file for Zechstein to provide the best RE1 analysis. A threshold of
+ 50 DN was used. CCD temperatures during data collection were ~-50 degrees
+ centigrade. Column 1 of the table shows energy in keV converted from
+ digital number (DN) using a conversion factor of 128.4375 DN/keV, based on
+ position of the 6.400 keV Fe K-alpha peak at DN 822. Results are listed
+ from DN 51 to 1720 (0.39708 to 13.39173 keV), 1670 entries. Column 2 lists
+ the log-scale intensity for each value of keV in column 1."
+END_OBJECT                    = SPREADSHEET
+END
+

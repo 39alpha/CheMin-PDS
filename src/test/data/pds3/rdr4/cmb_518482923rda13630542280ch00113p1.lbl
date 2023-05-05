@@ -1,0 +1,85 @@
+PDS_VERSION_ID                = PDS3
+RECORD_TYPE                   = STREAM
+RECORD_BYTES                  = 10340
+FILE_RECORDS                  = 1002
+^HEADER                     = ("CMB_518482923RDA13630542280CH00113P1.CSV",1)
+^SPREADSHEET                = ("CMB_518482923RDA13630542280CH00113P1.CSV",2)
+DATA_SET_ID                   = "MSL-M-CHEMIN-4-RDR-V1.0"
+PRODUCT_ID                    = "CMB_518482923RDA13630542280CH00113P1"
+PRODUCT_VERSION_ID            = "V1.0"
+RELEASE_ID                    = "0013"
+SOURCE_PRODUCT_ID             = {"CMB_518482923EDA13630542280CH00113M1",
+"CMB_518483311EDA13630542280CH00113M1",
+"CMB_518483699EDA13630542280CH00113M1",
+"CMB_518484086EDA13630542280CH00113M1",
+"CMB_518484475EDA13630542280CH00113M1",
+"CMB_518484863EDA13630542280CH00113M1",
+"CMB_518485252EDA13630542280CH00113M1",
+"CMB_518485640EDA13630542280CH00113M1",
+"CMB_518486028EDA13630542280CH00113M1",
+"CMB_518486416EDA13630542280CH00113M1",
+"CMB_518486804EDA13630542280CH00113M1",
+"CMB_518487192EDA13630542280CH00113M1",
+"CMB_518487579EDA13630542280CH00113M1",
+"CMB_518487968EDA13630542280CH00113M1",
+"CMB_518488349EDA13630542280CH00113M1",
+"CMB_518737132EDA13660542280CH00111M1",
+"CMB_518737520EDA13660542280CH00111M1",
+"CMB_518737907EDA13660542280CH00111M1",
+"CMB_518738295EDA13660542280CH00111M1",
+"CMB_518738683EDA13660542280CH00111M1",
+"CMB_518739071EDA13660542280CH00111M1",
+"CMB_518739459EDA13660542280CH00111M1",
+"CMB_518739847EDA13660542280CH00111M1",
+"CMB_518740234EDA13660542280CH00111M1",
+"CMB_518740623EDA13660542280CH00111M1",
+"CMB_518741010EDA13660542280CH00111M1",
+"CMB_518741398EDA13660542280CH00111M1",
+"CMB_518741786EDA13660542280CH00111M1",
+"CMB_518742174EDA13660542280CH00111M1",
+"CMB_518742555EDA13660542280CH00111M1"}
+PRODUCT_TYPE                  = "CHEMIN_RDA"
+INSTRUMENT_HOST_ID            = "MSL"
+INSTRUMENT_HOST_NAME          = "MARS SCIENCE LABORATORY"
+INSTRUMENT_ID                 = "CHEMIN"
+TARGET_NAME                   = "MARS"
+MSL:CALIBRATION_STANDARD_NAME = "N/A"
+MISSION_PHASE_NAME            = "PRIMARY SURFACE MISSION"
+PRODUCT_CREATION_TIME         = 2016-10-18T22:38:00 
+START_TIME                    = 2016-06-06T11:23:10.351
+STOP_TIME                     = "UNK"
+SPACECRAFT_CLOCK_START_COUNT  = "518482923.150"
+SPACECRAFT_CLOCK_STOP_COUNT   = "UNK"
+OBJECT                        = HEADER
+ BYTES                        = 19
+ HEADER_TYPE                  = TEXT
+ DESCRIPTION                  = "This header record contains column headings
+ for the following table." 
+END_OBJECT                    = HEADER
+
+OBJECT                        = SPREADSHEET
+ ROWS                         = 1001
+ ROW_BYTES                    = 10321
+ FIELDS                       = 2
+ FIELD_DELIMITER              = "COMMA"
+ ^STRUCTURE                   = "CHEMIN_XRD.FMT"
+ DESCRIPTION                  = "This table contains diffraction-all K-alpha
+ diffraction data for the Oudam drill sample, analyzed in CheMin cell
+ number 12a (Mylar window). The table represents results from sequences
+ uploaded on sols 1361 and 1364, including 30 minor frames that represent
+ a total of 15.0 hours of analysis. Two additional nights of Oudam analysis
+ were uploaded on sols 1368 and 1398, with data files produced on sols 1370
+ and 1399 respectively, but warm temperatures inside CheMin (up to ~30
+ degrees centigrade, with correspondingly low relative humidity) caused
+ conversion of gypsum to bassanite over time. Therefore these later analyses
+ do not represent in situ mineralogy and are not used to determine the RDA
+ diffraction pattern and MIN composition of the in situ sample. Refined
+ plagioclase c and gamma cell parameters were used to make a minor adjustment
+ in the sample to detector distance, reducing this by 39 um. CCD temperatures
+ during data collection were ~-50 degrees centigrade. Column 1 of the table
+ lists 2-theta from 2.00 to 52.00 degrees cobalt K-alpha, in increments of
+ 0.05 degrees (1001 entries). Column 2 lists the intensity of the diffraction
+ for each 2-theta value in column 1."
+END_OBJECT                    = SPREADSHEET
+END
+

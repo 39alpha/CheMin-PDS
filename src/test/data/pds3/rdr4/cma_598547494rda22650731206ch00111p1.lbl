@@ -1,0 +1,66 @@
+PDS_VERSION_ID                = PDS3
+RECORD_TYPE                   = STREAM
+RECORD_BYTES                  = 10487
+FILE_RECORDS                  = 1002
+^HEADER                     = ("CMA_598547494RDA22650731206CH00111P1.CSV",1)
+^SPREADSHEET                = ("CMA_598547494RDA22650731206CH00111P1.CSV",2)
+DATA_SET_ID                   = "MSL-M-CHEMIN-4-RDR-V1.0"
+PRODUCT_ID                    = "CMA_598547494RDA22650731206CH00111P1"
+PRODUCT_VERSION_ID            = "V1.0"
+RELEASE_ID                    = "0021"
+SOURCE_PRODUCT_ID             = {"CMA_598547494EDA22650731206CH00111M1",
+"CMA_598547864EDA22650731206CH00111M1",
+"CMA_598548233EDA22650731206CH00111M1",
+"CMA_598548603EDA22650731206CH00111M1"}
+PRODUCT_TYPE                  = "CHEMIN_RDA"
+INSTRUMENT_HOST_ID            = "MSL"
+INSTRUMENT_HOST_NAME          = "MARS SCIENCE LABORATORY"
+INSTRUMENT_ID                 = "CHEMIN"
+TARGET_NAME                   = "MARS"
+MSL:CALIBRATION_STANDARD_NAME = "N/A"
+MISSION_PHASE_NAME            = "PRIMARY SURFACE MISSION"
+PRODUCT_CREATION_TIME         = 2019-06-08T17:13:00 
+START_TIME                    = 2018-12-20T03:45:16.451
+STOP_TIME                     = "UNK"
+SPACECRAFT_CLOCK_START_COUNT  = "598547494.445"
+SPACECRAFT_CLOCK_STOP_COUNT   = "UNK"
+OBJECT                        = HEADER
+ BYTES                        = 19
+ HEADER_TYPE                  = TEXT
+ DESCRIPTION                  = "This header record contains column headings
+ for the following table." 
+END_OBJECT                    = HEADER
+
+OBJECT                        = SPREADSHEET
+ ROWS                         = 1001
+ ROW_BYTES                    = 10468
+ FIELDS                       = 2
+ FIELD_DELIMITER              = "COMMA"
+ ^STRUCTURE                   = "CHEMIN_XRD.FMT"
+DESCRIPTION                   = "This table contains diffraction-all K-alpha
+ diffraction data for the Rock Hall drill sample, analyzed in CheMin cell
+ number 7b (Mylar window). The table represents results from sequences
+ uploaded on sol 2264, including the 4 initial minor frames that represent 2
+ hours of analysis. Although a total of 15 minor frames were collected in
+ this first night of analysis, a drop in sample signal beyond the first four
+ minor frames indicated that much of the sample had moved to portions of the
+ cell outside the X-ray beam; when sample signal rose again toward the end
+ of this analysis, grain motion deteriorated significantly. Additional
+ nights of analysis on sols 2277-2278 and 2285-2286 showed no improvement in
+ grain motion, even as attempts were made to increase sample vibration
+ intensity. An RDA for this later analyses has been generated as
+ CMA_599656708RDA22770731206CH00113P1, but that RDA has not been used to
+ prepare a MIN file because of the very poor grain motion in these
+ subsequent nights of analysis. To focus on the highest quality data, the
+ RDA file listed here and used for mineralogical analysis (see file
+ CMA_598547494MIN22650731206CH00111P1) contains only the first four minor
+ frames where signal remained strong and grain motion was good.  Refined  
+ plagioclase c and gamma cell parameters were used to make a minor
+ adjustment in the sample to detector distance, reducing this by 69 um. CCD
+ temperatures during data collection were ~-50 degrees centigrade. Column 1
+ of the table lists 2-theta from 2.00 to 52.00 degrees cobalt K-alpha, in
+ increments of 0.05 degrees (1001 entries). Column 2 lists the intensity of
+ the diffraction for each 2-theta value in column 1."
+END_OBJECT                    = SPREADSHEET
+END
+

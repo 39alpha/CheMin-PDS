@@ -1,0 +1,56 @@
+PDS_VERSION_ID                = PDS3
+RECORD_TYPE                   = STREAM
+RECORD_BYTES                  = 21227
+FILE_RECORDS                  = 1276
+^HEADER                     = ("CMB_501946937RE111770511102CH02111P1.CSV",1)
+^SPREADSHEET                = ("CMB_501946937RE111770511102CH02111P1.CSV",2)
+DATA_SET_ID                   = "MSL-M-CHEMIN-4-RDR-V1.0"
+PRODUCT_ID                    = "CMB_501946937RE111770511102CH02111P1"
+PRODUCT_VERSION_ID            = "V1.0"
+RELEASE_ID                    = "0012"
+SOURCE_PRODUCT_ID             = {"CMB_501946937EE111770511102CH02111M1",
+"CMB_501947324EE111770511102CH02111M1",
+"CMB_501947712EE111770511102CH02111M1",
+"CMB_501948099EE111770511102CH02111M1"}
+PRODUCT_TYPE                  = "CHEMIN_RE1"
+INSTRUMENT_HOST_ID            = "MSL"
+INSTRUMENT_HOST_NAME          = "MARS SCIENCE LABORATORY"
+INSTRUMENT_ID                 = "CHEMIN"
+TARGET_NAME                   = "MARS"
+MSL:CALIBRATION_STANDARD_NAME = "N/A"
+MISSION_PHASE_NAME            = "PRIMARY SURFACE MISSION"
+PRODUCT_CREATION_TIME         = 2016-06-21T03:05:30 
+START_TIME                    = 2015-11-28T02:00:48.169
+STOP_TIME                     = UNK
+SPACECRAFT_CLOCK_START_COUNT  = "501946937.075"
+SPACECRAFT_CLOCK_STOP_COUNT   = "UNK"
+OBJECT                        = HEADER
+ BYTES                        = 15
+ HEADER_TYPE                  = TEXT
+ DESCRIPTION                  = "This header record contains column headings
+ for the following table." 
+END_OBJECT                    = HEADER
+
+OBJECT                        = SPREADSHEET
+ ROWS                         = 1275
+ ROW_BYTES                    = 21212
+ FIELDS                       = 2
+ FIELD_DELIMITER              = "COMMA"
+ ^STRUCTURE                   = "CHEMIN_EDH.FMT"
+DESCRIPTION                  = "This table contains energy-single
+ fluorescence data for emptied CheMin cell number 7a (Mylar window). This
+ cell had held a portion of the scoop sample Rocknest. This cell had
+ previously been emptied and analyzed on sol 152, but it was re-dumped and
+ analyzed again to confirm that it was still empty 1,025 sols later. The 4
+ minor frames of best data quality from sol 1177 were selected and averaged,
+ including 720 individual 10-second frames in the 4 minor frames of 180 10
+ second frames each. A threshold of 50 DN was used. CCD temperatures during
+ data collection were ~-50 degrees centigrade. Column 1 of the table shows
+ energy in keV converted from digital number (DN) using a conversion factor
+ of 132.4188 DN/keV, based on position of the 6.925 keV Co K-alpha peak at
+ DN 917. Results are listed from DN 51 to 1325 (0.38514 to 10.00613 keV),
+ 1275 entries. Column 2 lists the log-scale intensity for each value of keV
+ in column 1."
+END_OBJECT                    = SPREADSHEET
+END
+

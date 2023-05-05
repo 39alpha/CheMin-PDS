@@ -1,0 +1,72 @@
+PDS_VERSION_ID                = PDS3
+RECORD_TYPE                   = STREAM
+RECORD_BYTES                  = 10283
+FILE_RECORDS                  = 1002
+^HEADER                     = ("CMB_569138401RDA19340672420CH00113P1.CSV",1)
+^SPREADSHEET                = ("CMB_569138401RDA19340672420CH00113P1.CSV",2)
+DATA_SET_ID                   = "MSL-M-CHEMIN-4-RDR-V1.0"
+PRODUCT_ID                    = "CMB_569138401RDA19340672420CH00113P1"
+PRODUCT_VERSION_ID            = "V1.0"
+RELEASE_ID                    = "0018"
+SOURCE_PRODUCT_ID             = {"CMB_569138401EDA19340672420CH00113M1",
+"CMB_569138787EDA19340672420CH00113M1",
+"CMB_569139173EDA19340672420CH00113M1",
+"CMB_569139559EDA19340672420CH00113M1",
+"CMB_569139945EDA19340672420CH00113M1",
+"CMB_569140331EDA19340672420CH00113M1",
+"CMB_569140718EDA19340672420CH00113M1",
+"CMB_569141104EDA19340672420CH00113M1",
+"CMB_569141490EDA19340672420CH00113M1",
+"CMB_569141876EDA19340672420CH00113M1",
+"CMB_569142262EDA19340672420CH00113M1",
+"CMB_569142648EDA19340672420CH00113M1",
+"CMB_569143034EDA19340672420CH00113M1",
+"CMB_569143419EDA19340672420CH00113M1",
+"CMB_569143800EDA19340672420CH00113M1"}
+PRODUCT_TYPE                  = "CHEMIN_RDA"
+INSTRUMENT_HOST_ID            = "MSL"
+INSTRUMENT_HOST_NAME          = "MARS SCIENCE LABORATORY"
+INSTRUMENT_ID                 = "CHEMIN"
+TARGET_NAME                   = "MARS"
+MSL:CALIBRATION_STANDARD_NAME = "N/A"
+MISSION_PHASE_NAME            = "PRIMARY SURFACE MISSION"
+PRODUCT_CREATION_TIME         = 2018-06-06T23:30:00 
+START_TIME                    = 2018-01-13T18:29:05.790
+STOP_TIME                     = "UNK"
+SPACECRAFT_CLOCK_START_COUNT  = "569138401.381"
+SPACECRAFT_CLOCK_STOP_COUNT   = "UNK"
+OBJECT                        = HEADER
+ BYTES                        = 19
+ HEADER_TYPE                  = TEXT
+ DESCRIPTION                  = "This header record contains column headings
+ for the following table." 
+END_OBJECT                    = HEADER
+
+OBJECT                        = SPREADSHEET
+ ROWS                         = 1001
+ ROW_BYTES                    = 10264
+ FIELDS                       = 2
+ FIELD_DELIMITER              = "COMMA"
+ ^STRUCTURE                   = "CHEMIN_XRD.FMT"
+ DESCRIPTION                  = "This table contains diffraction-all
+ K-alpha diffraction data for the Ogunquit Beach scoop sample, analyzed in
+ CheMin cell number 1a (Kapton window). This cell had previously been used
+ to analyze scoop samples 3 and 4 of Rocknest sand. The table represents
+ results from sequences uploaded on sol 1931, including 15 minor frames that
+ represent a total of 7.5 hours of analysis. Cell vibration was induced
+ directly, in a test of this vibration mode against the previous results
+ from sequences uploaded from sol 1831 to sol 1845, where grain motion was
+ induced indirectly for three nights (total 22.5 hours) by vibrating
+ adjacent cell pair 0 in order to avoid sample loss of the loose Ogunquit
+ Beach sand (the indirect vibration RDA file for Ogunquit Beach is
+ CMB_560285885RDA18340660952CH00113P1, and is considered to be the best
+ representative analysis). In all RDA files for Ogunquit Beach, refined
+ plagioclase c and gamma cell parameters were used to make a minor
+ adjustment in the sample to detector distance, reducing this by 89 um. CCD
+ temperatures during data collection were ~-50 degrees centigrade. Column 1
+ of the RDA table lists 2-theta from 2.00 to 52.00 degrees cobalt K-alpha,
+ in increments of 0.05 degrees (1001 entries). Column 2 lists the intensity
+ of the diffraction for each 2-theta value in column 1."
+END_OBJECT                    = SPREADSHEET
+END
+

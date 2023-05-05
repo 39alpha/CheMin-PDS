@@ -1,0 +1,67 @@
+PDS_VERSION_ID                = PDS3
+RECORD_TYPE                   = STREAM
+RECORD_BYTES                  = 30513
+FILE_RECORDS                  = 1786
+^HEADER                     = ("CMB_569138788RE119340672420CH00113P1.CSV",1)
+^SPREADSHEET                = ("CMB_569138788RE119340672420CH00113P1.CSV",2)
+DATA_SET_ID                   = "MSL-M-CHEMIN-4-RDR-V1.0"
+PRODUCT_ID                    = "CMB_569138788RE119340672420CH00113P1"
+PRODUCT_VERSION_ID            = "V1.0"
+RELEASE_ID                    = "0018"
+SOURCE_PRODUCT_ID             = {"CMB_569138788EE119340672420CH00113M1",
+"CMB_569139174EE119340672420CH00113M1",
+"CMB_569139560EE119340672420CH00113M1",
+"CMB_569139945EE119340672420CH00113M1",
+"CMB_569140332EE119340672420CH00113M1",
+"CMB_569140719EE119340672420CH00113M1",
+"CMB_569141105EE119340672420CH00113M1",
+"CMB_569141491EE119340672420CH00113M1",
+"CMB_569141877EE119340672420CH00113M1",
+"CMB_569142263EE119340672420CH00113M1",
+"CMB_569142649EE119340672420CH00113M1",
+"CMB_569143035EE119340672420CH00113M1",
+"CMB_569143420EE119340672420CH00113M1"}
+PRODUCT_TYPE                  = "CHEMIN_RE1"
+INSTRUMENT_HOST_ID            = "MSL"
+INSTRUMENT_HOST_NAME          = "MARS SCIENCE LABORATORY"
+INSTRUMENT_ID                 = "CHEMIN"
+TARGET_NAME                   = "MARS"
+MSL:CALIBRATION_STANDARD_NAME = "N/A"
+MISSION_PHASE_NAME            = "PRIMARY SURFACE MISSION"
+PRODUCT_CREATION_TIME         = 2018-06-19T10:45:30 
+START_TIME                    = 2018-01-13T18:35:32.628
+STOP_TIME                     = UNK
+SPACECRAFT_CLOCK_START_COUNT  = "569138788.273"
+SPACECRAFT_CLOCK_STOP_COUNT   = "UNK"
+OBJECT                        = HEADER
+ BYTES                        = 15
+ HEADER_TYPE                  = TEXT
+ DESCRIPTION                  = "This header record contains column headings
+ for the following table." 
+END_OBJECT                    = HEADER
+
+OBJECT                        = SPREADSHEET
+ ROWS                         = 1785
+ ROW_BYTES                    = 30498
+ FIELDS                       = 2
+ FIELD_DELIMITER              = "COMMA"
+ ^STRUCTURE                   = "CHEMIN_EDH.FMT"
+DESCRIPTION                  = "This table contains energy-single
+ fluorescence data for the Ogunquit Beach scoop sample in CheMin cell number
+ 1a (Kapton window). The 13 minor frames of best data quality from sol 1934
+ were selected and averaged, including 2340 individual 10-second frames
+ in the 13 minor frames of 180 10-second frames each. These data are from
+ operation of the sample cell with direct vibration, which tends to eject
+ some sample grains. Prior analysis under indirect vibration was of longer
+ duration and produced the best data for this sample; the RE1 product for
+ that analysis can be found in file CMB_560286272RE118340660952CH00113P1A. 
+ For all analyses of Ogunquit Beach a CCD threshold of 50 DN was used. CCD
+ temperatures during data collection were ~-50 degrees centigrade. Column 1
+ of the table shows energy in keV converted from digital number (DN) using a
+ conversion factor of 131.1191 DN/keV, based on position of the 6.925 keV Co
+ K-alpha peak at DN 908. Results are listed from DN 51 to 1835 (0.38896 to
+ 13.99491 keV), 1785 entries. Column 2 lists the log-scale intensity for
+ each value of keV in column 1."
+END_OBJECT                    = SPREADSHEET
+END
+
