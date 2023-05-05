@@ -146,7 +146,7 @@ identifierList : '{' identifierEntries '}';
 identifierEntries : WS* identifierEntry WS*
                   | WS* identifierEntry WS* ',' NL* identifierEntries;
 
-identifierEntry : '"' word '"';
+identifierEntry : '"' WS* word WS* '"';
 
 optionalUTCDate : '"UNK"'
                 | utcDate;
