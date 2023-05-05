@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 import org.thirtyninealpharesearch.chemin.pds3.RDR4Label.ObjectLink;
 import org.thirtyninealpharesearch.chemin.pds3.RDR4Label.Object;
 
@@ -28,16 +28,18 @@ public class RDR4LabelTest
         assertEquals(12288, label.getRecordBytes());
         assertEquals(981, label.getFileRecords());
 
-        ArrayList<ObjectLink> links = label.getObjectLinks();
+        HashMap<String, ObjectLink> links = label.getObjectLinks();
         assertNotNull(links);
         assertEquals(2, links.size());
 
-        ObjectLink header_link = links.get(0);
+        ObjectLink header_link = links.get("HEADER");
+        assertNotNull(header_link);
         assertEquals("HEADER", header_link.getName());
         assertEquals("RDR4_TEST.CSV", header_link.getFilename());
         assertEquals(1, header_link.getIndex());
 
-        ObjectLink spreadsheet_link = links.get(1);
+        ObjectLink spreadsheet_link = links.get("SPREADSHEET");
+        assertNotNull(spreadsheet_link);
         assertEquals("SPREADSHEET", spreadsheet_link.getName());
         assertEquals("RDR4_TEST.CSV", spreadsheet_link.getFilename());
         assertEquals(2, spreadsheet_link.getIndex());
@@ -60,11 +62,11 @@ public class RDR4LabelTest
         assertEquals("404470826.52111", label.getSpacecraftClockStartCount());
         assertEquals("UNK", label.getSpacecraftClockStopCount());
 
-        ArrayList<RDR4Label.Object> objects = label.getObjects();
+        HashMap<String, Object> objects = label.getObjects();
         assertNotNull(objects);
         assertEquals(2, objects.size());
 
-        RDR4Label.Object header = objects.get(0);
+        Object header = objects.get("HEADER");
         assertNotNull(header);
         assertEquals("HEADER", header.getName());
         assertEquals("HEADER", header.getEnd());
@@ -76,7 +78,7 @@ public class RDR4LabelTest
         assertEquals("TEXT", header.getHeaderType());
         assertEquals("This header record contains column headings\r\n for the following table.", header.getDescription());
 
-        RDR4Label.Object spreadsheet = objects.get(1);
+        Object spreadsheet = objects.get("SPREADSHEET");
         assertNotNull(spreadsheet);
         assertEquals("SPREADSHEET", spreadsheet.getName());
         assertEquals("SPREADSHEET", spreadsheet.getEnd());

@@ -1,6 +1,7 @@
 package org.thirtyninealpharesearch.chemin.pds3;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.io.IOException;
 
 import org.antlr.v4.runtime.*;
@@ -117,7 +118,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
     public String RecordType;
     public Integer RecordBytes;
     public Integer FileRecords;
-    public ArrayList<ObjectLink> ObjectLinks;
+    public HashMap<String, ObjectLink> ObjectLinks;
     public String DataSetId;
     public String ProductId;
     public String ProductVersionId;
@@ -135,7 +136,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     public String StopTime;
     public String SpacecraftClockStartCount;
     public String SpacecraftClockStopCount;
-    public ArrayList<Object> Objects;
+    public HashMap<String, Object> Objects;
+
+    protected Object object;
 
     public RDR4Label(String filename) {
         this.filename = filename;
@@ -184,12 +187,12 @@ public class RDR4Label extends RDR4LabelBaseListener {
         ObjectLink link = new ObjectLink(name, filename, index);
 
         if (ObjectLinks == null) {
-            ObjectLinks = new ArrayList<ObjectLink>();
+            ObjectLinks = new HashMap<String, ObjectLink>();
         }
-        ObjectLinks.add(link);
+        ObjectLinks.put(name, link);
     }
 
-    public ArrayList<ObjectLink> getObjectLinks() {
+    public HashMap<String, ObjectLink> getObjectLinks() {
         return ObjectLinks;
     }
 
@@ -347,56 +350,59 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterObject(@NotNull ObjectContext ctx) {
-        if (Objects == null) {
-            Objects = new ArrayList<Object>();
+        if (object == null) {
+            object = new Object();
         }
-        Objects.add(new Object());
+    }
+
+    @Override public void exitObject(@NotNull ObjectContext ctx) {
+        if (object == null) {
+            return;
+        }
+        if (Objects == null) {
+            Objects = new HashMap<String,Object>();
+        }
+        Objects.put(object.getName(), object);
+        object = null;
     }
 
     @Override public void enterObjectHeader(@NotNull ObjectHeaderContext ctx) {
-        lastObject().name = ctx.WORD().getText();
+        object.name = ctx.WORD().getText();
     }
 
     @Override public void enterObjectBytes(@NotNull ObjectBytesContext ctx) {
-        lastObject().bytes = Integer.parseInt(ctx.INUMBER().getText());
+        object.bytes = Integer.parseInt(ctx.INUMBER().getText());
     }
 
     @Override public void enterObjectRows(@NotNull ObjectRowsContext ctx) {
-        lastObject().rows = Integer.parseInt(ctx.INUMBER().getText());
+        object.rows = Integer.parseInt(ctx.INUMBER().getText());
     }
 
     @Override public void enterObjectRowBytes(@NotNull ObjectRowBytesContext ctx) {
-        lastObject().row_bytes = Integer.parseInt(ctx.INUMBER().getText());
+        object.row_bytes = Integer.parseInt(ctx.INUMBER().getText());
     }
 
     @Override public void enterObjectFields(@NotNull ObjectFieldsContext ctx) {
-        lastObject().fields = Integer.parseInt(ctx.INUMBER().getText());
+        object.fields = Integer.parseInt(ctx.INUMBER().getText());
     }
 
     @Override public void enterObjectFieldDelimiter(@NotNull ObjectFieldDelimiterContext ctx) {
-        lastObject().field_delimiter = ctx.WORD().getText();
+        object.field_delimiter = ctx.WORD().getText();
     }
 
     @Override public void enterObjectHeaderType(@NotNull ObjectHeaderTypeContext ctx) {
-        lastObject().header_type = ctx.word().getText();
+        object.header_type = ctx.word().getText();
     }
 
     @Override public void enterObjectDescription(@NotNull ObjectDescriptionContext ctx) {
-        lastObject().description = ctx.quoted().notquoted().getText();
+        object.description = ctx.quoted().notquoted().getText();
     }
 
     @Override public void enterObjectEnd(@NotNull ObjectEndContext ctx) {
-        lastObject().end = ctx.WORD().getText();
+        object.end = ctx.WORD().getText();
     }
 
-    private Object lastObject() {
-        if (Objects == null || Objects.size() == 0) {
-            return null;
-        }
-        return Objects.get(Objects.size() - 1);
-    }
-
-    public ArrayList<Object> getObjects() {
+    public HashMap<String,Object> getObjects() {
         return Objects;
     }
 }
