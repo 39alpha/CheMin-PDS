@@ -123,9 +123,9 @@ fileTuple : '(' WS* '"' filename '"' WS* ',' INUMBER ')';
 
 filename : WS* word '.' word WS*;
 
-quoted : '"' notquoted '"';
+quoted : '"' unquoted '"';
 
-notquoted : ~'"'+;
+unquoted : ~'"'+;
 
 hyphenatedWord : WORD
                | INUMBER

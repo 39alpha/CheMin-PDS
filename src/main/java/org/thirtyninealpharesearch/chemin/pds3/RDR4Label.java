@@ -421,7 +421,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterObjectDescription(@NotNull ObjectDescriptionContext ctx) {
-        object.Description = ctx.quoted().notquoted().getText();
+        object.Description = ctx.quoted().unquoted().getText();
     }
 
     @Override public void enterObjectEnd(@NotNull ObjectEndContext ctx) {
