@@ -117,6 +117,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
 
     public String filename;
     public String PDSVersionId;
+    public String LabelRevisionNote;
     public String RecordType;
     public Integer RecordBytes;
     public Integer FileRecords;
@@ -179,6 +180,14 @@ public class RDR4Label extends RDR4LabelBaseListener {
 
     public String getPDSVersionId() {
         return PDSVersionId;
+    }
+
+    @Override public void enterLabelRevisionNote(@NotNull LabelRevisionNoteContext ctx) {
+        LabelRevisionNote = ctx.quoted().unquoted().getText();
+    }
+
+    public String getLabelRevisionNote() {
+        return LabelRevisionNote;
     }
 
     @Override public void enterRecordType(@NotNull RecordTypeContext ctx) {

@@ -13,6 +13,7 @@ fragment FLOAT   : '0'..'9'+ '.' '0'..'9'*;
 
 label:
     pdsVersionId
+    labelRevisionNote*
     recordType
     recordBytes
     fileRecords
@@ -39,6 +40,8 @@ label:
     EOF;
 
 pdsVersionId : 'PDS_VERSION_ID' EQUALS word WS* NL+;
+
+labelRevisionNote : 'LABEL_REVISION_NOTE' EQUALS quoted WS* NL+;
 
 recordType : 'RECORD_TYPE' EQUALS word WS* NL+;
 

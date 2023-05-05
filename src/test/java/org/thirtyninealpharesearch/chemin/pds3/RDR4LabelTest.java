@@ -14,8 +14,7 @@ import org.thirtyninealpharesearch.chemin.pds3.RDR4Label.Object;
 public class RDR4LabelTest
 {
     @Test
-    public void shouldParse()
-    {
+    public void shouldParse() {
         String filename = "src/test/data/pds3/rdr4_test.lbl";
         RDR4Label label = assertDoesNotThrow(
             () -> RDR4Label.parseFile(filename),
@@ -24,6 +23,7 @@ public class RDR4LabelTest
         assertNotNull(label);
         assertEquals(filename, label.getFilename());
         assertEquals("PDS3", label.getPDSVersionId());
+        assertEquals("The label was revised for some reason", label.getLabelRevisionNote());
         assertEquals("STREAM", label.getRecordType());
         assertEquals(12288, label.getRecordBytes());
         assertEquals(981, label.getFileRecords());
