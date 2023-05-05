@@ -68,50 +68,50 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     public class Object {
-        public String name;
-        public String end;
-        public Integer bytes;
-        public Integer rows;
-        public Integer row_bytes;
-        public Integer fields;
-        public String field_delimiter;
-        public String header_type;
-        public String description;
+        public String Name;
+        public String End;
+        public Integer Bytes;
+        public Integer Rows;
+        public Integer RowBytes;
+        public Integer Fields;
+        public String FieldDelimiter;
+        public String HeaderType;
+        public String Description;
 
         public String getName() {
-            return name;
+            return Name;
         }
 
         public String getEnd() {
-            return end;
+            return End;
         }
 
         public Integer getBytes() {
-            return bytes;
+            return Bytes;
         }
 
         public Integer getRows() {
-            return rows;
+            return Rows;
         }
 
         public Integer getRowBytes() {
-            return row_bytes;
+            return RowBytes;
         }
 
         public Integer getFields() {
-            return fields;
+            return Fields;
         }
 
         public String getFieldDelimiter() {
-            return field_delimiter;
+            return FieldDelimiter;
         }
 
         public String getHeaderType() {
-            return header_type;
+            return HeaderType;
         }
 
         public String getDescription() {
-            return description;
+            return Description;
         }
     }
 
@@ -159,15 +159,15 @@ public class RDR4Label extends RDR4LabelBaseListener {
 
     @Override public void exitLabel(@NotNull LabelContext ctx) {
         for (Object object : Objects.values()) {
-            if (ObjectLinks == null || ObjectLinks.isEmpty() || ObjectLinks.get(object.name) == null) {
-                String msg = String.format("Object of name \"%s\" defined, but no object link found", object.name);
+            if (ObjectLinks == null || ObjectLinks.isEmpty() || ObjectLinks.get(object.getName()) == null) {
+                String msg = String.format("Object of name \"%s\" defined, but no object link found", object.getName());
                 notifyListener(ctx, new SemanticException(msg));
             }
         }
 
         for (ObjectLink link : ObjectLinks.values()) {
-            if (Objects == null || Objects.isEmpty() || Objects.get(link.name) == null) {
-                String msg = String.format("Object link of name \"%s\" defined, but no corresponding object found", link.name);
+            if (Objects == null || Objects.isEmpty() || Objects.get(link.getName()) == null) {
+                String msg = String.format("Object link of name \"%s\" defined, but no corresponding object found", link.getName());
                 notifyListener(ctx, new SemanticException(msg));
             }
         }
@@ -393,39 +393,39 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterObjectHeader(@NotNull ObjectHeaderContext ctx) {
-        object.name = ctx.WORD().getText();
+        object.Name = ctx.WORD().getText();
     }
 
     @Override public void enterObjectBytes(@NotNull ObjectBytesContext ctx) {
-        object.bytes = Integer.parseInt(ctx.INUMBER().getText());
+        object.Bytes = Integer.parseInt(ctx.INUMBER().getText());
     }
 
     @Override public void enterObjectRows(@NotNull ObjectRowsContext ctx) {
-        object.rows = Integer.parseInt(ctx.INUMBER().getText());
+        object.Rows = Integer.parseInt(ctx.INUMBER().getText());
     }
 
     @Override public void enterObjectRowBytes(@NotNull ObjectRowBytesContext ctx) {
-        object.row_bytes = Integer.parseInt(ctx.INUMBER().getText());
+        object.RowBytes = Integer.parseInt(ctx.INUMBER().getText());
     }
 
     @Override public void enterObjectFields(@NotNull ObjectFieldsContext ctx) {
-        object.fields = Integer.parseInt(ctx.INUMBER().getText());
+        object.Fields = Integer.parseInt(ctx.INUMBER().getText());
     }
 
     @Override public void enterObjectFieldDelimiter(@NotNull ObjectFieldDelimiterContext ctx) {
-        object.field_delimiter = ctx.WORD().getText();
+        object.FieldDelimiter = ctx.WORD().getText();
     }
 
     @Override public void enterObjectHeaderType(@NotNull ObjectHeaderTypeContext ctx) {
-        object.header_type = ctx.word().getText();
+        object.HeaderType = ctx.word().getText();
     }
 
     @Override public void enterObjectDescription(@NotNull ObjectDescriptionContext ctx) {
-        object.description = ctx.quoted().notquoted().getText();
+        object.Description = ctx.quoted().notquoted().getText();
     }
 
     @Override public void enterObjectEnd(@NotNull ObjectEndContext ctx) {
-        object.end = ctx.WORD().getText();
+        object.End = ctx.WORD().getText();
     }
 
     public HashMap<String,Object> getObjects() {
