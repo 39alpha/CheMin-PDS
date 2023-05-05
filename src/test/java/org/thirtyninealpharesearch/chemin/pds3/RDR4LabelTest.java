@@ -24,10 +24,20 @@ public class RDR4LabelTest
         assertEquals("STREAM", label.getRecordType());
         assertEquals(12288, label.getRecordBytes());
         assertEquals(981, label.getFileRecords());
-        assertEquals("RDR4_TEST.CSV", label.getHeader().getFilename());
-        assertEquals(1, label.getHeader().getIndex());
-        assertEquals("RDR4_TEST.CSV", label.getSpreadsheet().getFilename());
-        assertEquals(2, label.getSpreadsheet().getIndex());
+
+        ArrayList<ObjectLink> links = label.getObjectLinks();
+        assertNotNull(links);
+        assertEquals(2, links.size());
+
+        ObjectLink header_link = links.get(0);
+        assertEquals("HEADER", header_link.getName());
+        assertEquals("RDR4_TEST.CSV", header_link.getFilename());
+        assertEquals(1, header_link.getIndex());
+
+        ObjectLink spreadsheet_link = links.get(1);
+        assertEquals("SPREADSHEET", spreadsheet_link.getName());
+        assertEquals("RDR4_TEST.CSV", spreadsheet_link.getFilename());
+        assertEquals(2, spreadsheet_link.getIndex());
         assertEquals("MSL-M-CHEMIN-4-RDR-V1.0", label.getDataSetId());
         assertEquals("CMA_404470826RDA00790050104CH11503P1", label.getProductId());
         assertEquals("V1.0", label.getProductVersionId());
@@ -47,6 +57,7 @@ public class RDR4LabelTest
         assertEquals("UNK", label.getSpacecraftClockStopCount());
 
         ArrayList<RDR4Label.Object> objects = label.getObjects();
+        assertNotNull(objects);
         assertEquals(2, objects.size());
 
         RDR4Label.Object header = objects.get(0);

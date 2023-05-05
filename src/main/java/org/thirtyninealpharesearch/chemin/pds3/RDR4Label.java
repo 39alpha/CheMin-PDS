@@ -24,15 +24,20 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return label;
     }
 
-    public class LinkEntry {
+    public class ObjectLink {
+        public String name;
         public String filename;
         public int index;
 
-        public LinkEntry(String filename, int index) {
+        public ObjectLink(String name, String filename, int index) {
+            this.name = name;
             this.filename = filename;
             this.index = index;
         }
 
+        public String getName() {
+            return name;
+        }
         public String getFilename() {
             return filename;
         }
@@ -95,8 +100,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
     public String RecordType;
     public Integer RecordBytes;
     public Integer FileRecords;
-    public LinkEntry Header;
-    public LinkEntry Spreadsheet;
+    public ArrayList<ObjectLink> ObjectLinks;
     public String DataSetId;
     public String ProductId;
     public String ProductVersionId;
@@ -156,24 +160,20 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return FileRecords;
     }
 
-    @Override public void enterHeader(@NotNull HeaderContext ctx) {
+    @Override public void enterObjectLink(@NotNull ObjectLinkContext ctx) {
+        String name = ctx.WORD().getText();
         String filename = ctx.fileTuple().filename().getText();
         int index = Integer.parseInt(ctx.fileTuple().INUMBER().getText());
-        Header = new LinkEntry(filename, index);
+        ObjectLink link = new ObjectLink(name, filename, index);
+
+        if (ObjectLinks == null) {
+            ObjectLinks = new ArrayList<ObjectLink>();
+        }
+        ObjectLinks.add(link);
     }
 
-    public LinkEntry getHeader() {
-        return Header;
-    }
-
-    @Override public void enterSpreadsheet(@NotNull SpreadsheetContext ctx) {
-        String filename = ctx.fileTuple().filename().getText();
-        int index = Integer.parseInt(ctx.fileTuple().INUMBER().getText());
-        Spreadsheet = new LinkEntry(filename, index);
-    }
-
-    public LinkEntry getSpreadsheet() {
-        return Spreadsheet;
+    public ArrayList<ObjectLink> getObjectLinks() {
+        return ObjectLinks;
     }
 
     @Override public void enterDatasetId(@NotNull DatasetIdContext ctx) {

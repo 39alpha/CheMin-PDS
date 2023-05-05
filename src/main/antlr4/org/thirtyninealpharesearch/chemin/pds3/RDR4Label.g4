@@ -2,7 +2,7 @@ grammar RDR4Label;
 
 NL: [\r\n];
 WS: [ \t]+;
-WORD: ~[,.\-0-9 \t\r\n("]~[. \-0-9\t\r\n("]*;
+WORD: ~[,.\-0-9 \t\r\n("^]~[. \-0-9\t\r\n("]*;
 EQUALS: [ \t]* '=' [ \t]*;
 VERSION: 'V' [0-9]+ ('.' [0-9])*;
 
@@ -16,8 +16,7 @@ label:
     recordType
     recordBytes
     fileRecords
-    header
-    spreadsheet
+    objectLink*
     datasetId
     productId
     productVersionId
@@ -47,9 +46,7 @@ recordBytes : 'RECORD_BYTES' EQUALS INUMBER WS* NL+;
 
 fileRecords : 'FILE_RECORDS' EQUALS INUMBER WS* NL+;
 
-header : '^HEADER' EQUALS fileTuple WS* NL+;
-
-spreadsheet : '^SPREADSHEET' EQUALS fileTuple WS* NL+;
+objectLink : '^' WORD EQUALS fileTuple WS* NL+;
 
 datasetId : 'DATA_SET_ID' EQUALS '"' hyphenatedWord '"' WS* NL+;
 
