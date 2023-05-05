@@ -121,7 +121,7 @@ objectStructure : WS* '^STRUCTURE' EQUALS '"' filename '"' WS* NL+;
 
 fileTuple : '(' WS* '"' filename '"' WS* ',' INUMBER ')';
 
-filename : word '.' word;
+filename : WS* word '.' word WS*;
 
 quoted : '"' notquoted '"';
 
