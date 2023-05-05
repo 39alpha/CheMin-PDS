@@ -144,7 +144,7 @@ words : word
 identifierList : '{' identifierEntries '}';
 
 identifierEntries : WS* identifierEntry WS*
-                  | WS* identifierEntry WS* ',' NL* identifierEntries;
+                  | WS* identifierEntry WS* ',' WS* NL* identifierEntries;
 
 identifierEntry : '"' WS* word WS* '"';
 
