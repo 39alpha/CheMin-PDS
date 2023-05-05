@@ -11,6 +11,8 @@ import org.antlr.v4.runtime.tree.*;
 import org.thirtyninealpharesearch.chemin.ErrorStrategy;
 import org.thirtyninealpharesearch.chemin.ErrorListener;
 import org.thirtyninealpharesearch.chemin.pds3.RDR4LabelParser.*;
+import org.thirtyninealpharesearch.chemin.ParseException;
+import org.thirtyninealpharesearch.chemin.SemanticException;
 
 public class RDR4Label extends RDR4LabelBaseListener {
     public static RDR4Label parseFile(String filename, boolean silent) throws IOException {
@@ -25,7 +27,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         parser.removeErrorListeners();
         parser.addErrorListener(listener);
 
-        RDR4Label label = new RDR4Label(filename);
+        RDR4Label label = new RDR4Label(filename, listener);
 
         ParseTreeWalker walker = new ParseTreeWalker();
         try {
@@ -139,13 +141,36 @@ public class RDR4Label extends RDR4LabelBaseListener {
     public HashMap<String, Object> Objects;
 
     protected Object object;
+    protected ErrorListener listener;
+
+    public RDR4Label(String filename, ErrorListener listener) {
+        this.filename = filename;
+        this.listener = listener;
+    }
 
     public RDR4Label(String filename) {
         this.filename = filename;
+        this.listener = null;
     }
 
     public String getFilename() {
         return filename;
+    }
+
+    @Override public void exitLabel(@NotNull LabelContext ctx) {
+        for (Object object : Objects.values()) {
+            if (ObjectLinks == null || ObjectLinks.isEmpty() || ObjectLinks.get(object.name) == null) {
+                String msg = String.format("Object of name \"%s\" defined, but no object link found", object.name);
+                notifyListener(ctx, new SemanticException(msg));
+            }
+        }
+
+        for (ObjectLink link : ObjectLinks.values()) {
+            if (Objects == null || Objects.isEmpty() || Objects.get(link.name) == null) {
+                String msg = String.format("Object link of name \"%s\" defined, but no corresponding object found", link.name);
+                notifyListener(ctx, new SemanticException(msg));
+            }
+        }
     }
 
     @Override public void enterPdsVersionId(@NotNull PdsVersionIdContext ctx) {
@@ -357,6 +382,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
 
     @Override public void exitObject(@NotNull ObjectContext ctx) {
         if (object == null) {
+            notifyListener(ctx, new ParseException("unexpected END OBJECT"));
             return;
         }
         if (Objects == null) {
@@ -404,5 +430,11 @@ public class RDR4Label extends RDR4LabelBaseListener {
 
     public HashMap<String,Object> getObjects() {
         return Objects;
+    }
+
+    protected void notifyListener(ParserRuleContext ctx, Exception e) {
+        if (listener != null) {
+            listener.error(ctx, e);
+        }
     }
 }

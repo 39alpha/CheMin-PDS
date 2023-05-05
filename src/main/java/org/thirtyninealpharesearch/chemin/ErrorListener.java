@@ -9,9 +9,9 @@ public class ErrorListener extends ConsoleErrorListener {
         public int line;
         public int charPositionInLine;
         public String msg;
-        public RecognitionException err;
+        public Exception err;
 
-        public Error(String filename, int line, int charPositionInLine, String msg, RecognitionException err) {
+        public Error(String filename, int line, int charPositionInLine, String msg, Exception err) {
             this.filename = filename;
             this.line = line;
             this.charPositionInLine = charPositionInLine;
@@ -20,6 +20,12 @@ public class ErrorListener extends ConsoleErrorListener {
         }
 
         public String toString() {
+            String msg = "unrecognized error";
+            if (this.msg != null) {
+                msg = this.msg;
+            } else if (this.err != null) {
+                msg = err.toString();
+            }
             return String.format("%s:%d:%d\t%s", filename, line, charPositionInLine, msg);
         }
     }
@@ -35,6 +41,23 @@ public class ErrorListener extends ConsoleErrorListener {
 
     @Override public void syntaxError(Recognizer<?, ?> recognizer, Object offendingSymbol, int line, int charPositionInLine, String msg, RecognitionException e) {
         errors.add(new Error(this.filename, line, charPositionInLine, msg, e));
+    }
+
+    public void error(ParserRuleContext ctx, String msg, Exception err) {
+        Token start = ctx.getStart();
+        errors.add(new Error(this.filename, start.getLine(), start.getCharPositionInLine(), msg, err));
+    }
+
+    public void error(ParserRuleContext ctx, Exception err) {
+        error(ctx, null, err);
+    }
+
+    public void error(ParserRuleContext ctx, String msg) {
+        error(ctx, msg, null);
+    }
+
+    public void error(ParserRuleContext ctx) {
+        error(ctx, null, null);
     }
 
     public void reportErrors() {
