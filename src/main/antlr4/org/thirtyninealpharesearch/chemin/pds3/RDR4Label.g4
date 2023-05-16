@@ -11,33 +11,34 @@ INUMBER : INTEGER;
 fragment INTEGER : '0'..'9'+;
 fragment FLOAT   : '0'..'9'+ '.' '0'..'9'*;
 
-label:
-    pdsVersionId
-    labelRevisionNote*
-    recordType
-    recordBytes
-    fileRecords
-    objectLink*
-    datasetId
-    productId
-    productVersionId
-    releaseId
-    sourceProductId
-    productType
-    instrumentHostId
-    instrumentHostName
-    instrumentId
-    targetName
-    mslCalibrationStandardName
-    missionPhaseName
-    productCreationTime
-    startTime
-    stopTime
-    spacecraftClockStartCount
-    spacecraftClockStopCount
-    object*
-    end
-    EOF;
+label: labelparts end EOF;
+
+labelparts : labelpart*;
+
+labelpart : pdsVersionId
+          | labelRevisionNote
+          | recordType
+          | recordBytes
+          | fileRecords
+          | objectLink
+          | dataSetId
+          | productId
+          | productVersionId
+          | releaseId
+          | sourceProductId
+          | productType
+          | instrumentHostId
+          | instrumentHostName
+          | instrumentId
+          | targetName
+          | mslCalibrationStandardName
+          | missionPhaseName
+          | productCreationTime
+          | startTime
+          | stopTime
+          | spacecraftClockStartCount
+          | spacecraftClockStopCount
+          | object;
 
 pdsVersionId : 'PDS_VERSION_ID' EQUALS word WS* NL+;
 
@@ -51,7 +52,7 @@ fileRecords : 'FILE_RECORDS' EQUALS INUMBER WS* NL+;
 
 objectLink : '^' WORD EQUALS fileTuple WS* NL+;
 
-datasetId : 'DATA_SET_ID' EQUALS '"' hyphenatedWord '"' WS* NL+;
+dataSetId : 'DATA_SET_ID' EQUALS '"' hyphenatedWord '"' WS* NL+;
 
 productId : 'PRODUCT_ID' EQUALS '"' word '"' WS* NL+;
 

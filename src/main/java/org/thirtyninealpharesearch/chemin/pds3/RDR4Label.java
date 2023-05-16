@@ -1,5 +1,6 @@
 package org.thirtyninealpharesearch.chemin.pds3;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.io.IOException;
@@ -141,6 +142,30 @@ public class RDR4Label extends RDR4LabelBaseListener {
     public String SpacecraftClockStopCount;
     public HashMap<String, Object> Objects;
 
+    public static String[] REQUIRED_PROPERTIES = {
+        "PDSVersionId",
+        "RecordType",
+        "RecordBytes",
+        "FileRecords",
+        "DataSetId",
+        "ProductId",
+        "ProductVersionId",
+        "ReleaseId",
+        "SourceProductId",
+        "ProductType",
+        "InstrumentHostId",
+        "InstrumentHostName",
+        "InstrumentId",
+        "TargetName",
+        "MSLCalibrationStandardName",
+        "MissionPhaseName",
+        "ProductCreationTime",
+        "StartTime",
+        "StopTime",
+        "SpacecraftClockStartCount",
+        "SpacecraftClockStopCount",
+    };
+
     protected Object object;
     protected ErrorListener listener;
 
@@ -159,6 +184,16 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void exitLabel(@NotNull LabelContext ctx) {
+        for (String field_name : RDR4Label.REQUIRED_PROPERTIES) {
+            try {
+                Field field = RDR4Label.class.getField(field_name);
+                if (field.get(this) == null) {
+                    notifyListener(ctx, "no %s field found");
+                }
+            } catch (Exception e) {
+            }
+        }
+
         for (Object object : Objects.values()) {
             if (ObjectLinks == null || ObjectLinks.isEmpty() || ObjectLinks.get(object.getName()) == null) {
                 String msg = String.format("Object of name \"%s\" defined, but no object link found", object.getName());
@@ -175,6 +210,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterPdsVersionId(@NotNull PdsVersionIdContext ctx) {
+        if (PDSVersionId != null) {
+            notifyListener(ctx, "duplicate PDS_VERSION encountered");
+        }
         PDSVersionId = ctx.word().getText();
     }
 
@@ -183,6 +221,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterLabelRevisionNote(@NotNull LabelRevisionNoteContext ctx) {
+        if (LabelRevisionNote != null) {
+            notifyListener(ctx, "duplicate LABEL_REVISION_NOTE encountered");
+        }
         LabelRevisionNote = ctx.quoted().unquoted().getText();
     }
 
@@ -191,6 +232,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterRecordType(@NotNull RecordTypeContext ctx) {
+        if (RecordType != null) {
+            notifyListener(ctx, "duplicate RECORD_TYPE encountered");
+        }
         RecordType = ctx.word().getText();
     }
 
@@ -199,6 +243,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterRecordBytes(@NotNull RecordBytesContext ctx) {
+        if (RecordBytes != null) {
+            notifyListener(ctx, "duplicate RECORD_BYTES encountered");
+        }
         RecordBytes = Integer.parseInt(ctx.INUMBER().getText());
     }
 
@@ -207,6 +254,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterFileRecords(@NotNull FileRecordsContext ctx) {
+        if (FileRecords != null) {
+            notifyListener(ctx, "duplicate FILE_RECORDS encountered");
+        }
         FileRecords = Integer.parseInt(ctx.INUMBER().getText());
     }
 
@@ -230,7 +280,10 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return ObjectLinks;
     }
 
-    @Override public void enterDatasetId(@NotNull DatasetIdContext ctx) {
+    @Override public void enterDataSetId(@NotNull DataSetIdContext ctx) {
+        if (DataSetId != null) {
+            notifyListener(ctx, "duplicate DATA_SET_ID encountered");
+        }
         DataSetId = ctx.hyphenatedWord().getText();
     }
 
@@ -239,6 +292,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterProductId(@NotNull ProductIdContext ctx) {
+        if (ProductId != null) {
+            notifyListener(ctx, "duplicate PRODUCT_ID encountered");
+        }
         ProductId = ctx.word().getText();
     }
 
@@ -247,6 +303,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterProductVersionId(@NotNull ProductVersionIdContext ctx) {
+        if (ProductVersionId != null) {
+            notifyListener(ctx, "duplicate PRODUCT_VERSION_ID encountered");
+        }
         ProductVersionId = ctx.VERSION().getText();
     }
 
@@ -255,6 +314,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterReleaseId(@NotNull ReleaseIdContext ctx) {
+        if (ReleaseId != null) {
+            notifyListener(ctx, "duplicate RELEASE_ID encountered");
+        }
         ReleaseId = ctx.INUMBER().getText();
     }
 
@@ -263,6 +325,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterSourceProductId(@NotNull SourceProductIdContext ctx) {
+        if (SourceProductId != null) {
+            notifyListener(ctx, "duplicate SOURCE_PRODUCT_ID encountered");
+        }
         SourceProductId = new ArrayList<String>();
         IdentifierEntriesContext idc = ctx.identifierList().identifierEntries();
         while (idc != null) {
@@ -278,6 +343,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterProductType(@NotNull ProductTypeContext ctx) {
+        if (ProductType != null) {
+            notifyListener(ctx, "duplicate PRODUCT_TYPE encountered");
+        }
         ProductType = ctx.WORD().getText();
     }
 
@@ -286,6 +354,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterInstrumentHostId(@NotNull InstrumentHostIdContext ctx) {
+        if (InstrumentHostId != null) {
+            notifyListener(ctx, "duplicate INSTRUMENT_HOST_ID encountered");
+        }
         InstrumentHostId = ctx.WORD().getText();
     }
 
@@ -294,6 +365,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterInstrumentHostName(@NotNull InstrumentHostNameContext ctx) {
+        if (InstrumentHostName != null) {
+            notifyListener(ctx, "duplicate INSTRUMENT_HOST_NAME encountered");
+        }
         InstrumentHostName = ctx.words().getText();
     }
 
@@ -302,6 +376,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterInstrumentId(@NotNull InstrumentIdContext ctx) {
+        if (InstrumentId != null) {
+            notifyListener(ctx, "duplicate INSTRUMENT_ID encountered");
+        }
         InstrumentId = ctx.WORD().getText();
     }
 
@@ -310,6 +387,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterTargetName(@NotNull TargetNameContext ctx) {
+        if (TargetName != null) {
+            notifyListener(ctx, "duplicate TARGET_NAME encountered");
+        }
         TargetName = ctx.WORD().getText();
     }
 
@@ -318,6 +398,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterMslCalibrationStandardName(@NotNull MslCalibrationStandardNameContext ctx) {
+        if (MSLCalibrationStandardName != null) {
+            notifyListener(ctx, "duplicate MSL:CALIBRATION_STANDARD_NAME encountered");
+        }
         MSLCalibrationStandardName = ctx.words().getText();
     }
 
@@ -326,6 +409,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterMissionPhaseName(@NotNull MissionPhaseNameContext ctx) {
+        if (MissionPhaseName != null) {
+            notifyListener(ctx, "duplicate MISSION_PHASE_NAME encountered");
+        }
         MissionPhaseName = ctx.words().getText();
     }
 
@@ -334,6 +420,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterProductCreationTime(@NotNull ProductCreationTimeContext ctx) {
+        if (ProductCreationTime != null) {
+            notifyListener(ctx, "duplicate PRODUCT_CREATION_TIME encountered");
+        }
         ProductCreationTime = ctx.utcDate().getText();
     }
 
@@ -342,6 +431,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterStartTime(@NotNull StartTimeContext ctx) {
+        if (StartTime != null) {
+            notifyListener(ctx, "duplicate START_TIME encountered");
+        }
         StartTime = ctx.utcDate().getText();
     }
 
@@ -350,6 +442,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterStopTime(@NotNull StopTimeContext ctx) {
+        if (StopTime != null) {
+            notifyListener(ctx, "duplicate STOP_TIME encountered");
+        }
         OptionalUTCDateContext c = ctx.optionalUTCDate();
         if (c.utcDate() != null) {
             StopTime = c.getText();
@@ -363,6 +458,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterSpacecraftClockStartCount(@NotNull SpacecraftClockStartCountContext ctx) {
+        if (SpacecraftClockStartCount != null) {
+            notifyListener(ctx, "duplicate SPACECRAFT_CLOCK_START_COUNT encountered");
+        }
         SpacecraftClockStartCount = ctx.clockCount().getText();
     }
 
@@ -371,6 +469,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterSpacecraftClockStopCount(@NotNull SpacecraftClockStopCountContext ctx) {
+        if (SpacecraftClockStopCount != null) {
+            notifyListener(ctx, "duplicate SPACECRAFT_CLOCK_STOP_COUNT encountered");
+        }
         OptionalClockCountContext c = ctx.optionalClockCount();
         if (c.clockCount() != null) {
             SpacecraftClockStopCount = c.getText();
@@ -384,9 +485,6 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterObject(@NotNull ObjectContext ctx) {
-        if (object == null) {
-            object = new Object();
-        }
     }
 
     @Override public void exitObject(@NotNull ObjectContext ctx) {
@@ -402,39 +500,86 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void enterObjectHeader(@NotNull ObjectHeaderContext ctx) {
+        if (object == null) {
+            object = new Object();
+        } else {
+            notifyListener(ctx, "illegal start of object; perhaps you forgot to END OBJECT");
+        }
         object.Name = ctx.WORD().getText();
     }
 
     @Override public void enterObjectBytes(@NotNull ObjectBytesContext ctx) {
+        if (object == null) {
+            notifyListener(ctx, "unexpected BYTES outside of OBJECT");
+        } else if (object.Bytes != null) {
+            notifyListener(ctx, "duplicate BYTES encountered");
+        }
         object.Bytes = Integer.parseInt(ctx.INUMBER().getText());
     }
 
     @Override public void enterObjectRows(@NotNull ObjectRowsContext ctx) {
+        if (object == null) {
+            notifyListener(ctx, "unexpected ROWS outside of OBJECT");
+        } else if (object.Rows != null) {
+            notifyListener(ctx, "duplicate ROWS encountered");
+        }
         object.Rows = Integer.parseInt(ctx.INUMBER().getText());
     }
 
     @Override public void enterObjectRowBytes(@NotNull ObjectRowBytesContext ctx) {
+        if (object == null) {
+            notifyListener(ctx, "unexpected ROW_BYTES outside of OBJECT");
+        } else if (object.RowBytes != null) {
+            notifyListener(ctx, "duplicate ROW_BYTES encountered");
+        }
         object.RowBytes = Integer.parseInt(ctx.INUMBER().getText());
     }
 
     @Override public void enterObjectFields(@NotNull ObjectFieldsContext ctx) {
+        if (object == null) {
+            notifyListener(ctx, "unexpected FIELDS outside of OBJECT");
+        } else if (object.Fields != null) {
+            notifyListener(ctx, "duplicate FIELDS encountered");
+        }
         object.Fields = Integer.parseInt(ctx.INUMBER().getText());
     }
 
     @Override public void enterObjectFieldDelimiter(@NotNull ObjectFieldDelimiterContext ctx) {
+        if (object == null) {
+            notifyListener(ctx, "unexpected FIELD_DELIMITER outside of OBJECT");
+        } else if (object.FieldDelimiter != null) {
+            notifyListener(ctx, "duplicate FIELD_DELIMITER encountered");
+        }
         object.FieldDelimiter = ctx.WORD().getText();
     }
 
     @Override public void enterObjectHeaderType(@NotNull ObjectHeaderTypeContext ctx) {
+        if (object == null) {
+            notifyListener(ctx, "unexpected HEADER_TYPE outside of OBJECT");
+        } else if (object.HeaderType != null) {
+            notifyListener(ctx, "duplicate HEADER_TYPE encountered");
+        }
         object.HeaderType = ctx.word().getText();
     }
 
     @Override public void enterObjectDescription(@NotNull ObjectDescriptionContext ctx) {
+        if (object == null) {
+            notifyListener(ctx, "unexpected DESCRIPTION outside of OBJECT");
+        } else if (object.Description != null) {
+            notifyListener(ctx, "duplicate DESCRIPTION encountered");
+        }
         object.Description = ctx.quoted().unquoted().getText();
     }
 
     @Override public void enterObjectEnd(@NotNull ObjectEndContext ctx) {
+        if (object == null || object.Name == null) {
+            notifyListener(ctx, "unexpected END_OBJECT outside of OBJECT");
+        }
         object.End = ctx.WORD().getText();
+        if (object.End != object.Name) {
+            String msg = String.format("END_OBJECT = %s has a different name OBJECT = %s", object.End, object.Name);
+            notifyListener(ctx, msg);
+        }
     }
 
     public HashMap<String,Object> getObjects() {
@@ -445,5 +590,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
         if (listener != null) {
             listener.error(ctx, e);
         }
+    }
+
+    protected void notifyListener(ParserRuleContext ctx, String msg) {
+        notifyListener(ctx, new Exception(msg));
     }
 }
