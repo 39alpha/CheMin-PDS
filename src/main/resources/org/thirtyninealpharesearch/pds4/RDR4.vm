@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
-<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1G00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="http://pds.nasa.gov/pds4/msn/v1/PDS4_MSN_1G00_1300.sch" 
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="http://pds.nasa.gov/pds4/msn/v1/PDS4_MSN_1J00_1300.sch"
   schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
 <Product_Observational xmlns="http://pds.nasa.gov/pds4/pds/v1" 
     xmlns:msn="http://pds.nasa.gov/pds4/msn/v1" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1G00.xsd http://pds.nasa.gov/pds4/msn/v1 http://pds.nasa.gov/pds4/msn/v1/PDS4_MSN_1G00_1300.xsd">
+    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.xsd http://pds.nasa.gov/pds4/msn/v1 http://pds.nasa.gov/pds4/msn/v1/PDS4_MSN_1J00_1300.xsd">
   <Identification_Area>
-    <logical_identifier>urn:nasa:pds:msl_chemin_derived:chemin_re:cmb_649856935re128420822176ch00111p1</logical_identifier>
+    <logical_identifier>urn:nasa:pds:msl_chemin_derived:data_chemin_min:cmb_649856565min28420822176ch00111p1</logical_identifier>
     <version_id>1.0</version_id>
-    <title>MSL CheMin Energy-single fluorescence Table</title>
-    <information_model_version>1.16.0.0</information_model_version>
+    <title>MSL CheMin Mineral Abundances Table</title>
+    <information_model_version>1.19.0.0</information_model_version>
     <product_class>Product_Observational</product_class>
     <Modification_History>
       <Modification_Detail>
@@ -24,7 +24,7 @@
   </Identification_Area>
   <Observation_Area>
     <Time_Coordinates>
-      <start_date_time>2020-08-05T00:30:48.438Z</start_date_time>
+      <start_date_time>2020-08-05T00:24:38.101Z</start_date_time>
       <stop_date_time nilReason="unknown" xsi:nil="true"/>
     </Time_Coordinates>
     <Primary_Result_Summary>
@@ -69,63 +69,80 @@
     </Target_Identification>
     <Discipline_Area>
       <msn:Mission_Information>
-        <msn:mission_phase_name>SURFACE MISSION</msn:mission_phase_name>
-        <msn:product_type_name>CHEMIN</msn:product_type_name>
-        <msn:spacecraft_clock_start>649856935.562</msn:spacecraft_clock_start>
+        <msn:mission_phase_name>PRIMARY SURFACE MISSION</msn:mission_phase_name>
+        <msn:release_number>0026</msn:release_number>
+        <msn:product_type_name>CHEMIN_MIN</msn:product_type_name>
+        <msn:spacecraft_clock_start>649856565.343</msn:spacecraft_clock_start>
         <msn:spacecraft_clock_stop nilReason="unknown" xsi:nil="true"/>
       </msn:Mission_Information>
     </Discipline_Area>
   </Observation_Area>
   <Reference_List>
     <Internal_Reference>
-      <lid_reference>urn:nasa:pds:msl_chemin_calibrated:document:chemin_rdrsis</lid_reference>
+      <lid_reference>urn:nasa:pds:msl_chemin_derived:document:chemin_rdrsis</lid_reference>
       <reference_type>data_to_document</reference_type>
     </Internal_Reference>
     <Internal_Reference>
-      <lid_reference>urn:nasa:pds:msl_chemin_calibrated:document:chemin_basics</lid_reference>
+      <lid_reference>urn:nasa:pds:msl_chemin_derived:document:chemin_pds4_notes</lid_reference>
       <reference_type>data_to_document</reference_type>
     </Internal_Reference>
-    <Source_Product_Internal>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_649856935ee128420822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_649857305ee128420822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_649857674ee128420822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_649858044ee128420822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_649858414ee128420822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_649858785ee128420822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_649859156ee128420822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_649859526ee128420822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_649859898ee128420822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_649860267ee128420822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_649860637ee128420822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_649861007ee128420822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_649861377ee128420822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650300807ee128470822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650301177ee128470822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650301546ee128470822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650301916ee128470822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650302285ee128470822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650302656ee128470822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650303025ee128470822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650303395ee128470822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650303764ee128470822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650304134ee128470822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650304503ee128470822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650304873ee128470822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650305242ee128470822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650922339ee128540822176ch00111m1::1.0</lidvid_reference>     <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650922709ee128540822176ch00111m1::1.0</lidvid_reference>     <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650923078ee128540822176ch00111m1::1.0</lidvid_reference>
-<lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650923448ee128540822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650923818ee128540822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650924188ee128540822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650924558ee128540822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650924929ee128540822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650925299ee128540822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650925668ee128540822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650926038ee128540822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650926408ee128540822176ch00111m1::1.0</lidvid_reference>      <lidvid_reference>urn:nasa:pds:msl_chemin_edr:cmb_650926778ee128540822176ch00111m1::1.0</lidvid_reference>
+    <Source_Product_Internal>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_derived:data_chemin_rda:cmb_649856565rda28420822176ch00111p1::1.0</lidvid_reference>
       <reference_type>data_to_derived_source_product</reference_type>
-      <comment>This is a reference to a data file corresponding to this data.</comment>
     </Source_Product_Internal>
   </Reference_List>
   <File_Area_Observational>
     <File>
-      <file_name>cmb_649856935re128420822176ch00111p1.csv</file_name>
+      <file_name>cmb_649856565min28420822176ch00111p1.csv</file_name>
+      <creation_date_time>2021-02-07T16:36:00</creation_date_time>
     </File>
     <Header>
       <offset unit="byte">0</offset>
-      <object_length unit="byte">15</object_length>
+      <object_length unit="byte">23</object_length>
       <parsing_standard_id>7-Bit ASCII Text</parsing_standard_id>
       <description>Column headings</description>
     </Header>
     <Table_Delimited>
-      <offset unit="byte">15</offset>
+      <offset unit="byte">23</offset>
       <parsing_standard_id>PDS DSV 1</parsing_standard_id>
-      <description>This table contains energy-single fluorescence data for the first Mary Anning drill sample, in CheMin cell number 7a (Mylar window), which had previously held the scoop samples Rocknest (fifth scoop) and Gobabeb. The 39 minor frames of best data quality from sol 2842 to sol 2854 were selected and averaged, including 7020 individual 10-second frames in the 39 minor frames of 180 10-second frames each. A threshold of 50 DN was used. CCD temperatures during data collection were ~-50 degrees centigrade. Column 1 of the table shows energy in keV converted from digital number (DN) using a conversion factor of 128.9063 DN/keV, based on position of the 6.400 keV Fe K-alpha peak at DN 825. Results are listed from DN 51 to 1500 (0.39564 to 11.63636 keV), 1450 entries. Column 2 lists the log-scale intensity for each value of keV in column 1.</description>
-      <records>1450</records>
+      <description>This table contains mineral abundances and analytical errors derived from diffraction-all K-alpha 
+        diffraction data for the first Mary Anning drill sample, analyzed in CheMin cell number 7a (Mylar window). The 
+        analysis is based on RDA file CMB_649856565RDA28420822176CH00111P1. Mineral identifications, abundances and 
+        analytical errors for crystalline phases, other than clay minerals, were determined using the program JADE. 
+        Mineral identification as Fe-carbonate may include siderite and/or ankerite. In addition to these crystalline 
+        phases, the program FULLPAT was used to estimate the abundance of poorly crystalline clay minerals at 
+        ~28 +/- 10 weight% of the total sample. High intensity in the low 2-theta region and a broad amorphous hump were 
+        modeled using FULLPAT to indicate that ~27 +/- 20 weight% of the total sample consists of X-ray amorphous 
+        materials. Column 1 of the table lists mineral identifications, column 2 lists the mineral abundances in weight 
+        percent, and column 3 indicates the estimated 2-sigma analytical errors.</description>
+      <records>7</records>
       <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
       <field_delimiter>Comma</field_delimiter>
       <Record_Delimited>
-        <fields>2</fields>
+        <fields>3</fields>
         <groups>0</groups>
         <Field_Delimited>
-          <name>ENERGY</name>
+          <name>MINERAL</name>
           <field_number>1</field_number>
-          <data_type>ASCII_Real</data_type>
-          <maximum_field_length unit="byte">8</maximum_field_length>
-          <unit>kev</unit>
-          <description>Energy in keV converted from digital number (DN)</description>
+          <data_type>ASCII_String</data_type>
+          <maximum_field_length unit="byte">16</maximum_field_length>
+          <description>Mineral identification</description>
         </Field_Delimited>
         <Field_Delimited>
-          <name>INTENSITY</name>
+          <name>PERCENT</name>
           <field_number>2</field_number>
           <data_type>ASCII_Real</data_type>
-          <maximum_field_length unit="byte">8</maximum_field_length>
-          <unit>counts</unit>
-          <description>The log-scale intensity for each value of keV in column 1</description>
+          <maximum_field_length unit="byte">9</maximum_field_length>
+          <unit>wt%</unit>
+          <description>The mineral abundances in weight percent</description>
+        </Field_Delimited>
+        <Field_Delimited>
+          <name>ERROR</name>
+          <field_number>3</field_number>
+          <data_type>ASCII_Real</data_type>
+          <maximum_field_length unit="byte">7</maximum_field_length>
+          <unit>estimated_error</unit>
+          <description>The estimated 2-sigma analytical errors</description>
         </Field_Delimited>
       </Record_Delimited>
     </Table_Delimited>
