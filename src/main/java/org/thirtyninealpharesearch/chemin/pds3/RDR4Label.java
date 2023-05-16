@@ -9,6 +9,8 @@ import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.misc.*;
 import org.antlr.v4.runtime.tree.*;
 
+import org.apache.commons.io.FilenameUtils;
+
 import org.thirtyninealpharesearch.chemin.ErrorStrategy;
 import org.thirtyninealpharesearch.chemin.ErrorListener;
 import org.thirtyninealpharesearch.chemin.pds3.RDR4LabelParser.*;
@@ -594,5 +596,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
 
     protected void notifyListener(ParserRuleContext ctx, String msg) {
         notifyListener(ctx, new Exception(msg));
+    }
+
+    protected String getLogicalIdentifier() {
+        return FilenameUtils.getBaseName(filename);
     }
 }
