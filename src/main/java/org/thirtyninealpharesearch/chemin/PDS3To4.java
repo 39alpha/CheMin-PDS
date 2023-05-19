@@ -11,6 +11,8 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
+import org.apache.commons.io.FilenameUtils;
+
 import org.apache.velocity.Template;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
@@ -25,6 +27,9 @@ public class PDS3To4 implements Callable<Integer> {
     @Parameters(index="0", paramLabel="PDS3-LABEL", description="path to label file")
     private String labelFilename;
 
+    @Option(names={"-o", "--output"}, paramLabel="FILE", description="path to output file")
+    private String outputFilename = null;
+
     @Option(names={"-t", "--template"}, paramLabel="TEMPLATE", description="path to template file")
     private String templateFilename = null;
 
@@ -37,18 +42,22 @@ public class PDS3To4 implements Callable<Integer> {
             Velocity.init();
         }
 
+        if (outputFilename == null) {
+            outputFilename = FilenameUtils.getBaseName(labelFilename) + ".xml";
+        }
+
         RDR4Label label = RDR4Label.parseFile(labelFilename);
 
         VelocityContext context = new VelocityContext();
         context.put("label", label);
 
         Template template = Velocity.getTemplate(templateFilename);
-        File pds4File = new File("temp.xml");
+        File pds4File = new File(outputFilename);
         BufferedWriter writer = new BufferedWriter(new FileWriter(pds4File));
         template.merge(context, writer);
         writer.flush();
 
-        int exitCode = new Validator().process(new String[]{"temp.xml"});
+        int exitCode = new Validator().process(new String[]{outputFilename});
 
         writer.close();
 
