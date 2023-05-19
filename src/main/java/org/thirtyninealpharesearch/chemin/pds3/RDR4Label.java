@@ -598,7 +598,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         notifyListener(ctx, new Exception(msg));
     }
 
-    protected String getLogicalIdentifier() {
+    public String getLogicalIdentifier() {
         return FilenameUtils.getBaseName(filename);
     }
 }
