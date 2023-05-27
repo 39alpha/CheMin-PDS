@@ -24,14 +24,14 @@ public class StructureTest
         ArrayList<Object> objects = fmt.getObjects();
         assertNotNull(objects);
         assertEquals(2, objects.size());
-        
+
         Object twoTheta = objects.get(0);
         assertEquals("2-THETA", twoTheta.getName());
         assertEquals("ASCII_REAL", twoTheta.getDataType());
         assertEquals("DEGREES", twoTheta.getUnit());
         assertEquals(6, twoTheta.getBytes());
         assertEquals("F6.2", twoTheta.getFormat());
-        
+
         Object intensity = objects.get(1);
         assertEquals("INTENSITY", intensity.getName());
         assertEquals("ASCII_REAL", intensity.getDataType());
@@ -51,21 +51,21 @@ public class StructureTest
         ArrayList<Object> objects = fmt.getObjects();
         assertNotNull(objects);
         assertEquals(3, objects.size());
-        
+
         Object mineral = objects.get(0);
         assertEquals("MINERAL", mineral.getName());
         assertEquals("CHARACTER", mineral.getDataType());
         assertEquals("TEXT", mineral.getUnit());
         assertEquals(16, mineral.getBytes());
         assertEquals("A16", mineral.getFormat());
-        
+
         Object percent = objects.get(1);
         assertEquals("PERCENT", percent.getName());
         assertEquals("ASCII_REAL", percent.getDataType());
         assertEquals("WEIGHT_PERCENT", percent.getUnit());
         assertEquals(9, percent.getBytes());
         assertEquals("F9.2", percent.getFormat());
-        
+
         Object error = objects.get(2);
         assertEquals("ERROR", error.getName());
         assertEquals("ASCII_REAL", error.getDataType());
@@ -85,14 +85,14 @@ public class StructureTest
         ArrayList<Object> objects = fmt.getObjects();
         assertNotNull(objects);
         assertEquals(2, objects.size());
-        
+
         Object energy = objects.get(0);
         assertEquals("ENERGY", energy.getName());
         assertEquals("ASCII_REAL", energy.getDataType());
         assertEquals("KEV", energy.getUnit());
         assertEquals(8, energy.getBytes());
         assertEquals("F8.5", energy.getFormat());
-        
+
         Object intensity = objects.get(1);
         assertEquals("INTENSITY", intensity.getName());
         assertEquals("ASCII_REAL", intensity.getDataType());

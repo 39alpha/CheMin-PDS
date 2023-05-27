@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 import org.thirtyninealpharesearch.chemin.pds3.RDR4Label.ObjectLink;
 import org.thirtyninealpharesearch.chemin.pds3.RDR4Label.Object;
@@ -88,6 +89,25 @@ public class RDR4LabelTest
         assertEquals("COMMA", spreadsheet.getFieldDelimiter());
         assertNull(spreadsheet.getHeaderType());
         assertEquals("This table contains diffraction-all K-alpha\r\n diffraction data for the fourth scooped soil sample from the Rocknest target,\r\n analyzed in CheMin cell number 1a (Kapton window). The table represents\r\n results from sequences uploaded from sol00077 to sol00088, including 6,840\r\n individual 10-second frames in 38 minor frames of 180 individual 10-second\r\n frames. CCD temperatures during data collection were ~-50 degrees centigrade.\r\n Column 1 of the table lists 2-theta from 3.00 to 51.95 degrees cobalt\r\n K-alpha, in increments of 0.05 degrees (980 entries). Column 2 lists the\r\n intensity of the diffraction for each 2-theta value in column 1.", spreadsheet.getDescription());
+
+        assertNotNull(spreadsheet.getStructure());
+        ArrayList<Structure.Object> fields = spreadsheet.getStructure().getObjects();
+        assertNotNull(fields);
+        assertEquals(2, fields.size());
+
+        Structure.Object twoTheta = fields.get(0);
+        assertEquals("2-THETA", twoTheta.getName());
+        assertEquals("ASCII_REAL", twoTheta.getDataType());
+        assertEquals("DEGREES", twoTheta.getUnit());
+        assertEquals(6, twoTheta.getBytes());
+        assertEquals("F6.2", twoTheta.getFormat());
+
+        Structure.Object intensity = fields.get(1);
+        assertEquals("INTENSITY", intensity.getName());
+        assertEquals("ASCII_REAL", intensity.getDataType());
+        assertEquals("COUNTS", intensity.getUnit());
+        assertEquals(7, intensity.getBytes());
+        assertEquals("F7.0", intensity.getFormat());
 
         assertEquals("rdr4_test", label.getLogicalIdentifier());
     }

@@ -18,7 +18,7 @@ import org.thirtyninealpharesearch.chemin.ParseException;
 import org.thirtyninealpharesearch.chemin.SemanticException;
 
 public class RDR4Label extends RDR4LabelBaseListener {
-    public static RDR4Label parseFile(String filename, boolean silent) throws IOException {
+    public static RDR4Label parseFile(String filename, String format) throws IOException {
         ErrorListener listener = new ErrorListener(filename);
 
         ANTLRFileStream in = new ANTLRFileStream(filename);
@@ -30,7 +30,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         parser.removeErrorListeners();
         parser.addErrorListener(listener);
 
-        RDR4Label label = new RDR4Label(filename, listener);
+        RDR4Label label = new RDR4Label(filename, format, listener);
 
         ParseTreeWalker walker = new ParseTreeWalker();
         try {
@@ -43,7 +43,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     public static RDR4Label parseFile(String filename) throws IOException {
-        return RDR4Label.parseFile(filename, false);
+        return RDR4Label.parseFile(filename, null);
     }
 
     public class ObjectLink {
@@ -80,6 +80,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         public String FieldDelimiter;
         public String HeaderType;
         public String Description;
+        public Structure Structure;
 
         public String getName() {
             return Name;
@@ -116,9 +117,15 @@ public class RDR4Label extends RDR4LabelBaseListener {
         public String getDescription() {
             return Description;
         }
+
+        public Structure getStructure() {
+            return Structure;
+        }
     }
 
     public String filename;
+    public String format;
+
     public String PDSVersionId;
     public String LabelRevisionNote;
     public String RecordType;
@@ -171,18 +178,36 @@ public class RDR4Label extends RDR4LabelBaseListener {
     protected Object object;
     protected ErrorListener listener;
 
+    public RDR4Label(String filename, String format, ErrorListener listener) {
+        this.filename = filename;
+        this.format = format;
+        this.listener = listener;
+    }
+
+    public RDR4Label(String filename, String format) {
+        this.filename = filename;
+        this.format = format;
+        this.listener = new ErrorListener(filename);
+    }
+
     public RDR4Label(String filename, ErrorListener listener) {
         this.filename = filename;
+        this.format = null;
         this.listener = listener;
     }
 
     public RDR4Label(String filename) {
         this.filename = filename;
-        this.listener = null;
+        this.format = null;
+        this.listener = new ErrorListener(filename);
     }
 
     public String getFilename() {
         return filename;
+    }
+
+    public String getFormat() {
+        return format;
     }
 
     @Override public void exitLabel(@NotNull LabelContext ctx) {
@@ -268,7 +293,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
 
     @Override public void enterObjectLink(@NotNull ObjectLinkContext ctx) {
         String name = ctx.WORD().getText();
-        String filename = ctx.fileTuple().filename().getText();
+        String filename = ctx.fileTuple().filename().getText().trim();
         int index = Integer.parseInt(ctx.fileTuple().INUMBER().getText());
         ObjectLink link = new ObjectLink(name, filename, index);
 
@@ -571,6 +596,44 @@ public class RDR4Label extends RDR4LabelBaseListener {
             notifyListener(ctx, "duplicate DESCRIPTION encountered");
         }
         object.Description = ctx.quoted().unquoted().getText();
+    }
+
+    @Override public void enterObjectStructure(@NotNull ObjectStructureContext ctx) {
+        if (object == null) {
+            notifyListener(ctx, "unexpected ^STRUCTURE outside of OBJECT");
+        } else if (object.Structure != null) {
+            notifyListener(ctx, "duplicate ^STRUCTURE encountered");
+        }
+
+        if (format != null) {
+            try {
+                object.Structure = Structure.parseFile(this.format);
+            } catch (Exception e) {
+                notifyListener(ctx, e);
+            }
+        } else {
+            String filename = ctx.filename().getText().trim();
+            try {
+                object.Structure = Structure.parseResource(filename);
+                return;
+            } catch (Exception e) {
+                notifyListener(ctx, e);
+            }
+
+            try {
+                object.Structure = Structure.parseFile(filename);
+                return;
+            } catch (Exception e) {
+                notifyListener(ctx, e);
+            }
+
+            try {
+                object.Structure = Structure.parseFile(filename.toLowerCase());
+                return;
+            } catch (Exception e) {
+                notifyListener(ctx, e);
+            }
+        }
     }
 
     @Override public void enterObjectEnd(@NotNull ObjectEndContext ctx) {
