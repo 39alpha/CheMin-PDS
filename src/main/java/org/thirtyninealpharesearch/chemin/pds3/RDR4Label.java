@@ -373,7 +373,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
         if (ProductType != null) {
             notifyListener(ctx, "duplicate PRODUCT_TYPE encountered");
         }
-        ProductType = ctx.WORD().getText();
+        ProductType = ctx.quoted().unquoted().getText();
     }
 
     public String getProductType() {
@@ -641,8 +641,8 @@ public class RDR4Label extends RDR4LabelBaseListener {
             notifyListener(ctx, "unexpected END_OBJECT outside of OBJECT");
         }
         object.End = ctx.WORD().getText();
-        if (object.End != object.Name) {
-            String msg = String.format("END_OBJECT = %s has a different name OBJECT = %s", object.End, object.Name);
+        if (!object.End.equals(object.Name)) {
+            String msg = String.format("END_OBJECT = \"%s\" has a different name than OBJECT = \"%s\"", object.End, object.Name);
             notifyListener(ctx, msg);
         }
     }

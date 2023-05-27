@@ -62,7 +62,7 @@ releaseId : 'RELEASE_ID' EQUALS '"' INUMBER '"' WS* NL+;
 
 sourceProductId : 'SOURCE_PRODUCT_ID' EQUALS identifierList WS* NL+;
 
-productType : 'PRODUCT_TYPE' EQUALS '"' WORD '"' WS* NL+;
+productType : 'PRODUCT_TYPE' EQUALS quoted WS* NL+;
 
 instrumentHostId : 'INSTRUMENT_HOST_ID' EQUALS '"' WORD '"' WS* NL+;
 
@@ -152,14 +152,16 @@ identifierEntries : WS* identifierEntry WS*
 
 identifierEntry : '"' WS* word WS* '"';
 
-optionalUTCDate : '"UNK"'
+optionalUTCDate : 'UNK'
+                | '"UNK"'
                 | utcDate;
 
 utcDate : INUMBER '-' INUMBER '-' INUMBER 'T' INUMBER ':' INUMBER ':' INUMBER ('.' INUMBER)?;
 
-optionalClockCount : '"UNK"'
+optionalClockCount : 'UNK'
+                   | '"UNK"'
                    | '"' clockCount '"';
 
 clockCount : INUMBER ('.' INUMBER)?;
 
-end : 'END' NL+;
+end : 'END' (WS* NL+)+;

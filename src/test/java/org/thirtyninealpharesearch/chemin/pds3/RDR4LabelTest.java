@@ -10,14 +10,21 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import org.apache.commons.io.FilenameUtils;
+
 import org.thirtyninealpharesearch.chemin.pds3.RDR4Label.ObjectLink;
 import org.thirtyninealpharesearch.chemin.pds3.RDR4Label.Object;
 
 public class RDR4LabelTest
 {
+    public String testData(String filename) {
+        return FilenameUtils.concat("src/test/data", filename);
+    }
+
     @Test
     public void shouldParse() {
-        String filename = "src/test/data/pds3/rdr4_test.lbl";
+        String filename = testData("pds3/rdr4_test.lbl");
 
         RDR4Label label = assertDoesNotThrow(() -> RDR4Label.parseFile(filename), "Should Not Throw");
         assertNotNull(label);
@@ -113,8 +120,17 @@ public class RDR4LabelTest
     }
 
     @Test
+    public void parseAbnormalFile() {
+        String filename = testData("pds3/rdr4/cma_602259727re123070732502ch00113p1.lbl");
+        RDR4Label label = assertDoesNotThrow(() -> RDR4Label.parseFile(filename), "Should Not Throw");
+        assertNotNull(label);
+        assertEquals("CHEMIN_RE1", label.getProductType());
+        assertEquals("UNK", label.getStopTime());
+    }
+
+    @Test
     public void parsesAllLabelFiles() {
-        File folder = new File("src/test/data/pds3/rdr4");
+        File folder = new File(testData("pds3/rdr4"));
         for (File entry : folder.listFiles()) {
             if (entry.isFile()) {
                 RDR4Label label = assertDoesNotThrow(() -> RDR4Label.parseFile(entry.getPath()), "Should Not Throw");
