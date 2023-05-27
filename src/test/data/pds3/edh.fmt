@@ -1,0 +1,15 @@
+OBJECT      = FIELD
+ NAME       = "ENERGY"
+ DATA_TYPE  = ASCII_REAL
+ UNIT       = "KEV"
+ BYTES      = 8
+ FORMAT     = "F8.5"
+END_OBJECT  = FIELD
+
+OBJECT      = FIELD
+ NAME       = "INTENSITY"
+ DATA_TYPE  = ASCII_REAL
+ UNIT       = "COUNT"
+ BYTES      = 8
+ FORMAT     = "F8.0"
+END_OBJECT  = FIELD

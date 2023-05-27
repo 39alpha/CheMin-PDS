@@ -1,0 +1,15 @@
+OBJECT       = FIELD
+ NAME        = "2-THETA"
+ DATA_TYPE   = ASCII_REAL
+ UNIT        = "DEGREES"
+ BYTES       = 6
+ FORMAT      = "F6.2"
+END_OBJECT   = FIELD
+
+OBJECT       = FIELD
+ NAME        = "INTENSITY"
+ DATA_TYPE   = ASCII_REAL
+ UNIT        = "COUNTS"
+ BYTES       = 7
+ FORMAT      = "F7.0"
+END_OBJECT   = FIELD
