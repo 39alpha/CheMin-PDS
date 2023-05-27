@@ -33,6 +33,9 @@ public class PDS3To4 implements Callable<Integer> {
     @Option(names={"-t", "--template"}, paramLabel="TEMPLATE", description="path to template file")
     private String templateFilename = null;
 
+    @Option(names={"-f", "--format"}, paramLabel="FORMAT", description="path to fmt file")
+    private String formatFilename = null;
+
     @Override
     public Integer call() throws Exception {
         if (templateFilename == null) {
@@ -46,7 +49,7 @@ public class PDS3To4 implements Callable<Integer> {
             outputFilename = FilenameUtils.getBaseName(labelFilename) + ".xml";
         }
 
-        RDR4Label label = RDR4Label.parseFile(labelFilename);
+        RDR4Label label = RDR4Label.parseFile(labelFilename, formatFilename);
 
         VelocityContext context = new VelocityContext();
         context.put("label", label);
