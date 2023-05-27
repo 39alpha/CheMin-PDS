@@ -43,6 +43,10 @@ public class ErrorListener extends ConsoleErrorListener {
         errors.add(new Error(this.filename, line, charPositionInLine, msg, e));
     }
 
+    public boolean hasErrors() {
+        return errors.size() != 0;
+    }
+
     public void error(ParserRuleContext ctx, String msg, Exception err) {
         Token start = ctx.getStart();
         errors.add(new Error(this.filename, start.getLine(), start.getCharPositionInLine(), msg, err));

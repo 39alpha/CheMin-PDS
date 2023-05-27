@@ -33,13 +33,13 @@ public class RDR4Label extends RDR4LabelBaseListener {
         RDR4Label label = new RDR4Label(filename, format, listener);
 
         ParseTreeWalker walker = new ParseTreeWalker();
-        try {
-            walker.walk(label, parser.label());
-            return label;
-        } catch (Exception e) {
+
+        walker.walk(label, parser.label());
+        if (listener.hasErrors()) {
             listener.reportErrors();
-            return null;
+            throw new IOException(String.format("failed to parse \"%s\"", filename));
         }
+        return label;
     }
 
     public static RDR4Label parseFile(String filename) throws IOException {
@@ -607,7 +607,7 @@ public class RDR4Label extends RDR4LabelBaseListener {
 
         if (format != null) {
             try {
-                object.Structure = Structure.parseFile(this.format);
+                object.Structure = Structure.parseFile(format);
             } catch (Exception e) {
                 notifyListener(ctx, e);
             }
