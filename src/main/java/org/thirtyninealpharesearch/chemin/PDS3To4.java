@@ -36,7 +36,7 @@ public class PDS3To4 implements Callable<Integer> {
     @Override
     public Integer call() throws Exception {
         if (templateFilename == null) {
-            templateFilename = "org/thirtyninealpharesearch/pds4/RDR4.vm";
+            templateFilename = "org/thirtyninealpharesearch/chemin/pds4/RDR4.vm";
             Velocity.setProperty(RuntimeConstants.RESOURCE_LOADERS, "classpath");
             Velocity.setProperty("resource.loader.classpath.class", ClasspathResourceLoader.class.getName());
             Velocity.init();
