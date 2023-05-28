@@ -67,6 +67,7 @@ public class Structure extends StructureBaseListener {
         public String Unit;
         public Integer Bytes;
         public String Format;
+        public String Description;
 
         public String getName() {
             return Name;
@@ -86,6 +87,10 @@ public class Structure extends StructureBaseListener {
 
         public String getFormat() {
             return Format;
+        }
+
+        public String getDescription() {
+            return Description;
         }
     }
 
@@ -162,6 +167,11 @@ public class Structure extends StructureBaseListener {
     @Override public void enterObjectFormat(@NotNull ObjectFormatContext ctx) {
         guard(ctx, "FORMAT", (Object object) -> object.Format);
         object.Format = ctx.quoted().unquoted().getText();
+    }
+
+    @Override public void enterObjectDescription(@NotNull ObjectDescriptionContext ctx) {
+        guard(ctx, "DESCRIPTION", (Object object) -> object.Description);
+        object.Description = ctx.quoted().unquoted().getText();
     }
 
     public ArrayList<Object> getObjects() {

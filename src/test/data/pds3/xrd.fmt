@@ -4,6 +4,7 @@ OBJECT       = FIELD
  UNIT        = "DEGREES"
  BYTES       = 6
  FORMAT      = "F6.2"
+ DESCRIPTION = "2-theta"
 END_OBJECT   = FIELD
 
 OBJECT       = FIELD
@@ -12,4 +13,5 @@ OBJECT       = FIELD
  UNIT        = "COUNTS"
  BYTES       = 7
  FORMAT      = "F7.0"
+ DESCRIPTION = "The intensity of the diffraction for each 2-theta value in column 1"
 END_OBJECT   = FIELD

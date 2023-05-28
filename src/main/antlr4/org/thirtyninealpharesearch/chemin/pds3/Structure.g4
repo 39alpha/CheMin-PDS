@@ -22,6 +22,7 @@ object :
     objectUnit
     objectBytes
     objectFormat
+    objectDescription?
     objectEnd;
 
 objectHeader : WS* 'OBJECT' EQUALS field WS* NL+;
@@ -35,6 +36,8 @@ objectUnit : WS* 'UNIT' EQUALS quoted WS* NL+;
 objectBytes : WS* 'BYTES' EQUALS INUMBER WS* NL+;
 
 objectFormat : WS* 'FORMAT' EQUALS quoted WS* NL+;
+
+objectDescription : WS* 'DESCRIPTION' EQUALS quoted WS* NL+;
 
 objectEnd : WS* 'END_OBJECT' EQUALS field WS* NL+;
 

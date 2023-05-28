@@ -31,6 +31,7 @@ public class StructureTest
         assertEquals("DEGREES", twoTheta.getUnit());
         assertEquals(6, twoTheta.getBytes());
         assertEquals("F6.2", twoTheta.getFormat());
+        assertEquals("2-theta", twoTheta.getDescription());
 
         Object intensity = objects.get(1);
         assertEquals("INTENSITY", intensity.getName());
@@ -38,6 +39,7 @@ public class StructureTest
         assertEquals("COUNTS", intensity.getUnit());
         assertEquals(7, intensity.getBytes());
         assertEquals("F7.0", intensity.getFormat());
+        assertEquals("The intensity of the diffraction for each 2-theta value in column 1", intensity.getDescription());
     }
 
     @Test
@@ -58,6 +60,7 @@ public class StructureTest
         assertEquals("TEXT", mineral.getUnit());
         assertEquals(16, mineral.getBytes());
         assertEquals("A16", mineral.getFormat());
+        assertNull(mineral.getDescription());
 
         Object percent = objects.get(1);
         assertEquals("PERCENT", percent.getName());
@@ -65,6 +68,7 @@ public class StructureTest
         assertEquals("WEIGHT_PERCENT", percent.getUnit());
         assertEquals(9, percent.getBytes());
         assertEquals("F9.2", percent.getFormat());
+        assertNull(percent.getDescription());
 
         Object error = objects.get(2);
         assertEquals("ERROR", error.getName());
@@ -72,6 +76,7 @@ public class StructureTest
         assertEquals("ESTIMATED_ERROR", error.getUnit());
         assertEquals(7, error.getBytes());
         assertEquals("F7.2", error.getFormat());
+        assertNull(error.getDescription());
     }
 
     @Test
@@ -92,6 +97,7 @@ public class StructureTest
         assertEquals("KEV", energy.getUnit());
         assertEquals(8, energy.getBytes());
         assertEquals("F8.5", energy.getFormat());
+        assertNull(energy.getDescription());
 
         Object intensity = objects.get(1);
         assertEquals("INTENSITY", intensity.getName());
@@ -99,5 +105,6 @@ public class StructureTest
         assertEquals("COUNT", intensity.getUnit());
         assertEquals(8, intensity.getBytes());
         assertEquals("F8.0", intensity.getFormat());
+        assertNull(intensity.getDescription());
     }
 }
