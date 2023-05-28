@@ -132,24 +132,24 @@
       #set($delimiter = $delimiter.substring(0,1).toUpperCase() + $delimiter.substring(1).toLowerCase())
       <field_delimiter>$delimiter</field_delimiter>
       <Record_Delimited>
-        <fields>2</fields>
+        #set($fields = $label.Objects["SPREADSHEET"].Structure.Objects)
+        <fields>$fields.size()</fields>
         <groups>0</groups>
+        #foreach ($i in [1 .. $fields.size()])
+        #set($field = $fields.get($i - 1))
         <Field_Delimited>
-          <name>2-THETA</name>
-          <field_number>1</field_number>
-          <data_type>ASCII_Real</data_type>
-          <maximum_field_length unit="byte">6</maximum_field_length>
-          <unit>degrees</unit>
-          <description>2-theta</description>
+          <name>$field.Name</name>
+          <field_number>$i</field_number>
+          <data_type>$field.DataType</data_type>
+          <maximum_field_length unit="byte">$field.Bytes</maximum_field_length>
+          <unit>$field.Unit.toLowerCase()</unit>
+          #if ($field.Description)
+          <description>$field.Description</description>
+          #else
+          <description>$field.Name</description>
+          #end
         </Field_Delimited>
-        <Field_Delimited>
-          <name>INTENSITY</name>
-          <field_number>2</field_number>
-          <data_type>ASCII_Real</data_type>
-          <maximum_field_length unit="byte">7</maximum_field_length>
-          <unit>counts</unit>
-          <description>The intensity of the diffraction for each 2-theta value in column 1</description>
-        </Field_Delimited>
+        #end
       </Record_Delimited>
     </Table_Delimited>
   </File_Area_Observational>
