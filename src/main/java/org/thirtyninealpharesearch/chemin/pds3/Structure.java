@@ -3,6 +3,7 @@ package org.thirtyninealpharesearch.chemin.pds3;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.function.Function;
 
 import org.antlr.v4.runtime.*;
@@ -91,6 +92,11 @@ public class Structure extends StructureBaseListener {
     public String filename;
     public ArrayList<Object> Objects;
 
+    public static Map<String,String> DATA_TYPES = Map.ofEntries(
+        Map.entry("ASCII_REAL", "ASCII_Real"),
+        Map.entry("CHARACTER", "ASCII_String")
+    );
+
     protected Object object;
     protected ErrorListener listener;
 
@@ -136,7 +142,11 @@ public class Structure extends StructureBaseListener {
 
     @Override public void enterObjectDataType(@NotNull ObjectDataTypeContext ctx) {
         guard(ctx, "DATA_TYPE", (Object object) -> object.DataType);
-        object.DataType = ctx.type().getText();
+        String dataType = ctx.type().getText();
+        object.DataType = Structure.DATA_TYPES.get(dataType);
+        if (object.DataType == null) {
+            notifyListener(ctx, "unrecognized data type " + dataType);
+        }
     }
 
     @Override public void enterObjectUnit(@NotNull ObjectUnitContext ctx) {

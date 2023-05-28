@@ -104,14 +104,14 @@ public class RDR4LabelTest
 
         Structure.Object twoTheta = fields.get(0);
         assertEquals("2-THETA", twoTheta.getName());
-        assertEquals("ASCII_REAL", twoTheta.getDataType());
+        assertEquals("ASCII_Real", twoTheta.getDataType());
         assertEquals("DEGREES", twoTheta.getUnit());
         assertEquals(6, twoTheta.getBytes());
         assertEquals("F6.2", twoTheta.getFormat());
 
         Structure.Object intensity = fields.get(1);
         assertEquals("INTENSITY", intensity.getName());
-        assertEquals("ASCII_REAL", intensity.getDataType());
+        assertEquals("ASCII_Real", intensity.getDataType());
         assertEquals("COUNTS", intensity.getUnit());
         assertEquals(7, intensity.getBytes());
         assertEquals("F7.0", intensity.getFormat());

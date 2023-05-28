@@ -27,14 +27,14 @@ public class StructureTest
 
         Object twoTheta = objects.get(0);
         assertEquals("2-THETA", twoTheta.getName());
-        assertEquals("ASCII_REAL", twoTheta.getDataType());
+        assertEquals("ASCII_Real", twoTheta.getDataType());
         assertEquals("DEGREES", twoTheta.getUnit());
         assertEquals(6, twoTheta.getBytes());
         assertEquals("F6.2", twoTheta.getFormat());
 
         Object intensity = objects.get(1);
         assertEquals("INTENSITY", intensity.getName());
-        assertEquals("ASCII_REAL", intensity.getDataType());
+        assertEquals("ASCII_Real", intensity.getDataType());
         assertEquals("COUNTS", intensity.getUnit());
         assertEquals(7, intensity.getBytes());
         assertEquals("F7.0", intensity.getFormat());
@@ -54,21 +54,21 @@ public class StructureTest
 
         Object mineral = objects.get(0);
         assertEquals("MINERAL", mineral.getName());
-        assertEquals("CHARACTER", mineral.getDataType());
+        assertEquals("ASCII_String", mineral.getDataType());
         assertEquals("TEXT", mineral.getUnit());
         assertEquals(16, mineral.getBytes());
         assertEquals("A16", mineral.getFormat());
 
         Object percent = objects.get(1);
         assertEquals("PERCENT", percent.getName());
-        assertEquals("ASCII_REAL", percent.getDataType());
+        assertEquals("ASCII_Real", percent.getDataType());
         assertEquals("WEIGHT_PERCENT", percent.getUnit());
         assertEquals(9, percent.getBytes());
         assertEquals("F9.2", percent.getFormat());
 
         Object error = objects.get(2);
         assertEquals("ERROR", error.getName());
-        assertEquals("ASCII_REAL", error.getDataType());
+        assertEquals("ASCII_Real", error.getDataType());
         assertEquals("ESTIMATED_ERROR", error.getUnit());
         assertEquals(7, error.getBytes());
         assertEquals("F7.2", error.getFormat());
@@ -88,14 +88,14 @@ public class StructureTest
 
         Object energy = objects.get(0);
         assertEquals("ENERGY", energy.getName());
-        assertEquals("ASCII_REAL", energy.getDataType());
+        assertEquals("ASCII_Real", energy.getDataType());
         assertEquals("KEV", energy.getUnit());
         assertEquals(8, energy.getBytes());
         assertEquals("F8.5", energy.getFormat());
 
         Object intensity = objects.get(1);
         assertEquals("INTENSITY", intensity.getName());
-        assertEquals("ASCII_REAL", intensity.getDataType());
+        assertEquals("ASCII_Real", intensity.getDataType());
         assertEquals("COUNT", intensity.getUnit());
         assertEquals(8, intensity.getBytes());
         assertEquals("F8.0", intensity.getFormat());
