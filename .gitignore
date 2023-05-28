@@ -6,3 +6,4 @@
 
 # build assets
 target
+.DS_Store
