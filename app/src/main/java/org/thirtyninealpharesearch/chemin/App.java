@@ -23,7 +23,7 @@ import org.thirtyninealpharesearch.chemin.pds3.RDR4Label;
 
 @Command(name="pds3to4", mixinStandardHelpOptions=true, version="1.0-alpha",
          description="Convert PDS3 label files to PDS4")
-public class PDS3To4 implements Callable<Integer> {
+public class App implements Callable<Integer> {
     @Parameters(index="0", paramLabel="PDS3-LABEL", description="path to label file")
     private String labelFilename;
 
@@ -73,7 +73,7 @@ public class PDS3To4 implements Callable<Integer> {
         System.setProperty("org.slf4j.simpleLogger.defaultLogLevel", "ERROR");
         System.setProperty("com.sun.xml.bind.v2.bytecode.ClassTailor.noOptimize", "false");
 
-        int exitCode = new CommandLine(new PDS3To4()).execute(args);
+        int exitCode = new CommandLine(new App()).execute(args);
         System.exit(exitCode);
     }
 }
