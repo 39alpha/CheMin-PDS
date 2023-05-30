@@ -13,24 +13,24 @@ import org.apache.commons.io.FilenameUtils;
 
 import org.thirtyninealpharesearch.chemin.ErrorStrategy;
 import org.thirtyninealpharesearch.chemin.ErrorListener;
-import org.thirtyninealpharesearch.chemin.pds3.RDR4LabelParser.*;
+import org.thirtyninealpharesearch.chemin.pds3.LabelParser.*;
 import org.thirtyninealpharesearch.chemin.ParseException;
 import org.thirtyninealpharesearch.chemin.SemanticException;
 
-public class RDR4Label extends RDR4LabelBaseListener {
-    public static RDR4Label parseFile(String filename, String format) throws IOException {
+public class Label extends LabelBaseListener {
+    public static Label parseFile(String filename, String format) throws IOException {
         ErrorListener listener = new ErrorListener(filename);
 
         ANTLRFileStream in = new ANTLRFileStream(filename);
-        RDR4LabelLexer lexer = new RDR4LabelLexer(in);
+        LabelLexer lexer = new LabelLexer(in);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
-        RDR4LabelParser parser = new RDR4LabelParser(tokens);
+        LabelParser parser = new LabelParser(tokens);
 
         parser.setErrorHandler(new ErrorStrategy());
         parser.removeErrorListeners();
         parser.addErrorListener(listener);
 
-        RDR4Label label = new RDR4Label(filename, format, listener);
+        Label label = new Label(filename, format, listener);
 
         ParseTreeWalker walker = new ParseTreeWalker();
 
@@ -42,8 +42,8 @@ public class RDR4Label extends RDR4LabelBaseListener {
         return label;
     }
 
-    public static RDR4Label parseFile(String filename) throws IOException {
-        return RDR4Label.parseFile(filename, null);
+    public static Label parseFile(String filename) throws IOException {
+        return Label.parseFile(filename, null);
     }
 
     public class ObjectLink {
@@ -178,25 +178,25 @@ public class RDR4Label extends RDR4LabelBaseListener {
     protected Object object;
     protected ErrorListener listener;
 
-    public RDR4Label(String filename, String format, ErrorListener listener) {
+    public Label(String filename, String format, ErrorListener listener) {
         this.filename = filename;
         this.format = format;
         this.listener = listener;
     }
 
-    public RDR4Label(String filename, String format) {
+    public Label(String filename, String format) {
         this.filename = filename;
         this.format = format;
         this.listener = new ErrorListener(filename);
     }
 
-    public RDR4Label(String filename, ErrorListener listener) {
+    public Label(String filename, ErrorListener listener) {
         this.filename = filename;
         this.format = null;
         this.listener = listener;
     }
 
-    public RDR4Label(String filename) {
+    public Label(String filename) {
         this.filename = filename;
         this.format = null;
         this.listener = new ErrorListener(filename);
@@ -211,9 +211,9 @@ public class RDR4Label extends RDR4LabelBaseListener {
     }
 
     @Override public void exitLabel(@NotNull LabelContext ctx) {
-        for (String field_name : RDR4Label.REQUIRED_PROPERTIES) {
+        for (String field_name : Label.REQUIRED_PROPERTIES) {
             try {
-                Field field = RDR4Label.class.getField(field_name);
+                Field field = Label.class.getField(field_name);
                 if (field.get(this) == null) {
                     notifyListener(ctx, "no %s field found");
                 }

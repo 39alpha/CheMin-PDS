@@ -19,7 +19,7 @@ import org.apache.velocity.app.Velocity;
 import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 
-import org.thirtyninealpharesearch.chemin.pds3.RDR4Label;
+import org.thirtyninealpharesearch.chemin.pds3.Label;
 
 @Command(name="pds3to4", mixinStandardHelpOptions=true, version="1.0-alpha",
          description="Convert PDS3 label files to PDS4")
@@ -49,7 +49,7 @@ public class App implements Callable<Integer> {
             outputFilename = FilenameUtils.getBaseName(labelFilename) + ".xml";
         }
 
-        RDR4Label label = RDR4Label.parseFile(labelFilename, formatFilename);
+        Label label = Label.parseFile(labelFilename, formatFilename);
 
         VelocityContext context = new VelocityContext();
         context.put("label", label);

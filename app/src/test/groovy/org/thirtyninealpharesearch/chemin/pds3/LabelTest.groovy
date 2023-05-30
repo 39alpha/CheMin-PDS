@@ -2,7 +2,7 @@ package org.thirtyninealpharesearch.chemin.pds3
 
 import spock.lang.Specification
 
-class RDR4LabelTest extends Specification {
+class LabelTest extends Specification {
     def testData(filename) {
         return "src/test/data/" + filename
     }
@@ -24,7 +24,7 @@ class RDR4LabelTest extends Specification {
         def filename = testData "pds3/rdr4_test.lbl"
 
         when:
-        def label = RDR4Label.parseFile filename
+        def label = Label.parseFile filename
 
         then:
         label != null
@@ -127,7 +127,7 @@ class RDR4LabelTest extends Specification {
         def filename = testData "pds3/rdr4/cma_602259727re123070732502ch00113p1.lbl"
 
         when:
-        def label = RDR4Label.parseFile filename
+        def label = Label.parseFile filename
 
         then:
         label != null
@@ -135,12 +135,21 @@ class RDR4LabelTest extends Specification {
         label.getStopTime() == "UNK"
     }
 
-    def "parse all label files"() {
+    def "parse all rdr4 label files"() {
         expect:
         println filename
-        def label = RDR4Label.parseFile(filename)
+        def label = Label.parseFile(filename)
 
         where:
         filename << filesInDirectory("pds3/rdr4")
+    }
+
+    def "parse all rdr5 label files"() {
+        expect:
+        println filename
+        def label = Label.parseFile(filename)
+
+        where:
+        filename << filesInDirectory("pds3/rdr5")
     }
 }

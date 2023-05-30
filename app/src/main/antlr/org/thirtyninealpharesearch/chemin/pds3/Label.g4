@@ -1,4 +1,4 @@
-grammar RDR4Label;
+grammar Label;
 
 NL: [\r\n];
 WS: [ \t]+;
@@ -54,7 +54,7 @@ objectLink : '^' WORD EQUALS fileTuple WS* NL+;
 
 dataSetId : 'DATA_SET_ID' EQUALS '"' hyphenatedWord '"' WS* NL+;
 
-productId : 'PRODUCT_ID' EQUALS '"' word '"' WS* NL+;
+productId : 'PRODUCT_ID' EQUALS '"' WS* word WS* '"' WS* NL+;
 
 productVersionId : 'PRODUCT_VERSION_ID' EQUALS '"' VERSION '"' WS* NL+;
 
@@ -145,7 +145,8 @@ word : WORD
 words : word
       | word WS+ words;
 
-identifierList : '{' identifierEntries '}';
+identifierList : '{' identifierEntries '}'
+               | identifierEntry;
 
 identifierEntries : WS* identifierEntry WS*
                   | WS* identifierEntry WS* ',' WS* NL* identifierEntries;
