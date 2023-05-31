@@ -108,7 +108,7 @@
   </Reference_List>
   <File_Area_Observational>
     <File>
-      <file_name>$label.ObjectLinks["SPREADSHEET"].filename</file_name>
+      <file_name>$label.ObjectLinks["SPREADSHEET"].filename.toLowerCase()</file_name>
       <creation_date_time>$label.ProductCreationTime</creation_date_time>
     </File>
     <Header>
