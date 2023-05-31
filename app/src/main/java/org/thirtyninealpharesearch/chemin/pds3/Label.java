@@ -1,9 +1,11 @@
 package org.thirtyninealpharesearch.chemin.pds3;
 
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.misc.*;
@@ -11,10 +13,10 @@ import org.antlr.v4.runtime.tree.*;
 
 import org.apache.commons.io.FilenameUtils;
 
-import org.thirtyninealpharesearch.chemin.ErrorStrategy;
 import org.thirtyninealpharesearch.chemin.ErrorListener;
-import org.thirtyninealpharesearch.chemin.pds3.LabelParser.*;
+import org.thirtyninealpharesearch.chemin.ErrorStrategy;
 import org.thirtyninealpharesearch.chemin.ParseException;
+import org.thirtyninealpharesearch.chemin.pds3.LabelParser.*;
 import org.thirtyninealpharesearch.chemin.SemanticException;
 
 public class Label extends LabelBaseListener {
@@ -121,6 +123,13 @@ public class Label extends LabelBaseListener {
         public Structure getStructure() {
             return Structure;
         }
+    }
+
+    public enum LabelType {
+        RDA,
+        RE1,
+        MIN,
+        UNKNOWN,
     }
 
     public String filename;
@@ -663,5 +672,30 @@ public class Label extends LabelBaseListener {
 
     public String getLogicalIdentifier() {
         return FilenameUtils.getBaseName(filename);
+    }
+
+    public LabelType inferLabelType() {
+        Pattern pattern = Pattern.compile("(rda|re1|min)$", Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(ProductType);
+        String type = null;
+        if (matcher.find()) {
+            type = matcher.group(1).toLowerCase();
+        } else {
+            return LabelType.UNKNOWN;
+        }
+        if (matcher.find()) {
+            return LabelType.UNKNOWN;
+        }
+
+        switch (type) {
+            case "rda":
+                return LabelType.RDA;
+            case "re1":
+                return LabelType.RE1;
+            case "min":
+                return LabelType.MIN;
+            default:
+                return LabelType.UNKNOWN;
+        }
     }
 }

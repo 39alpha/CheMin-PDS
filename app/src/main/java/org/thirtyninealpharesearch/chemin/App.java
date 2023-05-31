@@ -36,10 +36,12 @@ public class App implements Callable<Integer> {
     @Option(names={"-f", "--format"}, paramLabel="FORMAT", description="path to fmt file")
     private String formatFilename = null;
 
+    @Option(names={"-l", "--label-type"}, paramLabel="TYPE", description="label type (rda, re1 or min)")
+    private String labelType = null;
+
     @Override
     public Integer call() throws Exception {
         if (templateFilename == null) {
-            templateFilename = "org/thirtyninealpharesearch/chemin/pds4/RDA.vm";
             Velocity.setProperty(RuntimeConstants.RESOURCE_LOADERS, "classpath");
             Velocity.setProperty("resource.loader.classpath.class", ClasspathResourceLoader.class.getName());
             Velocity.init();
@@ -49,7 +51,43 @@ public class App implements Callable<Integer> {
             outputFilename = FilenameUtils.getBaseName(labelFilename) + ".xml";
         }
 
-        Label label = Label.parseFile(labelFilename, formatFilename);
+        Label label = null;
+        try {
+            label = Label.parseFile(labelFilename, formatFilename);
+        } catch (Exception e) {
+            System.err.println("error: failed to parse label file \"" + labelFilename + "\"");
+            System.err.println(e.getMessage());
+            System.exit(1);
+        }
+
+        if (templateFilename == null) {
+            Label.LabelType labelType = Label.LabelType.UNKNOWN;
+            try {
+                labelType = label.inferLabelType();
+            } catch (Exception e) {
+                System.err.println("error: " + e.getMessage());
+                CommandLine.usage(this, System.err);
+                System.exit(1);
+            }
+            if (labelType == Label.LabelType.UNKNOWN) {
+                labelType = label.inferLabelType();
+            }
+            switch(labelType) {
+                case RDA:
+                    templateFilename = "org/thirtyninealpharesearch/chemin/pds4/RDA.vm";
+                    break;
+                case RE1:
+                    templateFilename = "org/thirtyninealpharesearch/chemin/pds4/RE1.vm";
+                    break;
+                case MIN:
+                    templateFilename = "org/thirtyninealpharesearch/chemin/pds4/MIN.vm";
+                    break;
+                case UNKNOWN:
+                    System.err.println("error: cannot infer label type from file; please provider --label-type argument");
+                    CommandLine.usage(this, System.err);
+                    System.exit(1);
+            }
+        }
 
         VelocityContext context = new VelocityContext();
         context.put("label", label);
@@ -65,6 +103,23 @@ public class App implements Callable<Integer> {
         writer.close();
 
         return exitCode;
+    }
+
+    protected Label.LabelType getLabelType() throws Exception {
+        if (labelType == null) {
+            return Label.LabelType.UNKNOWN;
+        }
+
+        switch (labelType.toLowerCase()) {
+            case "rda":
+                return Label.LabelType.RDA;
+            case "re1":
+                return Label.LabelType.RE1;
+            case "min":
+                return Label.LabelType.MIN;
+            default:
+                throw new Exception("unrecognized label type");
+        }
     }
 
     public static void main(String... args)

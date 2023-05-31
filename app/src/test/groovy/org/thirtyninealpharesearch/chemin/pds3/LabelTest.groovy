@@ -12,7 +12,6 @@ class LabelTest extends Specification {
         def folder = new File(testData(path))
         for (entry : folder.listFiles()) {
             if (entry.isFile()) {
-                println(entry.getPath())
                 files.add entry.path
             }
         }
@@ -124,7 +123,7 @@ class LabelTest extends Specification {
 
     def "parse abnormal file"() {
         setup:
-        def filename = testData "pds3/rdr4/cma_602259727re123070732502ch00113p1.lbl"
+        def filename = testData "pds3/re1/cma_602259727re123070732502ch00113p1.lbl"
 
         when:
         def label = Label.parseFile filename
@@ -135,21 +134,30 @@ class LabelTest extends Specification {
         label.getStopTime() == "UNK"
     }
 
-    def "parse all rdr4 label files"() {
+    def "parse all rda label files"() {
         expect:
-        println filename
         def label = Label.parseFile(filename)
+        label.inferLabelType() == Label.LabelType.RDA;
 
         where:
-        filename << filesInDirectory("pds3/rdr4")
+        filename << filesInDirectory("pds3/rda")
     }
 
-    def "parse all rdr5 label files"() {
+    def "parse all re1 label files"() {
         expect:
-        println filename
         def label = Label.parseFile(filename)
+        label.inferLabelType() == Label.LabelType.RE1;
 
         where:
-        filename << filesInDirectory("pds3/rdr5")
+        filename << filesInDirectory("pds3/re1")
+    }
+
+    def "parse all min label files"() {
+        expect:
+        def label = Label.parseFile(filename)
+        label.inferLabelType() == Label.LabelType.MIN;
+
+        where:
+        filename << filesInDirectory("pds3/min")
     }
 }
