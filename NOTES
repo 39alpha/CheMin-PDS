@@ -2,6 +2,7 @@
 2. Are the templates right?
    - Modification_History
    - information_model_version
+   - sol_number
    - File_Area_Observational.Header.parsing_standard_id
    - File_Area_Observational.Table_Delimited.parsing_standard_id
    - File_Area_Observational.Table_Delimited.groups
