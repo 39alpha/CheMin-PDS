@@ -11,7 +11,7 @@ class LabelTest extends Specification {
         def files = []
         def folder = new File(testData(path))
         for (entry : folder.listFiles()) {
-            if (entry.isFile()) {
+            if (entry.isFile() && entry.getPath().endsWith("lbl")) {
                 files.add entry.path
             }
         }
