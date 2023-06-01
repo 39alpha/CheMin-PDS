@@ -53,7 +53,7 @@ $ pds3to4 <path/to/file.lbl>
 
 **To convert all PDS3 LBL files in a directory**
 ```shell
-$pds3to4 -r <path/to/dir>
+$ pds3to4 -r <path/to/dir>
 ```
 
 For more usage details, see [examples](./examples).
