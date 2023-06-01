@@ -20,3 +20,6 @@ app/src/test/data/pds3/re1/*.xml.report
 app/src/test/data/pds3/min/*.xml
 app/src/test/data/pds3/min/*.xml.err
 app/src/test/data/pds3/min/*.xml.report
+examples/**/*.xml
+examples/**/*.xml.err
+examples/**/*.xml.report

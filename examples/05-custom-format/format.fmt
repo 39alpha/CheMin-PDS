@@ -1,0 +1,8 @@
+OBJECT       = FIELD
+ NAME        = "TWO-THETA"
+ DATA_TYPE   = ASCII_REAL
+ UNIT        = "DEGREES"
+ BYTES       = 6
+ FORMAT      = "F6.2"
+ DESCRIPTION = "2-theta"
+END_OBJECT   = FIELD
