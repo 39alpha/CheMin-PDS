@@ -8,6 +8,9 @@
 .gradle
 app/build
 .DS_Store
+data/delivery_32/*.xml
+data/delivery_32/*.xml.err
+data/delivery_32/*.xml.report
 app/src/test/data/pds3/rda/*.xml
 app/src/test/data/pds3/rda/*.xml.err
 app/src/test/data/pds3/rda/*.xml.report
