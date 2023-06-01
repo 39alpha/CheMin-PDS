@@ -22,8 +22,8 @@ repositories {
 }
 
 dependencies {
-    testImplementation("org.codehaus.groovy:groovy:3.0.13")
-    testImplementation("org.spockframework:spock-core:2.2-groovy-3.0")
+    testImplementation("org.apache.groovy:groovy:4.0.12")
+    testImplementation("org.spockframework:spock-core:2.3-groovy-4.0")
     testImplementation("junit:junit:4.13.2")
     implementation("com.google.guava:guava:31.1-jre")
     antlr("org.antlr:antlr4:4.12.0")
