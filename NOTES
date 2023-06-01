@@ -1,0 +1,9 @@
+1. How to handle filename capitalization?
+2. Are the templates right?
+   - Modification_History
+   - information_model_version
+   - File_Area_Observational.Header.parsing_standard_id
+   - File_Area_Observational.Table_Delimited.parsing_standard_id
+   - File_Area_Observational.Table_Delimited.groups
+3. Descriptions on FMT fields
+4. Historical data has validation errors.
