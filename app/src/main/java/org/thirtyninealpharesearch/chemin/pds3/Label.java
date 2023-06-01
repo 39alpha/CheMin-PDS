@@ -752,7 +752,7 @@ public class Label extends LabelBaseListener {
     }
 
     public String getLogicalIdentifier() {
-        return FilenameUtils.getBaseName(filename);
+        return FilenameUtils.getBaseName(filename).toLowerCase();
     }
 
     public LabelType inferLabelType() {
