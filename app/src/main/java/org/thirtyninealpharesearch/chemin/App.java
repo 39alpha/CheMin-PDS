@@ -5,6 +5,9 @@ import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
+import java.nio.file.StandardCopyOption;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.concurrent.Callable;
 
 import picocli.CommandLine;
@@ -26,20 +29,32 @@ import org.thirtyninealpharesearch.chemin.pds3.Label.LabelType;
 @Command(name="pds3to4", mixinStandardHelpOptions=true, version="1.0-alpha",
          description="Convert PDS3 label files to PDS4")
 public class App implements Callable<Integer> {
-    @Parameters(index="0", paramLabel="PDS3-LABEL", description="path to label file")
-    private String labelFilename;
+    @Parameters(index="0", paramLabel="[PDS3-LABEL|DIR]", description="path to label file")
+    public String labelFilename;
 
     @Option(names={"-o", "--output"}, paramLabel="FILE", description="path to output file")
-    private String outputFilename = null;
+    public String outputFilename = null;
 
     @Option(names={"-t", "--template"}, paramLabel="TEMPLATE", description="path to template file")
-    private String templateFilename = null;
+    public String templateFilename = null;
 
     @Option(names={"-f", "--format"}, paramLabel="FORMAT", description="path to fmt file")
-    private String formatFilename = null;
+    public String formatFilename = null;
 
     @Option(names={"-l", "--label-type"}, paramLabel="TYPE", description="label type (rda, re1 or min)")
-    private String labelType = null;
+    public String labelType = null;
+
+    @Option(names={"-n", "--no-validate"}, description="skip NASA PDS validation")
+    public boolean noValidate = false;
+
+    @Option(names={"-p", "--print-report"}, description="print validation reports to standard output instead of to file")
+    public boolean printReport = false;
+
+    @Option(names={"-d", "--delete-report"}, description="remove validation reports for successful validations")
+    public boolean deleteReport = false;
+
+    @Option(names={"-r", "--recursive"}, description="process each .lbl file in a directory")
+    public boolean recursive = false;
 
     public static void run(Label label, String templateFilename, Writer writer) throws Exception {
         VelocityContext context = new VelocityContext();
@@ -72,27 +87,38 @@ public class App implements Callable<Integer> {
         App.run(label, templateFilename, writer);
     }
 
-    @Override
-    public Integer call() throws Exception {
-        if (templateFilename == null) {
-            Velocity.setProperty(RuntimeConstants.RESOURCE_LOADERS, "classpath");
-            Velocity.setProperty("resource.loader.classpath.class", ClasspathResourceLoader.class.getName());
-            Velocity.init();
+    public static int validate(String filename, boolean printReport, boolean deleteReport) throws Exception {
+        String reportFilename = null;
+        String[] args = null;
+        if (printReport) {
+            args = new String[]{filename};
+        } else {
+            reportFilename = filename + ".report";
+            args = new String[]{"-r", reportFilename, filename};
         }
 
+        int exitCode = new Validator().process(args);
+        if (exitCode != 0) {
+            String errorFilename = filename + ".err";
+            Files.move(Paths.get(filename), Paths.get(errorFilename), StandardCopyOption.REPLACE_EXISTING);
+            throw new Exception("generated file failed to validate");
+        } else if (deleteReport && reportFilename != null) {
+            Files.delete(Paths.get(reportFilename));
+        }
+
+        return exitCode;
+    }
+
+    public int run(String filename) throws Exception {
+        Label label = Label.parseFile(filename, formatFilename);
+
+        String outputFilename = this.outputFilename;
         if (outputFilename == null) {
-            outputFilename = FilenameUtils.getBaseName(labelFilename) + ".xml";
+            outputFilename = FilenameUtils.concat(
+                FilenameUtils.getFullPath(filename),
+                FilenameUtils.getBaseName(filename) + ".xml"
+            );
         }
-
-        Label label = null;
-        try {
-            label = Label.parseFile(labelFilename, formatFilename);
-        } catch (Exception e) {
-            System.err.println("error: failed to parse label file \"" + labelFilename + "\"");
-            System.err.println(e.getMessage());
-            System.exit(1);
-        }
-
         File pds4File = new File(outputFilename);
         BufferedWriter writer = new BufferedWriter(new FileWriter(pds4File));
 
@@ -102,12 +128,50 @@ public class App implements Callable<Integer> {
             } else {
                 App.run(label, this.getLabelType(), writer);
             }
+        } finally {
             writer.flush();
             writer.close();
+        }
 
-            return new Validator().process(new String[]{outputFilename});
+        return noValidate ? 0 : App.validate(outputFilename, printReport, deleteReport);
+    }
+
+    public int runRecursive(String directory) throws Exception {
+        int failures = 0;
+        File dir = new File(directory);
+        if (!dir.isDirectory()) {
+            throw new Exception(dir.getPath() + " is not a directory");
+        }
+        for (File entry : dir.listFiles()) {
+            String path = entry.getPath();
+            try {
+                if (entry.isFile() && FilenameUtils.getExtension(path).toLowerCase().equals("lbl")) {
+                    failures += run(path);
+                } else if (entry.isDirectory()) {
+                    failures += runRecursive(path);
+                }
+            } catch (Exception e) {
+                System.err.println("ERROR: " + path + " failed to process");
+                System.err.println("       " + e.getMessage());
+                failures += 1;
+            }
+        }
+        return failures;
+    }
+
+    @Override
+    public Integer call() throws Exception {
+        if (templateFilename == null) {
+            Velocity.setProperty(RuntimeConstants.RESOURCE_LOADERS, "classpath");
+            Velocity.setProperty("resource.loader.classpath.class", ClasspathResourceLoader.class.getName());
+            Velocity.init();
+        }
+
+        try {
+            return recursive ? runRecursive(labelFilename) : run(labelFilename);
         } catch (Exception e) {
-            System.err.println("error: " + e.getMessage());
+            System.err.println("ERROR: " + labelFilename + " failed to process");
+            System.err.println("       " + e.getMessage());
             return 1;
         }
     }
