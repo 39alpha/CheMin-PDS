@@ -8,3 +8,6 @@
 .gradle
 app/build
 .DS_Store
+app/src/test/data/pds3/**/*.xml
+app/src/test/data/pds3/**/*.xml.err
+app/src/test/data/pds3/**/*.xml.report
