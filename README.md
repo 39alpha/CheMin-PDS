@@ -1,5 +1,7 @@
 # CheMin-PDS
 
+![Java CI with Gradle](https://github.com/39alpha/CheMin-PDS/actions/workflows/gradle.yml/badge.svg)
+
 This repository provides a utility `pds3to4` to convert PDS3 LBL files to
 PDS4, XML-formatted labels, and automatically validates them with the
 [NASA PDS Validate](https://github.com/NASA-PDS/validate) tool.
