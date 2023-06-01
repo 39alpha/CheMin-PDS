@@ -1,6 +1,6 @@
 package org.thirtyninealpharesearch.chemin.pds3
 
-import spock.lang.Specification
+import spock.lang.*
 
 class LabelTest extends Specification {
     def testData(filename) {
@@ -135,29 +135,44 @@ class LabelTest extends Specification {
     }
 
     def "parse all rda label files"() {
+        given:
+        def label = Label.parseFile filename
+
         expect:
-        def label = Label.parseFile(filename)
-        label.inferLabelType() == Label.LabelType.RDA;
+        label.inferLabelType() == Label.LabelType.RDA
 
         where:
         filename << filesInDirectory("pds3/rda")
     }
 
     def "parse all re1 label files"() {
+        given:
+        def label = Label.parseFile filename
+
         expect:
-        def label = Label.parseFile(filename)
-        label.inferLabelType() == Label.LabelType.RE1;
+        label.inferLabelType() == Label.LabelType.RE1
 
         where:
         filename << filesInDirectory("pds3/re1")
     }
 
     def "parse all min label files"() {
+        given:
+        def label = Label.parseFile filename
+
         expect:
-        def label = Label.parseFile(filename)
-        label.inferLabelType() == Label.LabelType.MIN;
+        label.inferLabelType() == Label.LabelType.MIN
 
         where:
         filename << filesInDirectory("pds3/min")
+    }
+
+    def "parse failure"() {
+        when:
+        def label = Label.parseFile "pds3/rda_error_test.lbl"
+
+        then:
+        thrown IOException
+        label == null
     }
 }

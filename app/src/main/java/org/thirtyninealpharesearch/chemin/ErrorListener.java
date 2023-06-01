@@ -44,7 +44,11 @@ public class ErrorListener extends ConsoleErrorListener {
     }
 
     public boolean hasErrors() {
-        return errors.size() != 0;
+        return errors != null && errors.size() != 0;
+    }
+
+    public void error(Exception err) {
+        errors.add(new Error(this.filename, 0, 0, null, err));
     }
 
     public void error(ParserRuleContext ctx, String msg, Exception err) {
@@ -65,11 +69,12 @@ public class ErrorListener extends ConsoleErrorListener {
     }
 
     public void reportErrors() {
-        if (errors != null && errors.size() != 0) {
+        if (hasErrors()) {
             System.err.printf("Failed to parse file:\n", filename);
             for (Error error : errors) {
                 System.err.println("  " + error.toString());
             }
+            System.err.println();
         }
     }
 }

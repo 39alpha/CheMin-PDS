@@ -39,7 +39,6 @@ class AppTest extends Specification {
         def count = 0
         def folder = new File(tempDir.toString())
         for (entry : folder.listFiles()) {
-            println entry.getPath()
             if (entry.isFile() && entry.getPath().endsWith(ext)) {
                 count += 1
             }

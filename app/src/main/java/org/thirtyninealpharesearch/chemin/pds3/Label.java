@@ -36,11 +36,17 @@ public class Label extends LabelBaseListener {
 
         ParseTreeWalker walker = new ParseTreeWalker();
 
-        walker.walk(label, parser.label());
+        try {
+            walker.walk(label, parser.label());
+        } catch (Exception e) {
+            listener.error(e);
+        }
+
         if (listener.hasErrors()) {
             listener.reportErrors();
             throw new IOException(String.format("failed to parse \"%s\"", filename));
         }
+
         return label;
     }
 
@@ -224,7 +230,7 @@ public class Label extends LabelBaseListener {
             try {
                 Field field = Label.class.getField(field_name);
                 if (field.get(this) == null) {
-                    notifyListener(ctx, "no %s field found");
+                    notifyListener(ctx, String.format("no %s field found", field_name));
                 }
             } catch (Exception e) {
             }
@@ -249,7 +255,9 @@ public class Label extends LabelBaseListener {
         if (PDSVersionId != null) {
             notifyListener(ctx, "duplicate PDS_VERSION encountered");
         }
-        PDSVersionId = ctx.word().getText();
+        if (ctx.word() != null) {
+            PDSVersionId = ctx.word().getText();
+        }
     }
 
     public String getPDSVersionId() {
@@ -260,7 +268,9 @@ public class Label extends LabelBaseListener {
         if (LabelRevisionNote != null) {
             notifyListener(ctx, "duplicate LABEL_REVISION_NOTE encountered");
         }
-        LabelRevisionNote = ctx.quoted().unquoted().getText();
+        if (ctx.quoted() != null && ctx.quoted().unquoted() != null) {
+            LabelRevisionNote = ctx.quoted().unquoted().getText();
+        }
     }
 
     public String getLabelRevisionNote() {
@@ -271,7 +281,9 @@ public class Label extends LabelBaseListener {
         if (RecordType != null) {
             notifyListener(ctx, "duplicate RECORD_TYPE encountered");
         }
-        RecordType = ctx.word().getText();
+        if (ctx.word() != null) {
+            RecordType = ctx.word().getText();
+        }
     }
 
     public String getRecordType() {
@@ -282,7 +294,9 @@ public class Label extends LabelBaseListener {
         if (RecordBytes != null) {
             notifyListener(ctx, "duplicate RECORD_BYTES encountered");
         }
-        RecordBytes = Integer.parseInt(ctx.INUMBER().getText());
+        if (ctx.INUMBER() != null) {
+            RecordBytes = Integer.parseInt(ctx.INUMBER().getText());
+        }
     }
 
     public int getRecordBytes() {
@@ -293,7 +307,9 @@ public class Label extends LabelBaseListener {
         if (FileRecords != null) {
             notifyListener(ctx, "duplicate FILE_RECORDS encountered");
         }
-        FileRecords = Integer.parseInt(ctx.INUMBER().getText());
+        if (ctx.INUMBER() != null) {
+            FileRecords = Integer.parseInt(ctx.INUMBER().getText());
+        }
     }
 
     public int getFileRecords() {
@@ -301,9 +317,20 @@ public class Label extends LabelBaseListener {
     }
 
     @Override public void enterObjectLink(@NotNull ObjectLinkContext ctx) {
-        String name = ctx.WORD().getText();
-        String filename = ctx.fileTuple().filename().getText().trim();
-        int index = Integer.parseInt(ctx.fileTuple().INUMBER().getText());
+        String name = null;
+        if (ctx.WORD() != null) {
+            name = ctx.WORD().getText();
+        }
+
+        String filename = null;
+        if (ctx.fileTuple() != null && ctx.fileTuple().filename() != null) {
+            filename = ctx.fileTuple().filename().getText().trim();
+        }
+
+        int index = 0;
+        if (ctx.fileTuple() != null && ctx.fileTuple().INUMBER() != null) {
+            index = Integer.parseInt(ctx.fileTuple().INUMBER().getText());
+        }
         ObjectLink link = new ObjectLink(name, filename, index);
 
         if (ObjectLinks == null) {
@@ -320,7 +347,9 @@ public class Label extends LabelBaseListener {
         if (DataSetId != null) {
             notifyListener(ctx, "duplicate DATA_SET_ID encountered");
         }
-        DataSetId = ctx.hyphenatedWord().getText();
+        if (ctx.hyphenatedWord() != null) {
+            DataSetId = ctx.hyphenatedWord().getText();
+        }
     }
 
     public String getDataSetId() {
@@ -331,7 +360,9 @@ public class Label extends LabelBaseListener {
         if (ProductId != null) {
             notifyListener(ctx, "duplicate PRODUCT_ID encountered");
         }
-        ProductId = ctx.word().getText();
+        if (ctx.word() != null) {
+            ProductId = ctx.word().getText();
+        }
     }
 
     public String getProductId() {
@@ -342,7 +373,9 @@ public class Label extends LabelBaseListener {
         if (ProductVersionId != null) {
             notifyListener(ctx, "duplicate PRODUCT_VERSION_ID encountered");
         }
-        ProductVersionId = ctx.VERSION().getText();
+        if (ctx.VERSION() != null) {
+            ProductVersionId = ctx.VERSION().getText();
+        }
     }
 
     public String getProductVersionId() {
@@ -353,7 +386,9 @@ public class Label extends LabelBaseListener {
         if (ReleaseId != null) {
             notifyListener(ctx, "duplicate RELEASE_ID encountered");
         }
-        ReleaseId = ctx.INUMBER().getText();
+        if (ctx.INUMBER() != null) {
+            ReleaseId = ctx.INUMBER().getText();
+        }
     }
 
     public String getReleaseId() {
@@ -365,16 +400,22 @@ public class Label extends LabelBaseListener {
             notifyListener(ctx, "duplicate SOURCE_PRODUCT_ID encountered");
         }
         SourceProductId = new ArrayList<String>();
-        IdentifierEntriesContext idc = ctx.identifierList().identifierEntries();
-        if (idc == null) {
-            IdentifierEntryContext entry = ctx.identifierList().identifierEntry();
-            SourceProductId.add(entry.word().getText());
-        } else {
-            while (idc != null) {
-                String entry = idc.identifierEntry().word().getText();
-                SourceProductId.add(entry);
+        if (ctx.identifierList() != null) {
+            IdentifierEntriesContext idc = ctx.identifierList().identifierEntries();
+            if (idc == null) {
+                if (ctx.identifierList().identifierEntry() != null) {
+                    IdentifierEntryContext entry = ctx.identifierList().identifierEntry();
+                    if (entry.word() != null) {
+                        SourceProductId.add(entry.word().getText());
+                    }
+                }
+            } else if (idc != null) {
+                while (idc != null) {
+                    String entry = idc.identifierEntry().word().getText();
+                    SourceProductId.add(entry);
 
-                idc = idc.identifierEntries();
+                    idc = idc.identifierEntries();
+                }
             }
         }
     }
@@ -387,7 +428,9 @@ public class Label extends LabelBaseListener {
         if (ProductType != null) {
             notifyListener(ctx, "duplicate PRODUCT_TYPE encountered");
         }
-        ProductType = ctx.quoted().unquoted().getText();
+        if (ctx.quoted() != null && ctx.quoted().unquoted() != null) {
+            ProductType = ctx.quoted().unquoted().getText();
+        }
     }
 
     public String getProductType() {
@@ -398,7 +441,9 @@ public class Label extends LabelBaseListener {
         if (InstrumentHostId != null) {
             notifyListener(ctx, "duplicate INSTRUMENT_HOST_ID encountered");
         }
-        InstrumentHostId = ctx.WORD().getText();
+        if (ctx.WORD() != null) {
+            InstrumentHostId = ctx.WORD().getText();
+        }
     }
 
     public String getInstrumentHostId() {
@@ -409,7 +454,9 @@ public class Label extends LabelBaseListener {
         if (InstrumentHostName != null) {
             notifyListener(ctx, "duplicate INSTRUMENT_HOST_NAME encountered");
         }
-        InstrumentHostName = ctx.words().getText();
+        if (ctx.words() != null) {
+            InstrumentHostName = ctx.words().getText();
+        }
     }
 
     public String getInstrumentHostName() {
@@ -420,7 +467,9 @@ public class Label extends LabelBaseListener {
         if (InstrumentId != null) {
             notifyListener(ctx, "duplicate INSTRUMENT_ID encountered");
         }
-        InstrumentId = ctx.WORD().getText();
+        if (ctx.WORD() != null) {
+            InstrumentId = ctx.WORD().getText();
+        }
     }
 
     public String getInstrumentId() {
@@ -431,7 +480,9 @@ public class Label extends LabelBaseListener {
         if (TargetName != null) {
             notifyListener(ctx, "duplicate TARGET_NAME encountered");
         }
-        TargetName = ctx.WORD().getText();
+        if (ctx.WORD() != null) {
+            TargetName = ctx.WORD().getText();
+        }
     }
 
     public String getTargetName() {
@@ -442,7 +493,9 @@ public class Label extends LabelBaseListener {
         if (MSLCalibrationStandardName != null) {
             notifyListener(ctx, "duplicate MSL:CALIBRATION_STANDARD_NAME encountered");
         }
-        MSLCalibrationStandardName = ctx.words().getText();
+        if (ctx.words() != null) {
+            MSLCalibrationStandardName = ctx.words().getText();
+        }
     }
 
     public String getMSLCalibrationStandardName() {
@@ -453,7 +506,9 @@ public class Label extends LabelBaseListener {
         if (MissionPhaseName != null) {
             notifyListener(ctx, "duplicate MISSION_PHASE_NAME encountered");
         }
-        MissionPhaseName = ctx.words().getText();
+        if (ctx.words() != null) {
+            MissionPhaseName = ctx.words().getText();
+        }
     }
 
     public String getMissionPhaseName() {
@@ -464,7 +519,9 @@ public class Label extends LabelBaseListener {
         if (ProductCreationTime != null) {
             notifyListener(ctx, "duplicate PRODUCT_CREATION_TIME encountered");
         }
-        ProductCreationTime = ctx.utcDate().getText();
+        if (ctx.utcDate() != null) {
+            ProductCreationTime = ctx.utcDate().getText();
+        }
     }
 
     public String getProductCreationTime() {
@@ -475,7 +532,9 @@ public class Label extends LabelBaseListener {
         if (StartTime != null) {
             notifyListener(ctx, "duplicate START_TIME encountered");
         }
-        StartTime = ctx.utcDate().getText();
+        if (ctx.utcDate() != null) {
+            StartTime = ctx.utcDate().getText();
+        }
     }
 
     public String getStartTime() {
@@ -502,7 +561,9 @@ public class Label extends LabelBaseListener {
         if (SpacecraftClockStartCount != null) {
             notifyListener(ctx, "duplicate SPACECRAFT_CLOCK_START_COUNT encountered");
         }
-        SpacecraftClockStartCount = ctx.clockCount().getText();
+        if (ctx.clockCount() != null) {
+            SpacecraftClockStartCount = ctx.clockCount().getText();
+        }
     }
 
     public String getSpacecraftClockStartCount() {
@@ -525,9 +586,6 @@ public class Label extends LabelBaseListener {
         return SpacecraftClockStopCount;
     }
 
-    @Override public void enterObject(@NotNull ObjectContext ctx) {
-    }
-
     @Override public void exitObject(@NotNull ObjectContext ctx) {
         if (object == null) {
             notifyListener(ctx, new ParseException("unexpected END OBJECT"));
@@ -546,7 +604,9 @@ public class Label extends LabelBaseListener {
         } else {
             notifyListener(ctx, "illegal start of object; perhaps you forgot to END OBJECT");
         }
-        object.Name = ctx.WORD().getText();
+        if (ctx.WORD() != null) {
+            object.Name = ctx.WORD().getText();
+        }
     }
 
     @Override public void enterObjectBytes(@NotNull ObjectBytesContext ctx) {
@@ -555,7 +615,9 @@ public class Label extends LabelBaseListener {
         } else if (object.Bytes != null) {
             notifyListener(ctx, "duplicate BYTES encountered");
         }
-        object.Bytes = Integer.parseInt(ctx.INUMBER().getText());
+        if (ctx.INUMBER() != null) {
+            object.Bytes = Integer.parseInt(ctx.INUMBER().getText());
+        }
     }
 
     @Override public void enterObjectRows(@NotNull ObjectRowsContext ctx) {
@@ -564,7 +626,9 @@ public class Label extends LabelBaseListener {
         } else if (object.Rows != null) {
             notifyListener(ctx, "duplicate ROWS encountered");
         }
-        object.Rows = Integer.parseInt(ctx.INUMBER().getText());
+        if (ctx.INUMBER() != null) {
+            object.Rows = Integer.parseInt(ctx.INUMBER().getText());
+        }
     }
 
     @Override public void enterObjectRowBytes(@NotNull ObjectRowBytesContext ctx) {
@@ -573,7 +637,9 @@ public class Label extends LabelBaseListener {
         } else if (object.RowBytes != null) {
             notifyListener(ctx, "duplicate ROW_BYTES encountered");
         }
-        object.RowBytes = Integer.parseInt(ctx.INUMBER().getText());
+        if (ctx.INUMBER() != null) {
+            object.RowBytes = Integer.parseInt(ctx.INUMBER().getText());
+        }
     }
 
     @Override public void enterObjectFields(@NotNull ObjectFieldsContext ctx) {
@@ -582,7 +648,9 @@ public class Label extends LabelBaseListener {
         } else if (object.Fields != null) {
             notifyListener(ctx, "duplicate FIELDS encountered");
         }
-        object.Fields = Integer.parseInt(ctx.INUMBER().getText());
+        if (ctx.INUMBER() != null) {
+            object.Fields = Integer.parseInt(ctx.INUMBER().getText());
+        }
     }
 
     @Override public void enterObjectFieldDelimiter(@NotNull ObjectFieldDelimiterContext ctx) {
@@ -591,7 +659,9 @@ public class Label extends LabelBaseListener {
         } else if (object.FieldDelimiter != null) {
             notifyListener(ctx, "duplicate FIELD_DELIMITER encountered");
         }
-        object.FieldDelimiter = ctx.WORD().getText();
+        if (ctx.WORD() != null) {
+            object.FieldDelimiter = ctx.WORD().getText();
+        }
     }
 
     @Override public void enterObjectHeaderType(@NotNull ObjectHeaderTypeContext ctx) {
@@ -600,7 +670,9 @@ public class Label extends LabelBaseListener {
         } else if (object.HeaderType != null) {
             notifyListener(ctx, "duplicate HEADER_TYPE encountered");
         }
-        object.HeaderType = ctx.word().getText();
+        if (ctx.word() != null) {
+            object.HeaderType = ctx.word().getText();
+        }
     }
 
     @Override public void enterObjectDescription(@NotNull ObjectDescriptionContext ctx) {
@@ -609,7 +681,9 @@ public class Label extends LabelBaseListener {
         } else if (object.Description != null) {
             notifyListener(ctx, "duplicate DESCRIPTION encountered");
         }
-        object.Description = ctx.quoted().unquoted().getText();
+        if (ctx.quoted() != null && ctx.quoted().unquoted() != null) {
+            object.Description = ctx.quoted().unquoted().getText();
+        }
     }
 
     @Override public void enterObjectStructure(@NotNull ObjectStructureContext ctx) {
@@ -654,10 +728,12 @@ public class Label extends LabelBaseListener {
         if (object == null || object.Name == null) {
             notifyListener(ctx, "unexpected END_OBJECT outside of OBJECT");
         }
-        object.End = ctx.WORD().getText();
-        if (!object.End.equals(object.Name)) {
-            String msg = String.format("END_OBJECT = \"%s\" has a different name than OBJECT = \"%s\"", object.End, object.Name);
-            notifyListener(ctx, msg);
+        if (ctx.WORD() != null) {
+            object.End = ctx.WORD().getText();
+            if (!object.End.equals(object.Name)) {
+                String msg = String.format("END_OBJECT = \"%s\" has a different name than OBJECT = \"%s\"", object.End, object.Name);
+                notifyListener(ctx, msg);
+            }
         }
     }
 
@@ -666,13 +742,13 @@ public class Label extends LabelBaseListener {
     }
 
     protected void notifyListener(ParserRuleContext ctx, Exception e) {
-        if (listener != null) {
-            listener.error(ctx, e);
-        }
+        notifyListener(ctx, e.getMessage());
     }
 
     protected void notifyListener(ParserRuleContext ctx, String msg) {
-        notifyListener(ctx, new Exception(msg));
+        if (listener != null) {
+            listener.error(ctx, msg);
+        }
     }
 
     public String getLogicalIdentifier() {
