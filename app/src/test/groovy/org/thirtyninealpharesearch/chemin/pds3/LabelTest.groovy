@@ -20,7 +20,7 @@ class LabelTest extends Specification {
 
     def "parses basic"() {
         setup:
-        def filename = testData "pds3/rdr4_test.lbl"
+        def filename = testData "pds3/rda_test.lbl"
 
         when:
         def label = Label.parseFile filename
@@ -58,13 +58,13 @@ class LabelTest extends Specification {
         def headerLink = links.get "HEADER"
         headerLink != null
         headerLink.getName() == "HEADER"
-        headerLink.getFilename() == "RDR4_TEST.CSV"
+        headerLink.getFilename() == "RDA_TEST.CSV"
         headerLink.getIndex() == 1
 
         def spreadsheetLink = links.get("SPREADSHEET")
         spreadsheetLink != null
         spreadsheetLink.getName() == "SPREADSHEET"
-        spreadsheetLink.getFilename() == "RDR4_TEST.CSV"
+        spreadsheetLink.getFilename() == "RDA_TEST.CSV"
         spreadsheetLink.getIndex() == 2
 
         def objects = label.getObjects()
@@ -118,7 +118,7 @@ class LabelTest extends Specification {
         intensity.getFormat() == "F7.0"
         intensity.getDescription() == "The intensity of the diffraction for each 2-theta value in column 1"
 
-        label.getLogicalIdentifier() == "rdr4_test"
+        label.getLogicalIdentifier() == "rda_test"
     }
 
     def "parse abnormal file"() {

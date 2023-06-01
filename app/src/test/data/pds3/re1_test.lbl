@@ -1,0 +1,60 @@
+PDS_VERSION_ID                = PDS3
+RECORD_TYPE                   = STREAM
+RECORD_BYTES                  = 23252
+FILE_RECORDS                  = 1351
+^HEADER                     = ("RE1_TEST.CSV",1)
+^SPREADSHEET                = ("RE1_TEST.CSV",2)
+DATA_SET_ID                   = "MSL-M-CHEMIN-4-RDR-V1.0"
+PRODUCT_ID                    = "CMA_405890913RE100950050104CH11504P1"
+PRODUCT_VERSION_ID            = "V1.0"
+RELEASE_ID                    = "0002"
+SOURCE_PRODUCT_ID             = {"CMA_405890913EE100950050104CH11504M1",
+"CMA_405891324EE100950050104CH11504M1",
+"CMA_406162658EE100980050104CH12130M1",
+"CMA_406163025EE100980050104CH12130M1",
+"CMA_406516867EE101020050178CH12160M1",
+"CMA_406517234EE101020050178CH12160M1",
+"CMA_407407283EE101120050432CH12180M1",
+"CMA_407407650EE101120050432CH12180M1",
+"CMA_407408016EE101120050432CH12180M1",
+"CMA_408112465EE101200050432CH12190M1"}
+PRODUCT_TYPE                  = "CHEMIN_RE1"
+INSTRUMENT_HOST_ID            = "MSL"
+INSTRUMENT_HOST_NAME          = "MARS SCIENCE LABORATORY"
+INSTRUMENT_ID                 = "CHEMIN"
+TARGET_NAME                   = "MARS"
+MSL:CALIBRATION_STANDARD_NAME = "N/A"
+MISSION_PHASE_NAME            = "PRIMARY SURFACE MISSION"
+PRODUCT_CREATION_TIME         = 2013-05-20T09:30:00 
+START_TIME                    = 2012-11-11T07:32:01.800
+STOP_TIME                     = UNK
+SPACECRAFT_CLOCK_START_COUNT  = "405890913.14282"
+SPACECRAFT_CLOCK_STOP_COUNT   = "UNK"
+OBJECT                        = HEADER
+ BYTES                        = 19
+ HEADER_TYPE                  = TEXT
+ DESCRIPTION                  = "This header record contains column headings
+ for the following table." 
+END_OBJECT                    = HEADER
+
+OBJECT                        = SPREADSHEET
+ ROWS                         = 1350
+ ROW_BYTES                    = 23252
+ FIELDS                       = 2
+ FIELD_DELIMITER              = "COMMA"
+ ^STRUCTURE                   = "CHEMIN_EDH.FMT"
+DESCRIPTION                  = "This table contains energy-single fluorescence
+ data for the fifth scooped soil sample from the Rocknest target, analyzed in
+ CheMin cell number 7a (Mylar window). The ten minor frames of best data
+ quality from sol0095 to sol0120 were selected and averaged, including 1800
+ individual 10-second frames in the 10 minor frames of 180 10-second frames
+ each. CCD temperatures during data collection were ~-50 degrees centigrade.
+ Column 1 of the table shows energy in keV converted from digital number (DN)
+ using a conversion factor of 135.0181 DN/keV, based on position of the
+ 6.925 keV Co K-alpha peak at DN 935. Results are listed from DN 51 to 1400
+ (0.37773 to 10.36898 keV), 1350 entries. Column 2 lists the log-scale
+ intensity for each value of keV in column 1."
+
+END_OBJECT                    = SPREADSHEET
+END
+

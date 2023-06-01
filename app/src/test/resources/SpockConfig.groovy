@@ -1,9 +1,9 @@
 runner {
     parallel {
-      enabled true
+      enabled false
     }
 }
 
 tempdir {
-    // keep true
+    keep false
 }

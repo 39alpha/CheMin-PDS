@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://pds.nasa.gov/pds4/mission/msl/v1/PDS4_MSL_1J00_1000.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+
+<Product_Observational xmlns="http://pds.nasa.gov/pds4/pds/v1"
+    xmlns:msl="http://pds.nasa.gov/pds4/mission/msl/v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.xsd http://pds.nasa.gov/pds4/mission/msl/v1 https://pds.nasa.gov/pds4/mission/msl/v1/PDS4_MSL_1J00_1000.xsd">
+  <Identification_Area>
+    <logical_identifier>urn:nasa:pds:msl_chemin_derived:data_chemin_rda:rda_test</logical_identifier>
+    <version_id>1.0</version_id>
+    <title>MSL CheMin diffraction-all K-alpha diffraction data </title>
+    <information_model_version>1.19.0.0</information_model_version>
+    <product_class>Product_Observational</product_class>
+    <Modification_History>
+      <Modification_Detail>
+        <modification_date>2022-10-01</modification_date>
+        <version_id>1.0</version_id>
+        <description>Initial PDS4 version of this product.</description>
+      </Modification_Detail>
+    </Modification_History>
+  </Identification_Area>
+  <Observation_Area>
+    <Time_Coordinates>
+      <start_date_time>2012-10-25T21:03:42.206Z</start_date_time>
+      <stop_date_time nilReason="unknown" xsi:nil="true"/>
+    </Time_Coordinates>
+    <Primary_Result_Summary>
+      <purpose>Science</purpose>
+      <processing_level>Derived</processing_level>
+      <description>Data from the MSL CheMin Instrument.</description>
+    </Primary_Result_Summary>
+    <Investigation_Area>
+      <name>MARS SCIENCE LABORATORY</name>
+      <type>Mission</type>
+      <Internal_Reference>
+        <lid_reference>urn:nasa:pds:context:investigation:mission.mars_science_laboratory</lid_reference>
+        <reference_type>data_to_investigation</reference_type>
+      </Internal_Reference>
+    </Investigation_Area>
+    <Observing_System>
+      <name>MARS SCIENCE LABORATORY</name>
+      <Observing_System_Component>
+        <name>MARS SCIENCE LABORATORY</name>
+        <type>Host</type>
+        <Internal_Reference>
+          <lid_reference>urn:nasa:pds:context:instrument_host:spacecraft.msl</lid_reference>
+          <reference_type>is_instrument_host</reference_type>
+        </Internal_Reference>
+      </Observing_System_Component>
+      <Observing_System_Component>
+        <name>CHEMISTRY AND MINERALOGY INSTRUMENT</name>
+        <type>Instrument</type>
+        <Internal_Reference>
+          <lid_reference>urn:nasa:pds:context:instrument:chemin.msl</lid_reference>
+          <reference_type>is_instrument</reference_type>
+        </Internal_Reference>
+      </Observing_System_Component>
+    </Observing_System>
+    <Target_Identification>
+      <name>MARS</name>
+      <type>Planet</type>
+      <Internal_Reference>
+        <lid_reference>urn:nasa:pds:context:target:planet.mars</lid_reference>
+        <reference_type>data_to_target</reference_type>
+      </Internal_Reference>
+    </Target_Identification>
+    <Mission_Area>
+      <msl:MSL_Parameters>
+        <msl:Observation_Information>
+          <msl:product_type>CHEMIN_RDA</msl:product_type>
+          <!-- The schema does not allow msl:release_number here -->
+          <!-- <msl:release_number>0002</msl:release_number> -->
+          <msl:mission_phase_name>PRIMARY SURFACE MISSION</msl:mission_phase_name>
+          <msl:spacecraft_clock_start>404470826.52111</msl:spacecraft_clock_start>
+          <msl:sol_number>0000</msl:sol_number>
+        </msl:Observation_Information>
+      </msl:MSL_Parameters>
+    </Mission_Area>
+  </Observation_Area>
+  <Reference_List>
+    <Internal_Reference>
+      <lid_reference>urn:nasa:pds:msl_chemin_derived:document:chemin_rdrsis</lid_reference>
+      <reference_type>data_to_document</reference_type>
+    </Internal_Reference>
+    <Internal_Reference>
+      <lid_reference>urn:nasa:pds:msl_chemin_derived:document:chemin_pds4_notes</lid_reference>
+      <reference_type>data_to_document</reference_type>
+    </Internal_Reference>
+    <Source_Product_Internal>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404470826eda00790050104ch11503m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404470950eda00790050104ch11503m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404471073eda00790050104ch11503m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404471197eda00790050104ch11503m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404471320eda00790050104ch11503m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404471442eda00790050104ch11503m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404653755eda00810050104ch12060m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404654126eda00810050104ch12060m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404654492eda00810050104ch12060m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404654858eda00810050104ch12060m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404655223eda00810050104ch12060m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404655588eda00810050104ch12060m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404655954eda00810050104ch12060m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404825258eda00830050104ch12070m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404825624eda00830050104ch12070m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404825990eda00830050104ch12070m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404826355eda00830050104ch12070m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404826721eda00830050104ch12070m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404826885eda00830050104ch12070m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_404912365eda00840050104ch12080m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405128680eda00860050104ch12080m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405129045eda00860050104ch12080m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405129412eda00860050104ch12080m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405129777eda00860050104ch12080m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405130093eda00860050104ch12080m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405186950eda00870050104ch12090m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405187315eda00870050104ch12090m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405187680eda00870050104ch12090m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405188046eda00870050104ch12090m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405188411eda00870050104ch12090m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405188777eda00870050104ch12090m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405188969eda00870050104ch12090m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405284143eda00880050104ch12100m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405284508eda00880050104ch12100m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405284874eda00880050104ch12100m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405285240eda00880050104ch12100m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405285605eda00880050104ch12100m1::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405285798eda00880050104ch12100m1::1.0</lidvid_reference>
+      <reference_type>data_to_derived_source_product</reference_type>
+      <comment>This is a reference to a data file corresponding to this data.</comment>
+    </Source_Product_Internal>
+  </Reference_List>
+  <File_Area_Observational>
+    <File>
+      <file_name>rda_test.csv</file_name>
+      <creation_date_time>2013-02-25T19:45:00</creation_date_time>
+    </File>
+    <Header>
+      <offset unit="byte">0</offset>
+      <object_length unit="byte">19</object_length>
+      <parsing_standard_id>7-Bit ASCII Text</parsing_standard_id>
+      <description>Column headings</description>
+    </Header>
+    <Table_Delimited>
+      <offset unit="byte">19</offset>
+      <parsing_standard_id>PDS DSV 1</parsing_standard_id>
+      <description>This table contains diffraction-all K-alpha diffraction data for the fourth scooped soil sample from the Rocknest target, analyzed in CheMin cell number 1a (Kapton window). The table represents results from sequences uploaded from sol00077 to sol00088, including 6,840 individual 10-second frames in 38 minor frames of 180 individual 10-second frames. CCD temperatures during data collection were ~-50 degrees centigrade. Column 1 of the table lists 2-theta from 3.00 to 51.95 degrees cobalt K-alpha, in increments of 0.05 degrees (980 entries). Column 2 lists the intensity of the diffraction for each 2-theta value in column 1.</description>
+      <records>980</records>
+      <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
+      <field_delimiter>Comma</field_delimiter>
+      <Record_Delimited>
+        <fields>2</fields>
+        <groups>0</groups>
+        <Field_Delimited>
+          <name>2-THETA</name>
+          <field_number>1</field_number>
+          <data_type>ASCII_Real</data_type>
+          <maximum_field_length unit="byte">6</maximum_field_length>
+          <unit>degrees</unit>
+          <description>2-theta</description>
+        </Field_Delimited>
+        <Field_Delimited>
+          <name>INTENSITY</name>
+          <field_number>2</field_number>
+          <data_type>ASCII_Real</data_type>
+          <maximum_field_length unit="byte">7</maximum_field_length>
+          <unit>counts</unit>
+          <description>The intensity of the diffraction for each 2-theta value in column 1</description>
+        </Field_Delimited>
+      </Record_Delimited>
+    </Table_Delimited>
+  </File_Area_Observational>
+</Product_Observational>
