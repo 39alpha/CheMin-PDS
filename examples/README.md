@@ -128,9 +128,9 @@ of the 5th line is missing.
 
 ## Validation Errors
 
-The utility uses the [PDS Validate]() validation tool to automatically check
-the generated PDS4 XML file. If the validation fails, you'll see an error that
-looks something like
+The utility uses the [PDS Validate](https://github.com/NASA-PDS/validate)
+validation tool to automatically check the generated PDS4 XML file. If the
+validation fails, you'll see an error that looks something like
 
 ```shell
 $ pds3to4 -r -d `03-validation-error/`
@@ -193,9 +193,9 @@ $ pds3to4 -r -n `03-validation-error/`
 
 ## Custom Templates
 
-By default, the utility uses [Velocity]() templates that are bundled with the
-utility to generate the PDS4 output. You can override this entirely by
-providing the `-t <template>` option at the command line.
+By default, the utility uses [Velocity](https://velocity.apache.org/) templates
+that are bundled with the utility to generate the PDS4 output. You can override
+this entirely by providing the `-t <template>` option at the command line.
 
 **NOTE** Since the example template won't validate, we also provide the `-n`
 flag.
