@@ -145,7 +145,7 @@ word : WORD
 words : word
       | word WS+ words;
 
-identifierList : '{' identifierEntries '}'
+identifierList : '{' NL* identifierEntries NL* '}'
                | identifierEntry;
 
 identifierEntries : WS* identifierEntry WS*
