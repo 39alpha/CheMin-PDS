@@ -366,11 +366,16 @@ public class Label extends LabelBaseListener {
         }
         SourceProductId = new ArrayList<String>();
         IdentifierEntriesContext idc = ctx.identifierList().identifierEntries();
-        while (idc != null) {
-            String entry = idc.identifierEntry().word().getText();
-            SourceProductId.add(entry);
+        if (idc == null) {
+            IdentifierEntryContext entry = ctx.identifierList().identifierEntry();
+            SourceProductId.add(entry.word().getText());
+        } else {
+            while (idc != null) {
+                String entry = idc.identifierEntry().word().getText();
+                SourceProductId.add(entry);
 
-            idc = idc.identifierEntries();
+                idc = idc.identifierEntries();
+            }
         }
     }
 

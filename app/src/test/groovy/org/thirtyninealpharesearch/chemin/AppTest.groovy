@@ -71,6 +71,7 @@ class AppTest extends Specification {
         labelFilename       | labelType     || expectedFilename
         "pds3/rda_test.lbl" | LabelType.RDA || "pds3/rda_test.xml"
         "pds3/re1_test.lbl" | LabelType.RE1 || "pds3/re1_test.xml"
+        "pds3/min_test.lbl" | LabelType.MIN || "pds3/min_test.xml"
     }
 
     def "process labels"() {
@@ -94,6 +95,6 @@ class AppTest extends Specification {
         path       || labelCount | failures
         "pds3/rda" || 62         | 2
         "pds3/re1" || 132        | 34
-        "pds3/min" || 53         | 53
+        "pds3/min" || 53         | 2
     }
 }
