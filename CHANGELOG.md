@@ -7,5 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.0.2]
+
+### Added
+
+- <File_Area_Observational_Supplemental> section to all templates
+- Revision notes in <Modification_History>
+
+### Fixed
+
+- Correctly set the <msl:sol_number>
+
 ## [v0.0.1]
+
 - Initial release of pds3to4
