@@ -759,6 +759,10 @@ public class Label extends LabelBaseListener {
         return FilenameUtils.getBaseName(path).toLowerCase();
     }
 
+    public String getSolNumber() {
+        return getFilename().substring(16,20);
+    }
+
     public LabelType inferLabelType() {
         Pattern pattern = Pattern.compile("(rda|re1|min)$", Pattern.CASE_INSENSITIVE);
         Matcher matcher = pattern.matcher(ProductType);

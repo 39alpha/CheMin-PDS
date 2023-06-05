@@ -84,7 +84,7 @@
           <!-- <msl:release_number>$label.ReleaseId</msl:release_number> -->
           <msl:mission_phase_name>$label.MissionPhaseName</msl:mission_phase_name>
           <msl:spacecraft_clock_start>$label.SpacecraftClockStartCount</msl:spacecraft_clock_start>
-          <msl:sol_number>0000</msl:sol_number>
+          <msl:sol_number>$label.SolNumber</msl:sol_number>
         </msl:Observation_Information>
       </msl:MSL_Parameters>
     </Mission_Area>

@@ -67,10 +67,10 @@ class AppTest extends Specification {
         writer.toString().equals(expected)
 
         where:
-        labelFilename       | labelType     || expectedFilename
-        "pds3/rda_test.lbl" | LabelType.RDA || "pds3/rda_test.xml"
-        "pds3/re1_test.lbl" | LabelType.RE1 || "pds3/re1_test.xml"
-        "pds3/min_test.lbl" | LabelType.MIN || "pds3/min_test.xml"
+        labelFilename                                   | labelType     || expectedFilename
+        "pds3/cma_404470826rda00790050104ch11503p1.lbl" | LabelType.RDA || "pds3/cma_404470826rda00790050104ch11503p1.xml"
+        "pds3/cma_404655589re100810050104ch12060p1.lbl" | LabelType.RE1 || "pds3/cma_404655589re100810050104ch12060p1.xml"
+        "pds3/cma_404470826min00790050104ch11503p1.lbl" | LabelType.MIN || "pds3/cma_404470826min00790050104ch11503p1.xml"
     }
 
     def "process labels"() {

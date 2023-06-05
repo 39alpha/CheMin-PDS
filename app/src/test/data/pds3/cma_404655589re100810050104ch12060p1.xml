@@ -8,7 +8,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.xsd http://pds.nasa.gov/pds4/mission/msl/v1 https://pds.nasa.gov/pds4/mission/msl/v1/PDS4_MSL_1J00_1000.xsd">
   <Identification_Area>
-    <logical_identifier>urn:nasa:pds:msl_chemin_derived:data_chemin_re1:re1_test</logical_identifier>
+    <logical_identifier>urn:nasa:pds:msl_chemin_derived:data_chemin_re1:cma_404655589re100810050104ch12060p1</logical_identifier>
     <version_id>1.0</version_id>
     <title>MSL CheMin Energy-single fluorescence Table</title>
     <information_model_version>1.19.0.0</information_model_version>
@@ -74,7 +74,7 @@
           <!-- <msl:release_number>0002</msl:release_number> -->
           <msl:mission_phase_name>PRIMARY SURFACE MISSION</msl:mission_phase_name>
           <msl:spacecraft_clock_start>405890913.14282</msl:spacecraft_clock_start>
-          <msl:sol_number>0000</msl:sol_number>
+          <msl:sol_number>0081</msl:sol_number>
         </msl:Observation_Information>
       </msl:MSL_Parameters>
     </Mission_Area>
@@ -105,7 +105,7 @@
   </Reference_List>
   <File_Area_Observational>
     <File>
-      <file_name>re1_test.csv</file_name>
+      <file_name>cma_404655589re100810050104ch12060p1.csv</file_name>
       <creation_date_time>2013-05-20T09:30:00</creation_date_time>
     </File>
     <Header>
@@ -145,7 +145,7 @@
   </File_Area_Observational>
   <File_Area_Observational_Supplemental>
      <File>
-       <file_name>re1_test.lbl</file_name>
+       <file_name>cma_404655589re100810050104ch12060p1.lbl</file_name>
      </File>
      <Stream_Text>
        <offset unit="byte">0</offset>
