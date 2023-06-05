@@ -19,10 +19,17 @@
     <product_class>Product_Observational</product_class>
     <Modification_History>
       <Modification_Detail>
-        <modification_date>2022-10-01</modification_date>
+        <modification_date>$label.ProductCreationDate</modification_date>
         <version_id>$source_product_version</version_id>
         <description>Initial PDS4 version of this product.</description>
       </Modification_Detail>
+      #if ($label.isRevision())
+      <Modification_Detail>
+        <modification_date>$label.ModificationDate</modification_date>
+        <version_id>$source_product_version</version_id>
+        <description>$label.ModificationDescription</description>
+      </Modification_Detail>
+      #end
     </Modification_History>
   </Identification_Area>
   <Observation_Area>

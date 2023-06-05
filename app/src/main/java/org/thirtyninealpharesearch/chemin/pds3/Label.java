@@ -2,7 +2,9 @@ package org.thirtyninealpharesearch.chemin.pds3;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -532,6 +534,13 @@ public class Label extends LabelBaseListener {
         return ProductCreationTime;
     }
 
+    public String getProductCreationDate() throws java.text.ParseException {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+        Date date = format.parse(ProductCreationTime);
+        format = new SimpleDateFormat("yyyy-MM-dd");
+        return format.format(date);
+    }
+
     @Override public void enterStartTime(@NotNull StartTimeContext ctx) {
         if (StartTime != null) {
             notifyListener(ctx, "duplicate START_TIME encountered");
@@ -786,5 +795,33 @@ public class Label extends LabelBaseListener {
             default:
                 return LabelType.UNKNOWN;
         }
+    }
+
+    public boolean isRevision() {
+        return LabelRevisionNote != null;
+    }
+
+    public String getModificationDate() throws java.text.ParseException {
+        if (isRevision()) {
+            Pattern pattern = Pattern.compile("\\s*(\\d{4}-\\d{2}-\\d{2})\\s+");
+            Matcher matcher = pattern.matcher(LabelRevisionNote);
+            if (matcher.find()) {
+                return matcher.group(1);
+            } else if (ProductCreationTime != null) {
+                return getProductCreationDate();
+            }
+        }
+        return null;
+    }
+
+    public String getModificationDescription() {
+        if (isRevision()) {
+            Pattern pattern = Pattern.compile("\\s*\\d{4}-\\d{2}-\\d{2}\\s+(.*)", Pattern.DOTALL);
+            Matcher matcher = pattern.matcher(LabelRevisionNote);
+            if (matcher.find()) {
+                return matcher.group(1);
+            }
+        }
+        return null;
     }
 }

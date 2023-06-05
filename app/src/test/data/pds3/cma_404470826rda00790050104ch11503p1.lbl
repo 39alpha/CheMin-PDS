@@ -1,5 +1,5 @@
 PDS_VERSION_ID                = PDS3
-LABEL_REVISION_NOTE           = "The label was revised for some reason"
+LABEL_REVISION_NOTE           = "2013-03-26 The label was revised for some reason"
 RECORD_TYPE                   = STREAM
 RECORD_BYTES                  = 12288
 FILE_RECORDS                  = 981

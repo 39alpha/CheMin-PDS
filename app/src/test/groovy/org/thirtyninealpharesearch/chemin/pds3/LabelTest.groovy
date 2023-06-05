@@ -31,7 +31,7 @@ class LabelTest extends Specification {
         label.getPath() == path
         label.getFilename() == filename
         label.getPDSVersionId() == "PDS3"
-        label.getLabelRevisionNote() == "The label was revised for some reason"
+        label.getLabelRevisionNote() == "2013-03-26 The label was revised for some reason"
         label.getRecordType() == "STREAM"
         label.getRecordBytes() == 12288
         label.getFileRecords() == 981
@@ -123,10 +123,22 @@ class LabelTest extends Specification {
         label.getLogicalIdentifier() == "cma_404470826rda00790050104ch11503p1"
     }
 
+    def "parse revision note"() {
+        setup:
+        def path = testData "pds3/re1/cma_602259727re123070732502ch00113p1.lbl"
+
+        when:
+        def label = Label.parseFile path
+
+        then:
+        label.isRevision()
+        label.getModificationDate() == "2019-10-23"
+        label.getModificationDescription() == "CHEMIN:Vaniman changed first\r\n line of DESCRIPTION to remove reference to prior analysis of Aberlady in\r\n cell 8a. Aberlady was analyzed in this cell, but after the emptied cell\r\n analysis reported here."
+    }
+
     def "parse abnormal file"() {
         setup:
-        def filename = "cma_602259727re123070732502ch00113p1.lbl"
-        def path = testData ("pds3/re1/" + filename)
+        def path = testData "pds3/re1/cma_602259727re123070732502ch00113p1.lbl"
 
         when:
         def label = Label.parseFile path
