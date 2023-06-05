@@ -23,3 +23,6 @@ app/src/test/data/pds3/min/*.xml.report
 examples/**/*.xml
 examples/**/*.xml.err
 examples/**/*.xml.report
+
+workspace
+
