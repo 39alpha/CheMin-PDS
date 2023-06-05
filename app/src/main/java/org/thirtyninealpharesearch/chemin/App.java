@@ -26,7 +26,7 @@ import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 import org.thirtyninealpharesearch.chemin.pds3.Label;
 import org.thirtyninealpharesearch.chemin.pds3.Label.LabelType;
 
-@Command(name="pds3to4", mixinStandardHelpOptions=true, version="0.0.1",
+@Command(name="pds3to4", mixinStandardHelpOptions=true, version="0.0.2",
          description="Convert PDS3 label files to PDS4")
 public class App implements Callable<Integer> {
     @Parameters(index="0", paramLabel="[PDS3-LABEL|DIR]", description="path to label file")
