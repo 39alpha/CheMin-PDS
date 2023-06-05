@@ -20,10 +20,10 @@ import org.thirtyninealpharesearch.chemin.pds3.LabelParser.*;
 import org.thirtyninealpharesearch.chemin.SemanticException;
 
 public class Label extends LabelBaseListener {
-    public static Label parseFile(String filename, String format) throws IOException {
-        ErrorListener listener = new ErrorListener(filename);
+    public static Label parseFile(String path, String format) throws IOException {
+        ErrorListener listener = new ErrorListener(path);
 
-        ANTLRFileStream in = new ANTLRFileStream(filename);
+        ANTLRFileStream in = new ANTLRFileStream(path);
         LabelLexer lexer = new LabelLexer(in);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         LabelParser parser = new LabelParser(tokens);
@@ -32,7 +32,7 @@ public class Label extends LabelBaseListener {
         parser.removeErrorListeners();
         parser.addErrorListener(listener);
 
-        Label label = new Label(filename, format, listener);
+        Label label = new Label(path, format, listener);
 
         ParseTreeWalker walker = new ParseTreeWalker();
 
@@ -44,14 +44,14 @@ public class Label extends LabelBaseListener {
 
         if (listener.hasErrors()) {
             listener.reportErrors();
-            throw new IOException(String.format("failed to parse \"%s\"", filename));
+            throw new IOException(String.format("failed to parse \"%s\"", path));
         }
 
         return label;
     }
 
-    public static Label parseFile(String filename) throws IOException {
-        return Label.parseFile(filename, null);
+    public static Label parseFile(String path) throws IOException {
+        return Label.parseFile(path, null);
     }
 
     public class ObjectLink {
@@ -138,7 +138,7 @@ public class Label extends LabelBaseListener {
         UNKNOWN,
     }
 
-    public String filename;
+    public String path;
     public String format;
 
     public String PDSVersionId;
@@ -193,32 +193,36 @@ public class Label extends LabelBaseListener {
     protected Object object;
     protected ErrorListener listener;
 
-    public Label(String filename, String format, ErrorListener listener) {
-        this.filename = filename;
+    public Label(String path, String format, ErrorListener listener) {
+        this.path = path;
         this.format = format;
         this.listener = listener;
     }
 
-    public Label(String filename, String format) {
-        this.filename = filename;
+    public Label(String path, String format) {
+        this.path = path;
         this.format = format;
-        this.listener = new ErrorListener(filename);
+        this.listener = new ErrorListener(path);
     }
 
-    public Label(String filename, ErrorListener listener) {
-        this.filename = filename;
+    public Label(String path, ErrorListener listener) {
+        this.path = path;
         this.format = null;
         this.listener = listener;
     }
 
-    public Label(String filename) {
-        this.filename = filename;
+    public Label(String path) {
+        this.path = path;
         this.format = null;
-        this.listener = new ErrorListener(filename);
+        this.listener = new ErrorListener(path);
+    }
+
+    public String getPath() {
+        return path;
     }
 
     public String getFilename() {
-        return filename;
+        return FilenameUtils.getName(path);
     }
 
     public String getFormat() {
@@ -752,7 +756,7 @@ public class Label extends LabelBaseListener {
     }
 
     public String getLogicalIdentifier() {
-        return FilenameUtils.getBaseName(filename).toLowerCase();
+        return FilenameUtils.getBaseName(path).toLowerCase();
     }
 
     public LabelType inferLabelType() {

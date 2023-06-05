@@ -108,7 +108,7 @@
   </Reference_List>
   <File_Area_Observational>
     <File>
-      <file_name>$label.ObjectLinks["SPREADSHEET"].filename.toLowerCase()</file_name>
+      <file_name>$label.ObjectLinks["SPREADSHEET"].Filename.toLowerCase()</file_name>
       <creation_date_time>$label.ProductCreationTime</creation_date_time>
     </File>
     <Header>
@@ -150,4 +150,15 @@
       </Record_Delimited>
     </Table_Delimited>
   </File_Area_Observational>
+  <File_Area_Observational_Supplemental>
+     <File>
+       <file_name>$label.Filename.toLowerCase()</file_name>
+     </File>
+     <Stream_Text>
+       <offset unit="byte">0</offset>
+       <parsing_standard_id>PDS3</parsing_standard_id>
+       <description>Original PDS3 label</description>
+       <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
+     </Stream_Text>
+  </File_Area_Observational_Supplemental>
 </Product_Observational>

@@ -20,13 +20,15 @@ class LabelTest extends Specification {
 
     def "parses basic"() {
         setup:
-        def filename = testData "pds3/rda_test.lbl"
+        def filename = "rda_test.lbl"
+        def path = testData ("pds3/" + filename)
 
         when:
-        def label = Label.parseFile filename
+        def label = Label.parseFile path
 
         then:
         label != null
+        label.getPath() == path
         label.getFilename() == filename
         label.getPDSVersionId() == "PDS3"
         label.getLabelRevisionNote() == "The label was revised for some reason"
@@ -123,10 +125,11 @@ class LabelTest extends Specification {
 
     def "parse abnormal file"() {
         setup:
-        def filename = testData "pds3/re1/cma_602259727re123070732502ch00113p1.lbl"
+        def filename = "cma_602259727re123070732502ch00113p1.lbl"
+        def path = testData ("pds3/re1/" + filename)
 
         when:
-        def label = Label.parseFile filename
+        def label = Label.parseFile path
 
         then:
         label != null
@@ -136,35 +139,35 @@ class LabelTest extends Specification {
 
     def "parse all rda label files"() {
         given:
-        def label = Label.parseFile filename
+        def label = Label.parseFile path
 
         expect:
         label.inferLabelType() == Label.LabelType.RDA
 
         where:
-        filename << filesInDirectory("pds3/rda")
+        path << filesInDirectory("pds3/rda")
     }
 
     def "parse all re1 label files"() {
         given:
-        def label = Label.parseFile filename
+        def label = Label.parseFile path
 
         expect:
         label.inferLabelType() == Label.LabelType.RE1
 
         where:
-        filename << filesInDirectory("pds3/re1")
+        path << filesInDirectory("pds3/re1")
     }
 
     def "parse all min label files"() {
         given:
-        def label = Label.parseFile filename
+        def label = Label.parseFile path
 
         expect:
         label.inferLabelType() == Label.LabelType.MIN
 
         where:
-        filename << filesInDirectory("pds3/min")
+        path << filesInDirectory("pds3/min")
     }
 
     def "parse failure"() {
