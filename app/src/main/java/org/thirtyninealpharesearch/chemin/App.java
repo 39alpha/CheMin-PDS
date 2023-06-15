@@ -1,13 +1,14 @@
 package org.thirtyninealpharesearch.chemin;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
-import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.io.Writer;
-import java.nio.file.StandardCopyOption;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
+import java.util.ArrayList;
 import java.util.concurrent.Callable;
 
 import picocli.CommandLine;
@@ -56,6 +57,12 @@ public class App implements Callable<Integer> {
     @Option(names={"-r", "--recursive"}, description="process each .lbl file in a directory")
     public boolean recursive = false;
 
+    @Option(names={"-s", "--schematron"}, description="a schematron file to use for validation")
+    public String schematron = null;
+
+    @Option(names={"-x", "--xml-schema"}, description="an XML schema for validation")
+    public String schema = null;
+
     public static void run(Label label, String templateFilename, Writer writer) throws Exception {
         VelocityContext context = new VelocityContext();
         context.put("label", label);
@@ -87,17 +94,36 @@ public class App implements Callable<Integer> {
         App.run(label, templateFilename, writer);
     }
 
-    public static int validate(String filename, boolean printReport, boolean deleteReport) throws Exception {
+    public static int validate(
+        String filename,
+        String schema,
+        String schematron,
+        boolean printReport,
+        boolean deleteReport
+    ) throws Exception {
+        ArrayList<String> args = new ArrayList<String>();
+        args.add(filename);
+
         String reportFilename = null;
-        String[] args = null;
-        if (printReport) {
-            args = new String[]{filename};
-        } else {
+        if (!printReport) {
             reportFilename = filename + ".report";
-            args = new String[]{"-r", reportFilename, filename};
+            args.add("-r");
+            args.add(reportFilename);
         }
 
-        int exitCode = new Validator().process(args);
+        if (schema != null) {
+            args.add("-x");
+            args.add(schema);
+        }
+
+        if (schematron != null) {
+            args.add("-S");
+            args.add(schematron);
+        }
+
+        String[] arguments = args.toArray(new String[args.size()]);
+
+        int exitCode = new Validator().process(arguments);
         if (exitCode != 0) {
             String errorFilename = filename + ".err";
             Files.move(Paths.get(filename), Paths.get(errorFilename), StandardCopyOption.REPLACE_EXISTING);
@@ -133,7 +159,7 @@ public class App implements Callable<Integer> {
             writer.close();
         }
 
-        return noValidate ? 0 : App.validate(outputFilename, printReport, deleteReport);
+        return noValidate ? 0 : App.validate(outputFilename, schema, schematron, printReport, deleteReport);
     }
 
     public int runRecursive(String directory) throws Exception {
