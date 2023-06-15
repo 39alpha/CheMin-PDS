@@ -79,6 +79,8 @@ class AppTest extends Specification {
         copyPathToTemp(dir)
 
         def app = new App()
+        app.schema = testData("pds3/schemas/PDS4_MSL_1J00_1100.xsd")
+        app.schematron = testData("pds3/schemas/PDS4_MSL_1J00_1100.sch")
 
         when:
         app.runRecursive tempDir.toString()
