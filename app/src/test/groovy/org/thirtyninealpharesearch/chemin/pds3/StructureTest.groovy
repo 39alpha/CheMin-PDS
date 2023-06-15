@@ -104,7 +104,7 @@ class StructureTest extends Specification {
         def intensity = objects.get 1
         intensity.getName() == "INTENSITY"
         intensity.getDataType() == "ASCII_Real"
-        intensity.getUnit() == "COUNT"
+        intensity.getUnit() == "COUNTS"
         intensity.getBytes() == 8
         intensity.getFormat() == "F8.0"
         intensity.getDescription() == null

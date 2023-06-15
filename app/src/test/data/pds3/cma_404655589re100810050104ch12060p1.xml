@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 
 <?xml-model href="https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="https://pds.nasa.gov/pds4/mission/msl/v1/PDS4_MSL_1J00_1000.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<?xml-model href="https://pds.nasa.gov/pds4/mission/msl/v1/PDS4_MSL_1J00_1100.sch" schematypens="http://purl.oclc.org/dsdl/schematron"?>
 
 <Product_Observational xmlns="http://pds.nasa.gov/pds4/pds/v1"
     xmlns:msl="http://pds.nasa.gov/pds4/mission/msl/v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.xsd http://pds.nasa.gov/pds4/mission/msl/v1 https://pds.nasa.gov/pds4/mission/msl/v1/PDS4_MSL_1J00_1000.xsd">
+    xsi:schemaLocation="http://pds.nasa.gov/pds4/pds/v1 https://pds.nasa.gov/pds4/pds/v1/PDS4_PDS_1J00.xsd http://pds.nasa.gov/pds4/mission/msl/v1 https://pds.nasa.gov/pds4/mission/msl/v1/PDS4_MSL_1J00_1100.xsd">
   <Identification_Area>
     <logical_identifier>urn:nasa:pds:msl_chemin_derived:data_chemin_re1:cma_404655589re100810050104ch12060p1</logical_identifier>
     <version_id>1.0</version_id>
@@ -69,10 +69,10 @@
     <Mission_Area>
       <msl:MSL_Parameters>
         <msl:Observation_Information>
+          <msl:release_number>0002</msl:release_number>
           <msl:product_type>CHEMIN_RE1</msl:product_type>
-          <!-- The schema does not allow msl:release_number here -->
-          <!-- <msl:release_number>0002</msl:release_number> -->
           <msl:mission_phase_name>PRIMARY SURFACE MISSION</msl:mission_phase_name>
+          <msl:product_version_id>V1.0</msl:product_version_id>
           <msl:spacecraft_clock_start>405890913.14282</msl:spacecraft_clock_start>
           <msl:sol_number>0081</msl:sol_number>
         </msl:Observation_Information>
@@ -81,7 +81,7 @@
   </Observation_Area>
   <Reference_List>
     <Internal_Reference>
-      <lid_reference>urn:nasa:pds:msl_chemin_derived:document:chemin_rdrsis</lid_reference>
+      <lid_reference>urn:nasa:pds:msl_chemin_derived:document:chemin_rdr_sis</lid_reference>
       <reference_type>data_to_document</reference_type>
     </Internal_Reference>
     <Internal_Reference>
@@ -99,7 +99,7 @@
       <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_407407650ee101120050432ch12180m1::1.0</lidvid_reference>
       <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_407408016ee101120050432ch12180m1::1.0</lidvid_reference>
       <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_408112465ee101200050432ch12190m1::1.0</lidvid_reference>
-      <reference_type>data_to_derived_source_product</reference_type>
+      <reference_type>data_to_raw_source_product</reference_type>
       <comment>This is a reference to a data file corresponding to this data.</comment>
     </Source_Product_Internal>
   </Reference_List>
@@ -117,7 +117,17 @@
     <Table_Delimited>
       <offset unit="byte">19</offset>
       <parsing_standard_id>PDS DSV 1</parsing_standard_id>
-      <description>This table contains energy-single fluorescence data for the fifth scooped soil sample from the Rocknest target, analyzed in CheMin cell number 7a (Mylar window). The ten minor frames of best data quality from sol0095 to sol0120 were selected and averaged, including 1800 individual 10-second frames in the 10 minor frames of 180 10-second frames each. CCD temperatures during data collection were ~-50 degrees centigrade. Column 1 of the table shows energy in keV converted from digital number (DN) using a conversion factor of 135.0181 DN/keV, based on position of the 6.925 keV Co K-alpha peak at DN 935. Results are listed from DN 51 to 1400 (0.37773 to 10.36898 keV), 1350 entries. Column 2 lists the log-scale intensity for each value of keV in column 1.</description>
+      <description>This table contains energy-single fluorescence
+ data for the fifth scooped soil sample from the Rocknest target, analyzed in
+ CheMin cell number 7a (Mylar window). The ten minor frames of best data
+ quality from sol0095 to sol0120 were selected and averaged, including 1800
+ individual 10-second frames in the 10 minor frames of 180 10-second frames
+ each. CCD temperatures during data collection were ~-50 degrees centigrade.
+ Column 1 of the table shows energy in keV converted from digital number (DN)
+ using a conversion factor of 135.0181 DN/keV, based on position of the
+ 6.925 keV Co K-alpha peak at DN 935. Results are listed from DN 51 to 1400
+ (0.37773 to 10.36898 keV), 1350 entries. Column 2 lists the log-scale
+ intensity for each value of keV in column 1.</description>
       <records>1350</records>
       <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
       <field_delimiter>Comma</field_delimiter>
