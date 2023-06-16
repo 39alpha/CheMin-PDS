@@ -127,7 +127,7 @@
     <Table_Delimited>
       <offset unit="byte">$label.Objects["HEADER"].Bytes</offset>
       <parsing_standard_id>PDS DSV 1</parsing_standard_id>
-      <description>$label.Objects["SPREADSHEET"].Description</description>
+      <description>$label.Objects["SPREADSHEET"].getWrappedDescription(120, "      ")</description>
       <records>$label.Objects["SPREADSHEET"].Rows</records>
       <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
       #set($delimiter = $label.Objects["SPREADSHEET"].FieldDelimiter)

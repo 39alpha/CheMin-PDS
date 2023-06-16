@@ -107,23 +107,17 @@
     <Table_Delimited>
       <offset unit="byte">23</offset>
       <parsing_standard_id>PDS DSV 1</parsing_standard_id>
-      <description>This table contains mineral abundances and
- analytical errors derived from diffraction-all K-alpha diffraction data for
- the John Klein drill sample, analyzed in CheMin
- cell number 13b (Mylar window). The analysis is based on the level 1B EDR 
- file CMA_414856883RDA01960060000CH12240P1. Mineral identifications,
- abundances and analytical errors for crystalline phases, other than clay 
- minerals, were determined using the program TOPAS.  The abundance of clay 
- minerals was estimated separately, using the program FULLPAT, at ~22 +/- 11 
- weight% of the total sample mass. In addition to the crystalline phases, a 
- broad rise in background is present and has been modeled using the program 
- FULLPAT to indicate that ~28 +/- 15 weight% of this sample consists of X-ray 
- amorphous material; a small amount of this may consist of allophane-like
- material. Column 1 of the table lists mineral identifications, column 2 
- lists the mineral abundances in weight percent, and column 3 indicates the
- estimated 2-sigma analytical errors. This is a preliminary analysis; 
- additional analysis time was accumulated after sol 269 and an updated 
- mineral abundance table will be provided in the next data delivery.</description>
+      <description>This table contains mineral abundances and analytical errors derived from diffraction-all K-alpha
+      diffraction data for the John Klein drill sample, analyzed in CheMin cell number 13b (Mylar window). The analysis
+      is based on the level 1B EDR file CMA_414856883RDA01960060000CH12240P1. Mineral identifications, abundances and
+      analytical errors for crystalline phases, other than clay minerals, were determined using the program TOPAS. The
+      abundance of clay minerals was estimated separately, using the program FULLPAT, at ~22 +/- 11 weight% of the total
+      sample mass. In addition to the crystalline phases, a broad rise in background is present and has been modeled
+      using the program FULLPAT to indicate that ~28 +/- 15 weight% of this sample consists of X-ray amorphous material;
+      a small amount of this may consist of allophane-like material. Column 1 of the table lists mineral
+      identifications, column 2 lists the mineral abundances in weight percent, and column 3 indicates the estimated
+      2-sigma analytical errors. This is a preliminary analysis; additional analysis time was accumulated after sol 269
+      and an updated mineral abundance table will be provided in the next data delivery.</description>
       <records>16</records>
       <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
       <field_delimiter>Comma</field_delimiter>

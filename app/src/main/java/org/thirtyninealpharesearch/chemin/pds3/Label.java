@@ -18,8 +18,9 @@ import org.apache.commons.io.FilenameUtils;
 import org.thirtyninealpharesearch.chemin.ErrorListener;
 import org.thirtyninealpharesearch.chemin.ErrorStrategy;
 import org.thirtyninealpharesearch.chemin.ParseException;
-import org.thirtyninealpharesearch.chemin.pds3.LabelParser.*;
 import org.thirtyninealpharesearch.chemin.SemanticException;
+import org.thirtyninealpharesearch.chemin.Utils;
+import org.thirtyninealpharesearch.chemin.pds3.LabelParser.*;
 
 public class Label extends LabelBaseListener {
     public static Label parseFile(String path, String format) throws IOException {
@@ -126,6 +127,10 @@ public class Label extends LabelBaseListener {
 
         public String getDescription() {
             return Description;
+        }
+
+        public String getWrappedDescription(int width, String prefix) {
+            return Utils.wrap(Description, width, prefix, "<description>", "</description>");
         }
 
         public Structure getStructure() {

@@ -117,17 +117,14 @@
     <Table_Delimited>
       <offset unit="byte">19</offset>
       <parsing_standard_id>PDS DSV 1</parsing_standard_id>
-      <description>This table contains energy-single fluorescence
- data for the fifth scooped soil sample from the Rocknest target, analyzed in
- CheMin cell number 7a (Mylar window). The ten minor frames of best data
- quality from sol0095 to sol0120 were selected and averaged, including 1800
- individual 10-second frames in the 10 minor frames of 180 10-second frames
- each. CCD temperatures during data collection were ~-50 degrees centigrade.
- Column 1 of the table shows energy in keV converted from digital number (DN)
- using a conversion factor of 135.0181 DN/keV, based on position of the
- 6.925 keV Co K-alpha peak at DN 935. Results are listed from DN 51 to 1400
- (0.37773 to 10.36898 keV), 1350 entries. Column 2 lists the log-scale
- intensity for each value of keV in column 1.</description>
+      <description>This table contains energy-single fluorescence data for the fifth scooped soil sample from the
+      Rocknest target, analyzed in CheMin cell number 7a (Mylar window). The ten minor frames of best data quality from
+      sol0095 to sol0120 were selected and averaged, including 1800 individual 10-second frames in the 10 minor frames
+      of 180 10-second frames each. CCD temperatures during data collection were ~-50 degrees centigrade. Column 1 of
+      the table shows energy in keV converted from digital number (DN) using a conversion factor of 135.0181 DN/keV,
+      based on position of the 6.925 keV Co K-alpha peak at DN 935. Results are listed from DN 51 to 1400 (0.37773 to
+      10.36898 keV), 1350 entries. Column 2 lists the log-scale intensity for each value of keV in column
+      1.</description>
       <records>1350</records>
       <record_delimiter>Carriage-Return Line-Feed</record_delimiter>
       <field_delimiter>Comma</field_delimiter>
