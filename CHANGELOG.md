@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.1.0]
+
+### Added
+
+- The `Utils` class with the static `wrap` method to wrap text to a width.
+- The `Label.Object.getWrappedDescription` method to get the object's
+  description wrapped to a particular width.
+- The `-x` and `-s` flags to allow the user to specify the schema to be used
+  for validation.
+
+### Changed
+
+- The templates to reference the PDS4_MSL_1J00_1100 schema and include Jennifer
+Ward's suggested changes.
+
+### Fixed
+
+- The `Structure.g4` grammar's to parse parentheses in quoted strings.
+
 ## [v0.0.2]
 
 ### Added
