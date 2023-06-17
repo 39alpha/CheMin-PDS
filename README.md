@@ -71,3 +71,17 @@ consistently formatted based on the information provided in the PDS4 XML file.
 The column names, their types and the format are taken from PDS FMT files.
 You can find the bundled FMT files
 [here](./app/src/main/resources/org/thirtyninealpharesearch/chemin/formats).
+
+**Note:** The `v0.1.0` release generates templates that target the
+[PDS4_MSL_1J00_1100](https://github.com/pds-data-dictionaries/ldd-msl/blob/main/build/development/5dfa261012bc31ca663cdd9ed284bd66e497015c/1.19.0.0/PDS4_MSL_1J00_1100.xsd)
+which is not published yet. In order for validation to succeed, you will need
+to tell the script where to find the
+[schema](https://raw.githubusercontent.com/pds-data-dictionaries/ldd-msl/main/build/development/5dfa261012bc31ca663cdd9ed284bd66e497015c/1.19.0.0/PDS4_MSL_1J00_1100.xsd)
+and the
+[schematron](https://github.com/pds-data-dictionaries/ldd-msl/blob/main/build/development/5dfa261012bc31ca663cdd9ed284bd66e497015c/1.19.0.0/PDS4_MSL_1J00_1100.sch)
+files with the `-x` and `-s` flags, respectively.
+
+You can either download the files and provide the file paths, or use the URLs from the links above:
+```shell
+$ pds3to4 -x <path or URL to schema> -s <path or URL to schematron> <path to lbl>
+```
