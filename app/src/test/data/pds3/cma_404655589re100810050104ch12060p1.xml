@@ -137,7 +137,7 @@
           <data_type>ASCII_Real</data_type>
           <maximum_field_length unit="byte">8</maximum_field_length>
           <unit>kev</unit>
-          <description>ENERGY</description>
+          <description>Energy in keV converted from digital number (DN)</description>
         </Field_Delimited>
         <Field_Delimited>
           <name>INTENSITY</name>
@@ -145,7 +145,7 @@
           <data_type>ASCII_Real</data_type>
           <maximum_field_length unit="byte">8</maximum_field_length>
           <unit>count</unit>
-          <description>INTENSITY</description>
+          <description>The log-scale intensity for each value of keV in column 1</description>
         </Field_Delimited>
       </Record_Delimited>
     </Table_Delimited>

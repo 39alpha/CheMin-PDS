@@ -58,7 +58,7 @@ class StructureTest extends Specification {
         mineral.getUnit() == "TEXT"
         mineral.getBytes() == 16
         mineral.getFormat() == "A16"
-        mineral.getDescription() == null
+        mineral.getDescription() == "Mineral identification"
 
         def percent = objects.get 1
         percent.getName() == "PERCENT"
@@ -66,7 +66,7 @@ class StructureTest extends Specification {
         percent.getUnit() == "WEIGHT_PERCENT"
         percent.getBytes() == 9
         percent.getFormat() == "F9.2"
-        percent.getDescription() == null
+        percent.getDescription() == "The mineral abundances in weight percent"
 
         def error = objects.get 2
         error.getName() == "ERROR"
@@ -74,7 +74,7 @@ class StructureTest extends Specification {
         error.getUnit() == "ESTIMATED_ERROR"
         error.getBytes() == 7
         error.getFormat() == "F7.2"
-        error.getDescription() == null
+        error.getDescription() == "The estimated 2-sigma analytical errors"
     }
 
     def "parses edh.fmt"() {
@@ -99,7 +99,7 @@ class StructureTest extends Specification {
         energy.getUnit() == "KEV"
         energy.getBytes() == 8
         energy.getFormat() == "F8.5"
-        energy.getDescription() == null
+        energy.getDescription() == "Energy in keV converted from digital number (DN)"
 
         def intensity = objects.get 1
         intensity.getName() == "INTENSITY"
@@ -107,6 +107,6 @@ class StructureTest extends Specification {
         intensity.getUnit() == "COUNTS"
         intensity.getBytes() == 8
         intensity.getFormat() == "F8.0"
-        intensity.getDescription() == null
+        intensity.getDescription() == "The log-scale intensity for each value of keV in column 1"
     }
 }

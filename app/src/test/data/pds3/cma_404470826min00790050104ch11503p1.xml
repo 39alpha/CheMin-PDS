@@ -129,7 +129,7 @@
           <field_number>1</field_number>
           <data_type>ASCII_String</data_type>
           <maximum_field_length unit="byte">16</maximum_field_length>
-          <description>MINERAL</description>
+          <description>Mineral identification</description>
         </Field_Delimited>
         <Field_Delimited>
           <name>PERCENT</name>
@@ -137,7 +137,7 @@
           <data_type>ASCII_Real</data_type>
           <maximum_field_length unit="byte">9</maximum_field_length>
           <unit>weight_percent</unit>
-          <description>PERCENT</description>
+          <description>The mineral abundances in weight percent</description>
         </Field_Delimited>
         <Field_Delimited>
           <name>ERROR</name>
@@ -145,7 +145,7 @@
           <data_type>ASCII_Real</data_type>
           <maximum_field_length unit="byte">7</maximum_field_length>
           <unit>estimated_error</unit>
-          <description>ERROR</description>
+          <description>The estimated 2-sigma analytical errors</description>
         </Field_Delimited>
       </Record_Delimited>
     </Table_Delimited>

@@ -4,6 +4,7 @@ OBJECT        = FIELD
  UNIT         = "TEXT"
  BYTES        = 16
  FORMAT       = "A16"
+ DESCRIPTION  = "Mineral identification"
 END_OBJECT    = FIELD
 
 OBJECT        = FIELD
@@ -12,6 +13,7 @@ OBJECT        = FIELD
  UNIT         = "WEIGHT_PERCENT"
  BYTES        = 9
  FORMAT       = "F9.2"
+ DESCRIPTION  = "The mineral abundances in weight percent"
 END_OBJECT    = FIELD
 
 OBJECT        = FIELD
@@ -20,4 +22,5 @@ OBJECT        = FIELD
  UNIT         = "ESTIMATED_ERROR"
  BYTES        = 7
  FORMAT       = "F7.2"
+ DESCRIPTION  = "The estimated 2-sigma analytical errors"
 END_OBJECT    = FIELD

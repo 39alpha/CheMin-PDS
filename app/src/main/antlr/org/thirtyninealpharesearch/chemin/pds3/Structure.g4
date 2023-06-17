@@ -4,7 +4,7 @@ NL : [\r\n];
 WS : [ \t]+;
 POINT : '.';
 HYPHEN : '-';
-WORD : ~[,.\-0-9 \t\r\n("^]~[. \-0-9\t\r\n("]*;
+WORD : ~[,.\-0-9 \t\r\n"^]~[. \-0-9\t\r\n"]*;
 EQUALS : [ \t]* '=' [ \t]*;
 
 INUMBER : INTEGER;
