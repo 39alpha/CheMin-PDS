@@ -10,6 +10,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.concurrent.Callable;
+import java.util.regex.Pattern;
 
 import picocli.CommandLine;
 import picocli.CommandLine.Command;
@@ -168,10 +169,11 @@ public class App implements Callable<Integer> {
         if (!dir.isDirectory()) {
             throw new Exception(dir.getPath() + " is not a directory");
         }
+        Pattern pattern = Pattern.compile("cm[a-b]_\\w{9}(rda|re1|min)\\d{4}\\w{3}\\w{4}\\w{7}\\w\\w\\.lbl$", Pattern.CASE_INSENSITIVE);
         for (File entry : dir.listFiles()) {
             String path = entry.getPath();
             try {
-                if (entry.isFile() && FilenameUtils.getExtension(path).toLowerCase().equals("lbl")) {
+                if (entry.isFile() && pattern.matcher(path).find()) {
                     failures += run(path);
                 } else if (entry.isDirectory()) {
                     failures += runRecursive(path);

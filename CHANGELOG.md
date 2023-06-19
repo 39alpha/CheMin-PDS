@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - The intensity unit in chemin_xrd.fmt from "COUNTS" to "COUNT"
+- Only process RDA, RE1 and MIN label files during recursive runs
 
 ## [v0.1.0]
 
