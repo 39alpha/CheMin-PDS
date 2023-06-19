@@ -175,7 +175,7 @@
           <field_number>2</field_number>
           <data_type>ASCII_Real</data_type>
           <maximum_field_length unit="byte">7</maximum_field_length>
-          <unit>counts</unit>
+          <unit>count</unit>
           <description>The intensity of the diffraction for each 2-theta value in column 1</description>
         </Field_Delimited>
       </Record_Delimited>

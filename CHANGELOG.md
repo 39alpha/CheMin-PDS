@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- The intensity unit in chemin_xrd.fmt from "COUNTS" to "COUNT"
+
 ## [v0.1.0]
 
 ### Added
@@ -20,7 +24,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - The templates to reference the PDS4_MSL_1J00_1100 schema and include Jennifer
-Ward's suggested changes.
+  Ward's suggested changes.
 
 ### Fixed
 

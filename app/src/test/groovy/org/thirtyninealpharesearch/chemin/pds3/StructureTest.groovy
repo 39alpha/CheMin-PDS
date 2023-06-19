@@ -30,7 +30,7 @@ class StructureTest extends Specification {
         def intensity = objects.get 1
         intensity.getName() == "INTENSITY"
         intensity.getDataType() == "ASCII_Real"
-        intensity.getUnit() == "COUNTS"
+        intensity.getUnit() == "COUNT"
         intensity.getBytes() == 7
         intensity.getFormat() == "F7.0"
         intensity.getDescription() == "The intensity of the diffraction for each 2-theta value in column 1"
@@ -104,7 +104,7 @@ class StructureTest extends Specification {
         def intensity = objects.get 1
         intensity.getName() == "INTENSITY"
         intensity.getDataType() == "ASCII_Real"
-        intensity.getUnit() == "COUNTS"
+        intensity.getUnit() == "COUNT"
         intensity.getBytes() == 8
         intensity.getFormat() == "F8.0"
         intensity.getDescription() == "The log-scale intensity for each value of keV in column 1"
