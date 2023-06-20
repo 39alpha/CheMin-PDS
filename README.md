@@ -78,7 +78,7 @@ which is not published yet. In order for validation to succeed, you will need
 to tell the script where to find the
 [schema](https://raw.githubusercontent.com/pds-data-dictionaries/ldd-msl/main/build/development/5dfa261012bc31ca663cdd9ed284bd66e497015c/1.19.0.0/PDS4_MSL_1J00_1100.xsd)
 and the
-[schematron](https://github.com/pds-data-dictionaries/ldd-msl/blob/main/build/development/5dfa261012bc31ca663cdd9ed284bd66e497015c/1.19.0.0/PDS4_MSL_1J00_1100.sch)
+[schematron](https://raw.githubusercontent.com/pds-data-dictionaries/ldd-msl/main/build/development/5dfa261012bc31ca663cdd9ed284bd66e497015c/1.19.0.0/PDS4_MSL_1J00_1100.sch)
 files with the `-x` and `-s` flags, respectively.
 
 You can either download the files and provide the file paths, or use the URLs from the links above:
