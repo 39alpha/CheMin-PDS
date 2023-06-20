@@ -72,7 +72,7 @@ The column names, their types and the format are taken from PDS FMT files.
 You can find the bundled FMT files
 [here](./app/src/main/resources/org/thirtyninealpharesearch/chemin/formats).
 
-**Note:** The `v0.1.0` release generates templates that target the
+**Note:** The `v0.2.0` release generates templates that target the
 [PDS4_MSL_1J00_1100](https://github.com/pds-data-dictionaries/ldd-msl/blob/main/build/development/5dfa261012bc31ca663cdd9ed284bd66e497015c/1.19.0.0/PDS4_MSL_1J00_1100.xsd)
 which is not published yet. In order for validation to succeed, you will need
 to tell the script where to find the
