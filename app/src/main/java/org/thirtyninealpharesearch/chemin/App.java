@@ -153,7 +153,7 @@ public class App implements Callable<Integer> {
     }
 
     public int run(String filename) throws Exception {
-        if (FilenameUtils.getName(filename).toLowerCase() == "index.lbl") {
+        if (FilenameUtils.getName(filename).toLowerCase().equals("index.lbl")) {
             return this.processIndex(filename);
         } else {
             return this.processLabel(filename);
@@ -220,7 +220,7 @@ public class App implements Callable<Integer> {
         if (!dir.isDirectory()) {
             throw new Exception(dir.getPath() + " is not a directory");
         }
-        Pattern pattern = Pattern.compile("cm[a-b]_\\w{9}(rda|re1|min)\\d{4}\\w{3}\\w{4}\\w{7}\\w\\w\\.lbl$", Pattern.CASE_INSENSITIVE);
+        Pattern pattern = Pattern.compile("(cm[a-b]_\\w{9}(rda|re1|min)\\d{4}\\w{3}\\w{4}\\w{7}\\w\\w|index)\\.lbl$", Pattern.CASE_INSENSITIVE);
         for (File entry : dir.listFiles()) {
             String path = entry.getPath();
             try {
