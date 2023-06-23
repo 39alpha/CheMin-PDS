@@ -10,8 +10,9 @@ import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 
 import org.thirtyninealpharesearch.chemin.App;
+import org.thirtyninealpharesearch.chemin.pds3.Index;
 import org.thirtyninealpharesearch.chemin.pds3.Label;
-import org.thirtyninealpharesearch.chemin.pds3.Label.LabelType;
+import org.thirtyninealpharesearch.chemin.pds3.LabelType;
 
 import spock.lang.*
 
@@ -52,7 +53,7 @@ class AppTest extends Specification {
         Velocity.init();
     }
 
-    def "xml generation"() {
+    def "label xml generation"() {
         setup:
         def label = Label.parseFile testData(labelFilename)
         def expectedPath = Paths.get testData(expectedFilename)
@@ -67,10 +68,25 @@ class AppTest extends Specification {
         writer.toString().equals(expected)
 
         where:
-        labelFilename                                   | labelType     || expectedFilename
-        "pds3/cma_404470826rda00790050104ch11503p1.lbl" | LabelType.RDA || "pds3/cma_404470826rda00790050104ch11503p1.xml"
-        "pds3/cma_404655589re100810050104ch12060p1.lbl" | LabelType.RE1 || "pds3/cma_404655589re100810050104ch12060p1.xml"
-        "pds3/cma_404470826min00790050104ch11503p1.lbl" | LabelType.MIN || "pds3/cma_404470826min00790050104ch11503p1.xml"
+        labelFilename                                   | labelType       || expectedFilename
+        "pds3/cma_404470826rda00790050104ch11503p1.lbl" | LabelType.RDA   || "pds3/cma_404470826rda00790050104ch11503p1.xml"
+        "pds3/cma_404655589re100810050104ch12060p1.lbl" | LabelType.RE1   || "pds3/cma_404655589re100810050104ch12060p1.xml"
+        "pds3/cma_404470826min00790050104ch11503p1.lbl" | LabelType.MIN   || "pds3/cma_404470826min00790050104ch11503p1.xml"
+    }
+
+    def "index xml generation"() {
+        setup:
+        def index = Index.parseFile testData("pds3/index.lbl")
+        def expectedPath = Paths.get testData("pds3/index.xml")
+        def expected = new String(Files.readAllBytes(expectedPath))
+        def writer = new StringWriter()
+        def app = new App()
+
+        when:
+        app.run(index, writer)
+
+        then:
+        writer.toString().equals(expected);
     }
 
     def "process labels"() {

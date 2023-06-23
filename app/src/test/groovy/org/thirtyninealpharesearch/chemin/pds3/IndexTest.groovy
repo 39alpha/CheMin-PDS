@@ -54,7 +54,7 @@ class IndexTest extends Specification {
 
         columns.get(0).getNumber() == 1
         columns.get(0).getName() == "VOLUME_ID"
-        columns.get(0).getDataType() == "CHARACTER"
+        columns.get(0).getDataType() == "ASCII_String"
         columns.get(0).getStartByte() == 2
         columns.get(0).getBytes() == 12
         columns.get(0).getDescription() == "The identifier of the volume on which the product is \r\n   stored."

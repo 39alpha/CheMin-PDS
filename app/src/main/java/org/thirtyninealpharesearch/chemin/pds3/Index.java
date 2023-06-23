@@ -3,6 +3,7 @@ package org.thirtyninealpharesearch.chemin.pds3;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Map;
 
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.misc.*;
@@ -48,7 +49,14 @@ public class Index extends IndexBaseListener {
         return index;
     }
 
+    public static Map<String,String> DATA_TYPES = Map.ofEntries(
+        Map.entry("ASCII_REAL", "ASCII_Real"),
+        Map.entry("CHARACTER", "ASCII_String"),
+        Map.entry("TIME", "ASCII_Date_Time_YMD")
+    );
+
     public class Column {
+
         public Integer Number;
         public String Name;
         public String DataType;
@@ -534,7 +542,11 @@ public class Index extends IndexBaseListener {
             notifyListener(ctx, "duplicate DATA_TYPE encountered");
         }
         if (ctx.word() != null) {
-            column.DataType = ctx.word().getText();
+            String dataType = ctx.word().getText();
+            column.DataType = Index.DATA_TYPES.get(dataType);
+            if (column.DataType == null) {
+                notifyListener(ctx, "unrecognized data type " + dataType);
+            }
         }
     }
 

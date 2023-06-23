@@ -65,7 +65,7 @@ OBJECT                         = INDEX_TABLE
    START_BYTE = 119
    BYTES = 12
    UNKNOWN_CONSTANT = "UNK"
-   DESCRIPTION = "The unique identifier for the data product."
+   DESCRIPTION = "The version of the data product."
  END_OBJECT = COLUMN
 
  OBJECT = COLUMN
@@ -96,7 +96,7 @@ OBJECT                         = INDEX_TABLE
    BYTES = 27
    UNKNOWN_CONSTANT = 1901-001T00:00:01
    DESCRIPTION = "Time at which the product file was created (UTC), in the
-   format yyyy-mm-ddThh:mm:ss."
+   format yyyy-MM-ddThh:mm:ss"
  END_OBJECT = COLUMN
 
  OBJECT = COLUMN
@@ -107,7 +107,7 @@ OBJECT                         = INDEX_TABLE
    BYTES = 27
    UNKNOWN_CONSTANT = 1901-001T00:00:01
    DESCRIPTION = "UTC time of the earliest observation in the data file,
-   format yyyy-doyThh:mm:ss."
+   format yyyy-MM-ddThh:mm:ss.fff"
  END_OBJECT = COLUMN
 
  OBJECT = COLUMN

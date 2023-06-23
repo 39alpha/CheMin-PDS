@@ -25,8 +25,9 @@ import org.apache.velocity.app.Velocity;
 import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader;
 
+import org.thirtyninealpharesearch.chemin.pds3.Index;
 import org.thirtyninealpharesearch.chemin.pds3.Label;
-import org.thirtyninealpharesearch.chemin.pds3.Label.LabelType;
+import org.thirtyninealpharesearch.chemin.pds3.LabelType;
 
 @Command(name="pds3to4", mixinStandardHelpOptions=true, version="0.2.0",
          description="Convert PDS3 label files to PDS4")
@@ -43,7 +44,7 @@ public class App implements Callable<Integer> {
     @Option(names={"-f", "--format"}, paramLabel="FORMAT", description="path to fmt file")
     public String formatFilename = null;
 
-    @Option(names={"-l", "--label-type"}, paramLabel="TYPE", description="label type (rda, re1 or min)")
+    @Option(names={"-l", "--label-type"}, paramLabel="TYPE", description="label type (index, rda, re1, min)")
     public String labelType = null;
 
     @Option(names={"-n", "--no-validate"}, description="skip NASA PDS validation")
@@ -72,6 +73,14 @@ public class App implements Callable<Integer> {
         template.merge(context, writer);
     }
 
+    public static void run(Index index, String templateFilename, Writer writer) throws Exception {
+        VelocityContext context = new VelocityContext();
+        context.put("label", index);
+
+        Template template = Velocity.getTemplate(templateFilename);
+        template.merge(context, writer);
+    }
+
     public static void run(Label label, LabelType labelType, Writer writer) throws Exception {
         if (labelType == LabelType.UNKNOWN) {
             labelType = label.inferLabelType();
@@ -88,11 +97,18 @@ public class App implements Callable<Integer> {
             case MIN:
                 templateFilename = "org/thirtyninealpharesearch/chemin/pds4/MIN.vm";
                 break;
+            case INDEX:
+                throw new Exception("cannot process label file as an index");
             case UNKNOWN:
                 throw new Exception("cannot infer label type from file; please provider --label-type argument");
         }
 
         App.run(label, templateFilename, writer);
+    }
+
+    public static void run(Index index, Writer writer) throws Exception {
+        String templateFilename = "org/thirtyninealpharesearch/chemin/pds4/INDEX.vm";
+        App.run(index, templateFilename, writer);
     }
 
     public static int validate(
@@ -137,6 +153,41 @@ public class App implements Callable<Integer> {
     }
 
     public int run(String filename) throws Exception {
+        if (FilenameUtils.getName(filename).toLowerCase() == "index.lbl") {
+            return this.processIndex(filename);
+        } else {
+            return this.processLabel(filename);
+        }
+    }
+
+    public int processIndex(String filename) throws Exception {
+        Index index = Index.parseFile(filename);
+
+        String outputFilename = this.outputFilename;
+        if (outputFilename == null) {
+            outputFilename = FilenameUtils.concat(
+                FilenameUtils.getFullPath(filename),
+                FilenameUtils.getBaseName(filename) + ".xml"
+            );
+        }
+        File pds4File = new File(outputFilename);
+        BufferedWriter writer = new BufferedWriter(new FileWriter(pds4File));
+
+        try {
+            if (templateFilename != null) {
+                App.run(index, templateFilename, writer);
+            } else {
+                App.run(index, writer);
+            }
+        } finally {
+            writer.flush();
+            writer.close();
+        }
+
+        return noValidate ? 0 : App.validate(outputFilename, schema, schematron, printReport, deleteReport);
+    }
+
+    public int processLabel(String filename) throws Exception {
         Label label = Label.parseFile(filename, formatFilename);
 
         String outputFilename = this.outputFilename;
@@ -204,18 +255,20 @@ public class App implements Callable<Integer> {
         }
     }
 
-    protected Label.LabelType getLabelType() throws Exception {
+    protected LabelType getLabelType() throws Exception {
         if (labelType == null) {
-            return Label.LabelType.UNKNOWN;
+            return LabelType.UNKNOWN;
         }
 
         switch (labelType.toLowerCase()) {
             case "rda":
-                return Label.LabelType.RDA;
+                return LabelType.RDA;
             case "re1":
-                return Label.LabelType.RE1;
+                return LabelType.RE1;
             case "min":
-                return Label.LabelType.MIN;
+                return LabelType.MIN;
+            case "index":
+                return LabelType.INDEX;
             default:
                 throw new Exception("unrecognized label type");
         }

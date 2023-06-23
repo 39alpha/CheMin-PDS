@@ -21,6 +21,7 @@ import org.thirtyninealpharesearch.chemin.ParseException;
 import org.thirtyninealpharesearch.chemin.SemanticException;
 import org.thirtyninealpharesearch.chemin.Utils;
 import org.thirtyninealpharesearch.chemin.pds3.LabelParser.*;
+import org.thirtyninealpharesearch.chemin.pds3.LabelType;
 
 public class Label extends LabelBaseListener {
     public static Label parseFile(String path, String format) throws IOException {
@@ -136,13 +137,6 @@ public class Label extends LabelBaseListener {
         public Structure getStructure() {
             return Structure;
         }
-    }
-
-    public enum LabelType {
-        RDA,
-        RE1,
-        MIN,
-        UNKNOWN,
     }
 
     public String path;
