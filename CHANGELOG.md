@@ -7,6 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.3.0]
+
+### Added
+
+- A parser and template for index.lbl files
+
+### Changed
+
+- Moved the LabelType class out of the Label class for general use
+- Process index.lbl files during recursion and by explicit CLI calls
+
 ## [v0.2.0]
 
 ### Changed
