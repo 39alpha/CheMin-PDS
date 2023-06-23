@@ -154,7 +154,7 @@ class LabelTest extends Specification {
         def label = Label.parseFile path
 
         expect:
-        label.inferLabelType() == Label.LabelType.RDA
+        label.inferLabelType() == LabelType.RDA
 
         where:
         path << filesInDirectory("pds3/rda")
@@ -165,7 +165,7 @@ class LabelTest extends Specification {
         def label = Label.parseFile path
 
         expect:
-        label.inferLabelType() == Label.LabelType.RE1
+        label.inferLabelType() == LabelType.RE1
 
         where:
         path << filesInDirectory("pds3/re1")
@@ -176,7 +176,7 @@ class LabelTest extends Specification {
         def label = Label.parseFile path
 
         expect:
-        label.inferLabelType() == Label.LabelType.MIN
+        label.inferLabelType() == LabelType.MIN
 
         where:
         path << filesInDirectory("pds3/min")
