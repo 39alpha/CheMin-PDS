@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.3.1]
+
+### Changed
+
+- Removed trailing digits from source product ids before building
+  lidvid_references for RDA and RE1 data products
+
 ## [v0.3.0]
 
 ### Added
