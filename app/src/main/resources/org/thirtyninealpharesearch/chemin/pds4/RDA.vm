@@ -106,7 +106,7 @@
       <reference_type>data_to_document</reference_type>
     </Internal_Reference>
     <Source_Product_Internal>
-      #foreach ($product_id in $label.SourceProductId)
+      #foreach ($product_id in $label.SourceProductIdWithoutTrailingDigits)
       <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:$product_id.toLowerCase()::$source_product_version</lidvid_reference>
       #end
       <reference_type>data_to_raw_source_product</reference_type>

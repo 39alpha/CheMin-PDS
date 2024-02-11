@@ -429,6 +429,15 @@ public class Label extends LabelBaseListener {
         return SourceProductId;
     }
 
+    public ArrayList<String> getSourceProductIdWithoutTrailingDigits() {
+        ArrayList<String> sourceProductIdWithoutTrailingDigits = new ArrayList<String>();
+        for (String sourceProductId : SourceProductId) {
+            String entry = sourceProductId.replaceAll("\\d+$", "");
+            sourceProductIdWithoutTrailingDigits.add(entry);
+        }
+        return sourceProductIdWithoutTrailingDigits;
+    }
+
     @Override public void enterProductType(@NotNull ProductTypeContext ctx) {
         if (ProductType != null) {
             notifyListener(ctx, "duplicate PRODUCT_TYPE encountered");
