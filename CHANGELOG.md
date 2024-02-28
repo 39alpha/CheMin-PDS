@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [v0.3.2]
+
+### Changed
+
+- Include a trailing .dat for ee1 source products ids in lidvid_references
+
 ## [v0.3.1]
 
 ### Changed
