@@ -89,16 +89,16 @@
       <reference_type>data_to_document</reference_type>
     </Internal_Reference>
     <Source_Product_Internal>
-      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405890913ee100950050104ch11504m::1.0</lidvid_reference>
-      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405891324ee100950050104ch11504m::1.0</lidvid_reference>
-      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_406162658ee100980050104ch12130m::1.0</lidvid_reference>
-      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_406163025ee100980050104ch12130m::1.0</lidvid_reference>
-      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_406516867ee101020050178ch12160m::1.0</lidvid_reference>
-      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_406517234ee101020050178ch12160m::1.0</lidvid_reference>
-      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_407407283ee101120050432ch12180m::1.0</lidvid_reference>
-      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_407407650ee101120050432ch12180m::1.0</lidvid_reference>
-      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_407408016ee101120050432ch12180m::1.0</lidvid_reference>
-      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_408112465ee101200050432ch12190m::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405890913ee100950050104ch11504m.dat::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_405891324ee100950050104ch11504m.dat::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_406162658ee100980050104ch12130m.dat::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_406163025ee100980050104ch12130m.dat::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_406516867ee101020050178ch12160m.dat::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_406517234ee101020050178ch12160m.dat::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_407407283ee101120050432ch12180m.dat::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_407407650ee101120050432ch12180m.dat::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_407408016ee101120050432ch12180m.dat::1.0</lidvid_reference>
+      <lidvid_reference>urn:nasa:pds:msl_chemin_raw:data:cma_408112465ee101200050432ch12190m.dat::1.0</lidvid_reference>
       <reference_type>data_to_raw_source_product</reference_type>
       <comment>This is a reference to a data file corresponding to this data.</comment>
     </Source_Product_Internal>

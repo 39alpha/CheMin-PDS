@@ -426,16 +426,24 @@ public class Label extends LabelBaseListener {
     }
 
     public ArrayList<String> getSourceProductId() {
-        return SourceProductId;
-    }
-
-    public ArrayList<String> getSourceProductIdWithoutTrailingDigits() {
-        ArrayList<String> sourceProductIdWithoutTrailingDigits = new ArrayList<String>();
+        ArrayList<String> processedSourceProductId = new ArrayList<String>();
         for (String sourceProductId : SourceProductId) {
-            String entry = sourceProductId.replaceAll("\\d+$", "");
-            sourceProductIdWithoutTrailingDigits.add(entry);
+            String entry_type = sourceProductId.substring(13, 16).toLowerCase();
+            switch (entry_type) {
+                case "ee1":
+                    sourceProductId = sourceProductId.replaceAll("\\d+$", "") + ".dat";
+                    break;
+                case "eda":
+                    sourceProductId = sourceProductId.replaceAll("\\d+$", "");
+                    break;
+                case "rda":
+                    break;
+                default:
+                    System.err.println("invalid entry_type: " + entry_type);
+            }
+            processedSourceProductId.add(sourceProductId);
         }
-        return sourceProductIdWithoutTrailingDigits;
+        return processedSourceProductId;
     }
 
     @Override public void enterProductType(@NotNull ProductTypeContext ctx) {
